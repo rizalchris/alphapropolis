@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer base {
+	html,
+	body {
+		@apply min-h-full;
+	}
+
+	body {
+		@apply m-0 min-h-screen bg-slate-950 text-slate-100 antialiased;
+	}
+}
+
+/* C O N T A I N E R */
+.site-content {
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+/* T Y P O G R A P H Y */
+h1 {
+	font-size: 3rem;
+	@apply font-bold leading-[1.5];
+}
+
+h2 {
+	font-size: 2.5rem;
+	@apply font-bold leading-[1.5];
+}
+
+h3 {
+	font-size: 2rem;
+	@apply font-bold leading-[1.5];
+}
+
+h4 {
+	font-size: 1.75rem;
+	@apply font-bold leading-[1.5];
+}
+
+h5 {
+	font-size: 1.5rem;
+	@apply font-bold leading-[1.5];
+}
+
+h6 {
+	font-size: 1.25rem;
+	@apply font-bold leading-[1.5];
+}
+
+p {
+	font-size: 1rem;
+	@apply leading-[1.5];
+}

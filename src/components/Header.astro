@@ -1,0 +1,62 @@
+---
+import Button from "./Button.astro";
+---
+
+<header
+	class="sticky top-0 z-50 py-6 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl"
+>
+	<div class="site-content flex items-center justify-between gap-5">
+		<a href="/" class="group inline-flex items-center gap-3">
+			<span
+				class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 to-emerald-300 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20 transition-transform duration-200 group-hover:scale-105"
+			>
+				AP
+			</span>
+			<span class="flex flex-col leading-tight">
+				<span
+					class="text-sm font-semibold tracking-[0.26em] text-cyan-300 uppercase"
+				>
+					Alpha Propolis
+				</span>
+				<span class="text-xs text-slate-400">
+					Tailwind style guide
+				</span>
+			</span>
+		</a>
+
+		<div class="flex items-center gap-3">
+			<nav
+				aria-label="Primary"
+				class="hidden items-center gap-2 text-sm sm:flex"
+			>
+				<a
+					href="/"
+					class="rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+				>
+					Home
+				</a>
+				<a
+					href="#content"
+					class="rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+				>
+					Content
+				</a>
+				<a
+					href="#footer"
+					class="rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+				>
+					Footer
+				</a>
+			</nav>
+
+			<Button
+				href="#content"
+				variant="secondary"
+				size="sm"
+				class="hidden sm:inline-flex"
+			>
+				View guide
+			</Button>
+		</div>
+	</div>
+</header>
