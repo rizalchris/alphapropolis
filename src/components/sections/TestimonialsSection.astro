@@ -1,0 +1,129 @@
+---
+import Button from "../ui/Button.astro";
+
+const whatsappHref = "https://wa.me/6281234567890";
+
+const testimonials = [
+	{
+		name: "Bapak Suwarno",
+		meta: "52 tahun · Semarang",
+		before: "340",
+		after: "118",
+		quote:
+			"Dokter memperingatkan risiko amputasi. Setelah 3 minggu Alpha Propolis, gula darah turun drastis. Saya bisa kembali bermain dengan cucu-cucu saya. Alhamdulillah!",
+		gradient:
+			"bg-[linear-gradient(135deg,var(--color-info),#3b82f6)]",
+	},
+	{
+		name: "Ibu Ratna Dewi",
+		meta: "47 tahun · Surabaya",
+		before: "285",
+		after: "108",
+		quote:
+			"Penglihatan mulai kabur karena diabetes. Setelah 1 bulan konsumsi Alpha Propolis, gula darah stabil dan penglihatan membaik. Saya sangat bersyukur!",
+		gradient:
+			"bg-[linear-gradient(135deg,var(--color-violet),#a855f7)]",
+	},
+	{
+		name: "Bapak Hendra K.",
+		meta: "55 tahun · Jakarta",
+		before: "392",
+		after: "142",
+		quote:
+			"Kaki kesemutan parah, dokter sangat khawatir. Dalam 2 minggu Alpha Propolis, tidak hanya gula darah turun, kesemutan berkurang drastis. Luar biasa!",
+		gradient:
+			"bg-[linear-gradient(135deg,var(--color-success-strong),var(--color-whatsapp))]",
+	},
+];
+---
+
+<section
+	id="testimonials"
+	aria-labelledby="testimonials-title"
+	class="landing-section bg-[var(--color-white)] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
+		<div class="max-w-3xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
+				Kisah Transformasi Nyata
+			</div>
+			<h2 id="testimonials-title" class="mt-5 text-[var(--color-heading)]">
+				Mereka Sudah Membuktikan.
+				<span class="block text-[var(--color-primary-dark)]">Giliran Anda.</span>
+			</h2>
+			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
+				Hasil nyata dari penderita diabetes di seluruh Indonesia.
+			</p>
+		</div>
+
+		<div class="grid w-full gap-6 lg:grid-cols-3">
+			{
+				testimonials.map((item) => (
+					<article class="overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-white)] shadow-card-lg">
+						<div class:list={["p-7 text-white", item.gradient]}>
+							<div class="flex items-start gap-4">
+								<img
+									src="https://placehold.co/56x56"
+									alt={`Foto ${item.name}`}
+									width="56"
+									height="56"
+									loading="lazy"
+									decoding="async"
+									class="h-14 w-14 rounded-3xl border-2 border-white/30 object-cover"
+								/>
+								<div class="flex-1">
+									<h3 class="text-base font-bold text-white">{item.name}</h3>
+									<p class="mt-1 text-xs text-white/70">{item.meta}</p>
+								</div>
+								<div class="flex gap-1 pt-1 text-xs text-white">★★★★★</div>
+							</div>
+
+							<div class="mt-5 rounded-2xl bg-black/20 p-4">
+								<div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center">
+									<div>
+										<p class="text-xs font-semibold tracking-[0.12em] text-white/60">
+											SEBELUM
+										</p>
+										<p class="mt-1 text-3xl font-extrabold text-red-300">
+											{item.before}
+										</p>
+										<p class="text-[10px] text-white/50">mg/dL</p>
+									</div>
+									<div class="text-white/60">→</div>
+									<div>
+										<p class="text-xs font-semibold tracking-[0.12em] text-white/60">
+											SESUDAH
+										</p>
+										<p class="mt-1 text-3xl font-extrabold text-green-300">
+											{item.after}
+										</p>
+										<p class="text-[10px] text-white/50">mg/dL</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<blockquote class="p-7">
+							<p class="text-sm leading-6 text-[var(--color-heading)]">
+								"{item.quote}"
+							</p>
+						</blockquote>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="w-full max-w-[32rem]">
+			<Button
+				href={whatsappHref}
+				size="lg"
+				class="h-16 w-full px-8 text-lg"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Saya Mau Transformasi Seperti Mereka
+			</Button>
+		</div>
+	</div>
+</section>

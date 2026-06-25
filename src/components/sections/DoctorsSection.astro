@@ -1,0 +1,110 @@
+---
+import Button from "../ui/Button.astro";
+
+const whatsappHref = "https://wa.me/6281234567890";
+
+const doctors = [
+	{
+		name: "dr. Andi Kurniawan, Sp.PD",
+		role: "Spesialis Penyakit Dalam · RS Cipto Mangunkusumo",
+		quote:
+			"Alpha Propolis memiliki kandungan flavonoid dan asam fenolik terstandarisasi yang secara klinis terbukti membantu mengontrol kadar gula darah dan melindungi sel beta pankreas dari stres oksidatif.",
+	},
+	{
+		name: "dr. Siti Rahayu, Sp.PD-KEMD",
+		role: "Konsultan Endokrinologi · RS Kariadi Semarang",
+		quote:
+			"IC50 yang rendah menunjukkan kapasitas antioksidan superior. Saya merekomendasikan sebagai suplemen pendukung untuk pasien diabetes dalam upaya mencegah komplikasi jangka panjang.",
+	},
+];
+
+const benefits = [
+	"Menurunkan kadar gula darah secara alami dan bertahap",
+	"Melindungi sel beta pankreas dari kerusakan oksidatif",
+	"Mengurangi resistensi insulin di tingkat sel",
+	"Mencegah komplikasi diabetes jangka panjang",
+	"Meningkatkan energi dan vitalitas sehari-hari",
+	"Aman untuk konsumsi jangka panjang",
+];
+---
+
+<section
+	id="doctors"
+	aria-labelledby="doctors-title"
+	class="landing-section bg-[var(--color-white)] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
+		<div class="max-w-3xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
+				Validasi Ahli Kesehatan
+			</div>
+			<h2 id="doctors-title" class="mt-5 text-[var(--color-heading)]">
+				Dipercaya Para Dokter
+				<span class="block text-[var(--color-primary-dark)]">Spesialis Indonesia</span>
+			</h2>
+		</div>
+
+		<div class="grid w-full gap-6 lg:grid-cols-2">
+			{
+				doctors.map((doctor) => (
+					<article class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-white)] p-8 shadow-card-lg">
+						<div class="flex items-start gap-4">
+							<img
+								class="h-16 w-16 rounded-full border-[3px] border-[var(--color-primary-soft)] object-cover"
+								src="https://placehold.co/72x72"
+								alt={`Foto ${doctor.name}`}
+								width="72"
+								height="72"
+								loading="lazy"
+								decoding="async"
+							/>
+							<div>
+								<h3 class="text-base font-bold text-[var(--color-heading)]">
+									{doctor.name}
+								</h3>
+								<p class="mt-1 text-xs text-[var(--color-muted)]">{doctor.role}</p>
+							</div>
+						</div>
+
+						<blockquote class="mt-5 rounded-2xl border-l-4 border-[var(--color-primary)] bg-[var(--color-primary-soft)] px-6 py-5">
+							<p class="text-base leading-7 text-[var(--color-heading)]">
+								"{doctor.quote}"
+							</p>
+						</blockquote>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="w-full rounded-3xl border border-[color:rgb(251_191_36_/_0.3)] bg-[linear-gradient(180deg,var(--color-primary-soft),#fafaf9)] px-6 py-8 sm:px-8">
+			<h3 class="text-center text-xl font-extrabold text-[var(--color-heading)]">
+				Manfaat Nyata yang Dirasakan Pengguna
+			</h3>
+			<ul class="mt-7 grid gap-4 lg:grid-cols-2">
+				{
+					benefits.map((benefit) => (
+						<li class="flex items-start gap-3 text-base text-[var(--color-heading)]">
+							<span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-xl bg-[var(--color-success-soft)] text-xs font-bold text-[var(--color-success-strong)]">
+								✓
+							</span>
+							<span>{benefit}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div class="w-full max-w-md">
+			<Button
+				href={whatsappHref}
+				size="lg"
+				class="h-16 w-full px-8 text-lg"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Konsultasi Gratis via WhatsApp
+			</Button>
+		</div>
+	</div>
+</section>

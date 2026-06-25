@@ -1,0 +1,100 @@
+---
+const alphaPoints = [
+	"1600 mg/L Phenol",
+	"67% Lebah Trigona (stingless)",
+	"33% Apis Mellifera",
+	"IC50 rendah, antioksidan tinggi",
+	"Flavonoid kadar tinggi",
+	"Phenolic acid terstandarisasi",
+	"Sertifikasi BPOM RI",
+	"Sertifikasi HALAL MUI",
+];
+
+const genericPoints = [
+	"Potensi kandungan aktif tidak jelas",
+	"Komposisi lebah sering tidak transparan",
+	"Antioksidan tidak terukur",
+	"Standarisasi formula lemah",
+	"Flavonoid tidak konsisten",
+	"Legalitas produk sering tidak lengkap",
+	"Manfaat jangka panjang sulit dipetakan",
+	"Dukungan brand dan edukasi terbatas",
+];
+---
+
+<section
+	id="why-alpha"
+	aria-labelledby="why-alpha-title"
+	class="landing-section bg-[var(--color-surface-alt)] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
+		<div class="max-w-3xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
+				Mengapa Alpha Propolis?
+			</div>
+			<h2 id="why-alpha-title" class="mt-5 text-[var(--color-heading)]">
+				Formula Superior,
+				<span class="block text-[var(--color-primary-dark)]">Hasil yang Nyata</span>
+			</h2>
+			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
+				Bukan sekadar klaim, tetapi pendekatan produk yang terasa lebih matang
+				dan terarah dibanding propolis generik.
+			</p>
+		</div>
+
+		<div class="grid w-full max-w-6xl gap-6 lg:grid-cols-2">
+			<article class="rounded-3xl border-2 border-[var(--color-primary)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft-2))] p-8 shadow-product">
+				<div class="flex flex-col items-center text-center">
+					<div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] text-sm font-extrabold text-white shadow-primary">
+						AP
+					</div>
+					<h3 class="mt-4 text-lg font-extrabold text-[var(--color-heading)]">
+						Alpha Propolis
+					</h3>
+					<p class="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-dark)]">
+						Formula Premium
+					</p>
+				</div>
+
+				<ul class="mt-7 flex flex-col gap-3">
+					{
+						alphaPoints.map((point) => (
+							<li class="flex items-start gap-3 rounded-2xl border border-[color:rgb(251_191_36_/_0.18)] bg-[var(--color-white)]/75 px-4 py-3 text-sm text-[var(--color-heading)] shadow-card">
+								<span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-success-soft)] text-xs font-bold text-[var(--color-success-strong)]">
+									✓
+								</span>
+								<span>{point}</span>
+							</li>
+						))
+					}
+				</ul>
+			</article>
+
+			<article class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
+				<div class="flex flex-col items-center text-center">
+					<div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-gray-200 text-xs font-bold text-[var(--color-muted-light)]">
+						GEN
+					</div>
+					<h3 class="mt-4 text-lg font-bold text-[var(--color-muted-light)]">
+						Propolis Biasa
+					</h3>
+					<p class="mt-1 text-xs text-gray-400">Produk generik</p>
+				</div>
+
+				<ul class="mt-7 flex flex-col gap-3">
+					{
+						genericPoints.map((point) => (
+							<li class="flex items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-white)] px-4 py-3 text-sm text-gray-400">
+								<span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-danger-soft)] text-xs font-bold text-[var(--color-danger-strong)]">
+									✕
+								</span>
+								<span>{point}</span>
+							</li>
+						))
+					}
+				</ul>
+			</article>
+		</div>
+	</div>
+</section>

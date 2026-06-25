@@ -1,0 +1,149 @@
+---
+import Button from "../ui/Button.astro";
+
+const whatsappHref = "https://wa.me/6281234567890";
+
+const packages = [
+	{
+		name: "Paket A",
+		label: "Paket Hemat",
+		description: "1 Botol Alpha Propolis · 30 ml",
+		originalPrice: "Rp 500.000",
+		price: "Rp 350.000",
+		savings: "Hemat Rp 150.000 (30%)",
+		features: [
+			"1 Botol Alpha Propolis (30 ml)",
+			"Panduan konsumsi lengkap",
+			"Garansi keaslian produk",
+		],
+		cta: "Pilih Paket A",
+		featured: false,
+	},
+	{
+		name: "Paket B",
+		label: "Paket Premium",
+		description: "3 Botol Alpha Propolis · 90 ml",
+		originalPrice: "Rp 1.500.000",
+		price: "Rp 900.000",
+		savings: "Hemat Rp 600.000 (40%) + BONUS",
+		features: [
+			"3 Botol Alpha Propolis (90 ml)",
+			"Panduan konsumsi lengkap",
+			"Gratis konsultasi dokter",
+			"Gratis ongkir seluruh Indonesia",
+			"Garansi uang kembali 30 hari",
+			"Priority customer service 24/7",
+		],
+		cta: "Pilih Paket B - Terbaik",
+		featured: true,
+	},
+];
+---
+
+<section
+	id="pricing"
+	aria-labelledby="pricing-title"
+	class="landing-section border-t border-[var(--color-border)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft))] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
+		<div class="max-w-3xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
+				Penawaran Spesial Hari Ini
+			</div>
+			<h2 id="pricing-title" class="mt-5 text-[var(--color-heading)]">
+				Investasi Terbaik untuk
+				<span class="block text-[var(--color-primary-dark)]">Kesehatan Anda</span>
+			</h2>
+			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
+				Mulai perjalanan sehat hari ini. Stok terbatas!
+			</p>
+			<p class="mt-5 inline-flex rounded-full bg-[var(--color-danger-soft)] px-5 py-2 text-sm font-bold text-[var(--color-danger-strong)]">
+				Stok tersisa 23 unit - Promo berakhir hari ini
+			</p>
+		</div>
+
+		<div class="grid w-full max-w-5xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+			{
+				packages.map((pkg) => (
+					<article
+						class:list={[
+							"relative flex h-full flex-col rounded-3xl p-8 shadow-card-lg",
+							pkg.featured
+								? "border-2 border-[var(--color-primary)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft-2))] shadow-product"
+								: "border border-[var(--color-border)] bg-[var(--color-white)]",
+						]}
+					>
+						{pkg.featured && (
+							<div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] px-5 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-white shadow-primary">
+								Best Seller
+							</div>
+						)}
+
+						<p
+							class:list={[
+								"text-xs font-bold uppercase tracking-[0.16em]",
+								pkg.featured
+									? "text-[var(--color-primary-dark)]"
+									: "text-[var(--color-muted-light)]",
+							]}
+						>
+							{pkg.label}
+						</p>
+						<h3 class="mt-3 text-[var(--color-heading)]">{pkg.name}</h3>
+						<p class="mt-2 text-sm text-[var(--color-muted)]">{pkg.description}</p>
+
+						<div class="mt-6">
+							<p class="text-base text-[var(--color-muted-light)] line-through">
+								{pkg.originalPrice}
+							</p>
+							<p class="mt-1 text-4xl font-extrabold text-[var(--color-heading)]">
+								{pkg.price}
+							</p>
+							<p class="mt-2 text-sm font-bold text-[var(--color-success-strong)]">
+								{pkg.savings}
+							</p>
+						</div>
+
+						<hr
+							class:list={[
+								"my-8 border-0 border-t",
+								pkg.featured
+									? "border-[color:rgb(251_191_36_/_0.3)]"
+									: "border-[var(--color-border)]",
+							]}
+						/>
+
+						<ul class="flex flex-1 flex-col gap-4">
+							{pkg.features.map((feature) => (
+								<li class="flex items-start gap-3 text-base text-[var(--color-heading)]">
+									<span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-success-soft)] text-xs font-bold text-[var(--color-success-strong)]">
+										✓
+									</span>
+									<span class={pkg.featured && feature !== pkg.features[0] ? "font-semibold" : ""}>
+										{feature}
+									</span>
+								</li>
+							))}
+						</ul>
+
+						<div class="mt-8">
+							<Button
+								href={whatsappHref}
+								size={pkg.featured ? "lg" : "md"}
+								class:list={[
+									"w-full",
+									pkg.featured ? "h-16 px-8 text-lg" : "h-11 px-7",
+								]}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{pkg.cta}
+							</Button>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

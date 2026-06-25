@@ -1,0 +1,113 @@
+---
+import Button from "../ui/Button.astro";
+
+const whatsappHref = "https://wa.me/6281234567890";
+
+const risks = [
+	{ title: "Gangguan Retina", detail: "Kebutaan diabetik" },
+	{ title: "Risiko Jantung", detail: "Komplikasi kardiovaskular" },
+	{ title: "Kerusakan Ginjal", detail: "Nefropati diabetik" },
+	{ title: "Kerusakan Otak", detail: "Stroke dan demensia" },
+	{ title: "Gagal Ginjal Kronis", detail: "Penurunan fungsi organ vital" },
+	{ title: "Risiko Amputasi", detail: "Neuropati perifer progresif" },
+];
+
+const quotes = [
+	{
+		text: "Dokter memperingatkan risiko amputasi jika gula darah tidak segera dikontrol. Saya sangat takut tidak bisa menemani anak-anak tumbuh.",
+		author: "Pak Suwarno, 52 th · Semarang",
+	},
+	{
+		text: "Penglihatan saya mulai kabur. Saya takut tidak bisa melihat wajah cucu-cucu saya. Itu yang membuatku tidak menyerah mencari solusi.",
+		author: "Ibu Ratna, 48 th · Surabaya",
+	},
+];
+---
+
+<section
+	id="medical-warning"
+	aria-labelledby="medical-warning-title"
+	class="landing-section bg-[var(--color-dark)] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
+		<div class="max-w-3xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(239_68_68_/_0.3)] bg-[color:rgb(239_68_68_/_0.12)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-danger)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-danger)]"></span>
+				Peringatan Medis
+			</div>
+			<h2 id="medical-warning-title" class="mt-5 text-white">
+				Gula Darah Tak Terkontrol
+				<span class="block text-[var(--color-danger)]">Menyerang Diam-Diam</span>
+			</h2>
+			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-dark-muted)]">
+				Setiap hari gula darah tinggi merusak organ vital Anda secara perlahan.
+			</p>
+		</div>
+
+		<div class="grid w-full items-start gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+			<div class="rounded-[2rem] border border-[var(--color-dark-border)] bg-[linear-gradient(180deg,rgba(30,41,59,0.95),rgba(15,23,42,1))] p-6 shadow-card-lg">
+				<div class="rounded-[1.5rem] border border-[color:rgb(239_68_68_/_0.2)] bg-[color:rgb(239_68_68_/_0.06)] p-6">
+					<div class="mx-auto flex h-48 w-48 items-center justify-center rounded-full border border-[color:rgb(239_68_68_/_0.18)] bg-[radial-gradient(circle,rgba(239,68,68,0.16),transparent_68%)] text-center">
+						<div>
+							<p class="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-danger)]">
+								Diabetes Tidak Terkontrol
+							</p>
+							<p class="mt-2 text-3xl font-extrabold text-white">6 Organ Vital</p>
+							<p class="mt-1 text-sm text-[var(--color-dark-muted)]">
+								bisa terdampak secara progresif
+							</p>
+						</div>
+					</div>
+
+					<div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+						{
+							risks.map((risk) => (
+								<article class="rounded-2xl border border-[color:rgb(239_68_68_/_0.25)] bg-[var(--color-dark-card)] px-4 py-4">
+									<p class="text-sm font-bold text-slate-100">{risk.title}</p>
+									<p class="mt-2 text-xs text-[var(--color-dark-muted)]">
+										{risk.detail}
+									</p>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-5">
+				{
+					quotes.map((quote) => (
+						<blockquote class="rounded-2xl border border-[color:rgb(239_68_68_/_0.25)] border-l-[3px] bg-[var(--color-dark-card)] px-6 py-6">
+							<p class="text-base leading-7 text-[var(--color-dark-text)]">
+								"{quote.text}"
+							</p>
+							<footer class="mt-4 text-xs font-bold text-slate-500">
+								- {quote.author}
+							</footer>
+						</blockquote>
+					))
+				}
+
+				<div class="rounded-2xl border border-[color:rgb(239_68_68_/_0.18)] bg-[color:rgb(239_68_68_/_0.08)] px-6 py-5">
+					<p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-danger)]">
+						Intinya
+					</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--color-dark-text)]">
+						Semakin lama dibiarkan, semakin besar risiko komplikasi yang
+						membatasi kualitas hidup Anda dan keluarga.
+					</p>
+				</div>
+
+				<Button
+					href={whatsappHref}
+					size="lg"
+					class="h-16 w-full px-8 text-lg"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Lindungi Diri Saya Sekarang
+				</Button>
+			</div>
+		</div>
+	</div>
+</section>

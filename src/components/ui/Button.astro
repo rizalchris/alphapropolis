@@ -18,15 +18,15 @@ const {
 };
 
 const base =
-	"inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50";
+	"inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-page)] disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
 	primary:
-		"bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20 hover:-translate-y-0.5 hover:bg-cyan-300",
+		"bg-[linear-gradient(135deg,var(--color-whatsapp),var(--color-whatsapp-dark))] text-[var(--color-white)] shadow-whatsapp hover:-translate-y-0.5 hover:brightness-105",
 	secondary:
-		"border border-white/10 bg-white/5 text-slate-100 hover:border-cyan-400/40 hover:bg-white/10",
+		"border border-[var(--color-border)] bg-[var(--color-white)] text-[var(--color-heading)] hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-primary-soft)]",
 	ghost:
-		"bg-transparent text-slate-300 hover:bg-white/5 hover:text-white",
+		"bg-transparent text-[var(--color-body)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-heading)]",
 };
 
 const sizes: Record<Size, string> = {

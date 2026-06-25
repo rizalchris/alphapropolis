@@ -1,11 +1,135 @@
 ---
-import Typography from "../components/Typography.astro";
 import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import SymptomsSection from "../components/sections/SymptomsSection.astro";
+import MedicalWarningSection from "../components/sections/MedicalWarningSection.astro";
+import WhyAlphaSection from "../components/sections/WhyAlphaSection.astro";
+import DoctorsSection from "../components/sections/DoctorsSection.astro";
+import HowToUseSection from "../components/sections/HowToUseSection.astro";
+import CertificationSection from "../components/sections/CertificationSection.astro";
+import RiskJourneySection from "../components/sections/RiskJourneySection.astro";
+import TestimonialsSection from "../components/sections/TestimonialsSection.astro";
+import PricingSection from "../components/sections/PricingSection.astro";
+import FaqSection from "../components/sections/FaqSection.astro";
+import FinalCtaSection from "../components/sections/FinalCtaSection.astro";
+import FooterSection from "../components/sections/FooterSection.astro";
+import FloatingWhatsApp from "../components/shared/FloatingWhatsApp.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "Alpha Propolis | Solusi Pendamping Diabetes";
+const description =
+	"Alpha Propolis membantu penderita diabetes membangun rutinitas sehat dengan formula premium, validasi ahli, testimoni nyata, dan penawaran khusus.";
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Organization",
+			"@id": "https://alphapropolis.id/#organization",
+			name: "Alpha Propolis",
+			url: "https://alphapropolis.id/",
+			contactPoint: {
+				"@type": "ContactPoint",
+				telephone: "+6281234567890",
+				contactType: "customer service",
+				availableLanguage: ["id"],
+			},
+		},
+		{
+			"@type": "Product",
+			"@id": "https://alphapropolis.id/#product",
+			name: "Alpha Propolis",
+			description:
+				"Suplemen kesehatan premium dari lebah Trigona dan Apis Mellifera untuk pendamping rutinitas sehat.",
+			brand: {
+				"@id": "https://alphapropolis.id/#organization",
+			},
+			offers: {
+				"@type": "AggregateOffer",
+				priceCurrency: "IDR",
+				lowPrice: "350000",
+				highPrice: "900000",
+				availability: "https://schema.org/InStock",
+				url: "https://alphapropolis.id/#pricing",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://alphapropolis.id/#faq-schema",
+			mainEntity: [
+				{
+					"@type": "Question",
+					name: "Apakah Alpha Propolis aman untuk penderita diabetes?",
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: "Produk ini diformulasikan sebagai suplemen pendamping. Tetap gunakan sesuai anjuran dan konsultasikan dengan tenaga medis jika sedang menjalani terapi khusus.",
+					},
+				},
+				{
+					"@type": "Question",
+					name: "Berapa lama baru merasakan hasilnya?",
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: "Respon tubuh setiap orang berbeda, tetapi banyak pengguna mulai merasakan perubahan dalam beberapa minggu ketika konsumsi dilakukan konsisten dan dibarengi pola hidup yang lebih terjaga.",
+					},
+				},
+				{
+					"@type": "Question",
+					name: "Boleh dikonsumsi bersamaan dengan obat dokter?",
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: "Boleh sebagai pendamping, tetapi keputusan terbaik tetap berdasarkan arahan dokter yang menangani kondisi Anda agar tidak mengganggu pengobatan utama.",
+					},
+				},
+				{
+					"@type": "Question",
+					name: "Apakah ada efek samping?",
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: "Secara umum dikonsumsi sebagai suplemen, namun bila Anda memiliki alergi terhadap produk lebah atau kondisi medis tertentu, konsultasikan terlebih dahulu dengan dokter.",
+					},
+				},
+				{
+					"@type": "Question",
+					name: "Bagaimana jika tidak ada perubahan setelah konsumsi?",
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: "Tim dapat membantu evaluasi cara konsumsi, rutinitas, dan kondisi Anda. Hal ini juga menjadi alasan adanya garansi untuk paket tertentu.",
+					},
+				},
+				{
+					"@type": "Question",
+					name: "Apa perbedaan Alpha Propolis dengan propolis biasa?",
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: "Alpha Propolis menekankan formula premium dengan komposisi Trigona dan Apis Mellifera serta positioning yang lebih fokus pada pendamping perjalanan sehat penderita diabetes.",
+					},
+				},
+			],
+		},
+	],
+};
 ---
 
-<Layout>
-	<Typography />
+<Layout
+	title={title}
+	description={description}
+	structuredData={structuredData}
+>
+	<main id="main-content" class="landing-page">
+		<HeroSection />
+		<SymptomsSection />
+		<MedicalWarningSection />
+		<WhyAlphaSection />
+		<DoctorsSection />
+		<HowToUseSection />
+		<CertificationSection />
+		<RiskJourneySection />
+		<TestimonialsSection />
+		<PricingSection />
+		<FaqSection />
+		<FinalCtaSection />
+	</main>
+
+	<FooterSection />
+	<FloatingWhatsApp />
 </Layout>

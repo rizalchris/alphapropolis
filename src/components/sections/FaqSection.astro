@@ -1,0 +1,72 @@
+---
+const faqs = [
+	{
+		question: "Apakah Alpha Propolis aman untuk penderita diabetes?",
+		answer:
+			"Produk ini diformulasikan sebagai suplemen pendamping. Tetap gunakan sesuai anjuran dan konsultasikan dengan tenaga medis jika Anda sedang menjalani terapi khusus.",
+	},
+	{
+		question: "Berapa lama baru merasakan hasilnya?",
+		answer:
+			"Respon tubuh setiap orang berbeda, tetapi banyak pengguna mulai merasakan perubahan dalam beberapa minggu ketika konsumsi dilakukan konsisten dan dibarengi pola hidup yang lebih terjaga.",
+	},
+	{
+		question: "Apakah ada efek samping?",
+		answer:
+			"Secara umum dikonsumsi sebagai suplemen, namun bila Anda memiliki alergi terhadap produk lebah atau kondisi medis tertentu, konsultasikan terlebih dahulu dengan dokter.",
+	},
+	{
+		question: "Boleh dikonsumsi bersamaan dengan obat dokter?",
+		answer:
+			"Boleh sebagai pendamping, tetapi keputusan terbaik tetap berdasarkan arahan dokter yang menangani kondisi Anda agar tidak mengganggu pengobatan utama.",
+	},
+	{
+		question: "Bagaimana jika tidak ada perubahan setelah konsumsi?",
+		answer:
+			"Tim dapat membantu evaluasi cara konsumsi, rutinitas, dan kondisi Anda. Hal ini juga menjadi alasan adanya garansi untuk paket tertentu.",
+	},
+	{
+		question: "Apa perbedaan Alpha Propolis dengan propolis biasa?",
+		answer:
+			"Alpha Propolis menekankan formula premium dengan komposisi Trigona dan Apis Mellifera serta positioning yang lebih fokus pada pendamping perjalanan sehat penderita diabetes.",
+	},
+];
+---
+
+<section
+	id="faq"
+	aria-labelledby="faq-title"
+	class="landing-section bg-[var(--color-white)] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-4xl flex-col items-center gap-12">
+		<div class="max-w-2xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
+				FAQ
+			</div>
+			<h2 id="faq-title" class="mt-5 text-[var(--color-heading)]">Ada Pertanyaan?</h2>
+			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
+				Kami siap menjawab semua kekhawatiran Anda.
+			</p>
+		</div>
+
+		<div class="flex w-full flex-col gap-3">
+			{
+				faqs.map((item, index) => (
+					<details
+						class="group rounded-[20px] border border-[color:rgb(251_191_36_/_0.2)] bg-[var(--color-surface-alt)] px-6 py-5"
+						open={index === 0}
+					>
+						<summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-semibold text-[var(--color-heading)]">
+							<span>{item.question}</span>
+							<span class="text-xl font-normal text-[var(--color-primary-dark)] transition-transform group-open:rotate-45">
+								+
+							</span>
+						</summary>
+						<p class="pt-4 pr-8 text-sm text-[var(--color-muted)]">{item.answer}</p>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,117 @@
+---
+import Button from "../ui/Button.astro";
+
+const whatsappHref = "https://wa.me/6281234567890";
+
+const journey = [
+	{
+		icon: "📊",
+		title: "Gula Darah Mulai Naik",
+		description: "Pola makan tidak terjaga, aktivitas kurang, gula darah di atas batas normal.",
+		accent: "outline-amber-300",
+	},
+	{
+		icon: "😓",
+		title: "Gejala Ringan Muncul",
+		description: "Mudah haus, sering buang air kecil, mudah lelah. Tanda tubuh sedang berjuang.",
+		accent: "outline-orange-300",
+	},
+	{
+		icon: "⚠️",
+		title: "Komplikasi Mulai Berkembang",
+		description: "Penglihatan mulai kabur, luka sembuh lambat, tekanan darah dan kolesterol naik.",
+		accent: "outline-red-300",
+	},
+	{
+		icon: "🚨",
+		title: "Organ Vital Terdampak",
+		description: "Ginjal, jantung, dan saraf mulai rusak secara progresif akibat hiperglikemia kronis.",
+		accent: "outline-red-400",
+		danger: true,
+	},
+	{
+		icon: "💛",
+		title: "Masih Ada Waktu - Bertindaklah!",
+		description: "Amputasi, gagal ginjal, dan kebutaan bisa dicegah. Satu langkah hari ini mengubah segalanya.",
+		accent: "outline-green-500",
+		success: true,
+	},
+];
+---
+
+<section
+	id="risk-journey"
+	aria-labelledby="risk-journey-title"
+	class="landing-section bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft))] px-6 py-20 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-5xl flex-col items-center gap-12">
+		<div class="max-w-3xl text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
+				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
+				Kenali Risiko Anda
+			</div>
+			<h2 id="risk-journey-title" class="mt-5 text-[var(--color-heading)]">
+				Di Mana Posisi Anda
+				<span class="text-[var(--color-primary-dark)]"> Saat Ini?</span>
+			</h2>
+			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
+				Kenali perjalanan diabetes dan ambil langkah tepat sebelum terlambat.
+			</p>
+		</div>
+
+		<div class="relative w-full">
+			<div class="pointer-events-none absolute left-8 top-8 hidden h-[calc(100%-4rem)] w-[3px] rounded-full bg-[linear-gradient(180deg,#fcd34d,#dc2626,#22c55e)] lg:block lg:z-0"></div>
+			<div class="flex flex-col gap-5">
+				{
+					journey.map((item) => (
+						<article class="relative z-10 grid gap-4 lg:grid-cols-[4rem_1fr] lg:items-start lg:gap-7">
+							<div class:list={["relative z-10 flex h-16 w-16 items-center justify-center rounded-3xl bg-[var(--color-white)] text-2xl shadow-card outline-2 outline-offset-[-2px]", item.accent]}>
+								{item.icon}
+							</div>
+							<div class:list={[
+								"relative z-10",
+								"rounded-[20px] bg-[var(--color-white)] px-7 py-5 shadow-card",
+								item.success
+									? "outline outline-1 outline-green-500"
+									: item.danger
+										? "outline outline-1 outline-red-300"
+										: "outline outline-1 outline-[var(--color-border)]",
+							]}>
+								<h3 class:list={[
+									"text-base font-bold leading-6",
+									item.success
+										? "text-[var(--color-success-strong)]"
+										: item.danger
+											? "text-[var(--color-danger-strong)]"
+											: "text-[var(--color-heading)]",
+								]}>
+									{item.title}
+								</h3>
+								<p class="mt-2 text-sm leading-6 text-[var(--color-muted)]">
+									{item.description}
+								</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="text-center">
+			<p class="text-xl font-bold text-[var(--color-heading)]">
+				Anda bisa memutus siklus ini, mulai dari hari ini.
+			</p>
+			<div class="mx-auto mt-7 w-full max-w-md">
+				<Button
+					href={whatsappHref}
+					size="lg"
+					class="h-16 w-full px-8 text-lg"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Mulai Perjalanan Sehat Saya
+				</Button>
+			</div>
+		</div>
+	</div>
+</section>
