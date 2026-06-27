@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/layouts/Header.astro";
 import HeroSection from "../components/sections/HeroSection.astro";
 import SymptomsSection from "../components/sections/SymptomsSection.astro";
 import MedicalWarningSection from "../components/sections/MedicalWarningSection.astro";
@@ -14,10 +15,16 @@ import FaqSection from "../components/sections/FaqSection.astro";
 import FinalCtaSection from "../components/sections/FinalCtaSection.astro";
 import FooterSection from "../components/sections/FooterSection.astro";
 import FloatingWhatsApp from "../components/shared/FloatingWhatsApp.astro";
+import { whatsappOrderUrl } from "../lib/site";
 
 const title = "Alpha Propolis | Solusi Pendamping Diabetes";
 const description =
-	"Alpha Propolis membantu penderita diabetes membangun rutinitas sehat dengan formula premium, validasi ahli, testimoni nyata, dan penawaran khusus.";
+	"Alpha Propolis membantu menjaga kualitas hidup dengan formula premium lebah Trigona, sertifikasi resmi, panduan konsumsi, dan penawaran paket hemat.";
+const image = "/images/Alpha-Propolis.webp";
+const keywords =
+	"Alpha Propolis, propolis diabetes, propolis Trigona, suplemen kesehatan, propolis halal, propolis BPOM";
+const siteUrl = "https://alphapropolis.id/";
+const productImageUrl = "https://alphapropolis.id/images/Alpha-Propolis.webp";
 
 const structuredData = {
 	"@context": "https://schema.org",
@@ -26,31 +33,158 @@ const structuredData = {
 			"@type": "Organization",
 			"@id": "https://alphapropolis.id/#organization",
 			name: "Alpha Propolis",
-			url: "https://alphapropolis.id/",
+			legalName: "PT. Unimax Power",
+			url: siteUrl,
+			logo: "https://alphapropolis.id/images/logo.webp",
+			image: productImageUrl,
+			email: "info@alphapropolis.id",
+			telephone: "+628118131000",
+			address: {
+				"@type": "PostalAddress",
+				streetAddress: "Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading",
+				addressLocality: "Jakarta Utara",
+				addressRegion: "DKI Jakarta",
+				addressCountry: "ID",
+			},
 			contactPoint: {
 				"@type": "ContactPoint",
-				telephone: "+6281234567890",
+				telephone: "+628118131000",
 				contactType: "customer service",
 				availableLanguage: ["id"],
+				url: whatsappOrderUrl,
 			},
+		},
+		{
+			"@type": "WebSite",
+			"@id": "https://alphapropolis.id/#website",
+			name: "Alpha Propolis",
+			url: siteUrl,
+			publisher: {
+				"@id": "https://alphapropolis.id/#organization",
+			},
+		},
+		{
+			"@type": "WebPage",
+			"@id": "https://alphapropolis.id/#webpage",
+			url: siteUrl,
+			name: title,
+			description,
+			isPartOf: {
+				"@id": "https://alphapropolis.id/#website",
+			},
+			about: {
+				"@id": "https://alphapropolis.id/#product",
+			},
+			primaryImageOfPage: {
+				"@type": "ImageObject",
+				url: productImageUrl,
+				width: 480,
+				height: 592,
+			},
+			breadcrumb: {
+				"@id": "https://alphapropolis.id/#breadcrumb",
+			},
+			inLanguage: "id-ID",
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": "https://alphapropolis.id/#breadcrumb",
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Beranda",
+					item: siteUrl,
+				},
+			],
 		},
 		{
 			"@type": "Product",
 			"@id": "https://alphapropolis.id/#product",
 			name: "Alpha Propolis",
+			sku: "ALPHA-PROPOLIS",
 			description:
 				"Suplemen kesehatan premium dari lebah Trigona dan Apis Mellifera untuk pendamping rutinitas sehat.",
+			image: productImageUrl,
 			brand: {
 				"@id": "https://alphapropolis.id/#organization",
 			},
-			offers: {
-				"@type": "AggregateOffer",
-				priceCurrency: "IDR",
-				lowPrice: "350000",
-				highPrice: "900000",
-				availability: "https://schema.org/InStock",
-				url: "https://alphapropolis.id/#pricing",
-			},
+			category: "HealthSupplement",
+			offers: [
+				{
+					"@type": "Offer",
+					name: "Paket A",
+					price: "185000",
+					priceCurrency: "IDR",
+					availability: "https://schema.org/InStock",
+					itemCondition: "https://schema.org/NewCondition",
+					url: "https://alphapropolis.id/#pricing",
+					seller: {
+						"@id": "https://alphapropolis.id/#organization",
+					},
+				},
+				{
+					"@type": "Offer",
+					name: "Paket Spesial Bundling",
+					price: "370000",
+					priceCurrency: "IDR",
+					availability: "https://schema.org/InStock",
+					itemCondition: "https://schema.org/NewCondition",
+					url: "https://alphapropolis.id/#pricing",
+					seller: {
+						"@id": "https://alphapropolis.id/#organization",
+					},
+				},
+			],
+		},
+		{
+			"@type": "HowTo",
+			"@id": "https://alphapropolis.id/#how-to-use-schema",
+			name: "Cara konsumsi Alpha Propolis",
+			description:
+				"Panduan konsumsi Alpha Propolis sesuai materi pada halaman produk.",
+			image: "https://alphapropolis.id/images/cara%20konsumsi%204.webp",
+			totalTime: "PT2M",
+			supply: [
+				{
+					"@type": "HowToSupply",
+					name: "Air putih hangat 100 ml",
+				},
+				{
+					"@type": "HowToSupply",
+					name: "Alpha Propolis 6 tetes",
+				},
+			],
+			step: [
+				{
+					"@type": "HowToStep",
+					position: 1,
+					name: "Siapkan air putih hangat",
+					text: "Siapkan air putih hangat sebanyak 100 ml.",
+					image: "https://alphapropolis.id/images/cara%20konsumsi%201.webp",
+				},
+				{
+					"@type": "HowToStep",
+					position: 2,
+					name: "Teteskan Alpha Propolis",
+					text: "Tambahkan Alpha Propolis sebanyak 6 tetes.",
+					image: "https://alphapropolis.id/images/cara%20konsumsi%202.webp",
+				},
+				{
+					"@type": "HowToStep",
+					position: 3,
+					name: "Aduk sampai rata",
+					text: "Aduk sampai tercampur rata.",
+					image: "https://alphapropolis.id/images/cara%20konsumsi%203.webp",
+				},
+				{
+					"@type": "HowToStep",
+					position: 4,
+					name: "Minum 3 kali sehari",
+					text: "Minum 3 kali sehari. Jika sedang mengonsumsi obat dokter, beri jeda 1 jam sebelum atau sesudah obat harian.",
+					image: "https://alphapropolis.id/images/cara%20konsumsi%204.webp",
+				},
+			],
 		},
 		{
 			"@type": "FAQPage",
@@ -58,50 +192,50 @@ const structuredData = {
 			mainEntity: [
 				{
 					"@type": "Question",
-					name: "Apakah Alpha Propolis aman untuk penderita diabetes?",
+					name: "Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
 					acceptedAnswer: {
 						"@type": "Answer",
-						text: "Produk ini diformulasikan sebagai suplemen pendamping. Tetap gunakan sesuai anjuran dan konsultasikan dengan tenaga medis jika sedang menjalani terapi khusus.",
+						text: "Gunakan sesuai aturan pakai. Jika Anda memiliki kondisi khusus, sedang hamil, menyusui, alergi produk lebah, atau menjalani pengobatan rutin, konsultasikan dengan dokter terlebih dahulu.",
 					},
 				},
 				{
 					"@type": "Question",
-					name: "Berapa lama baru merasakan hasilnya?",
+					name: "Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
 					acceptedAnswer: {
 						"@type": "Answer",
-						text: "Respon tubuh setiap orang berbeda, tetapi banyak pengguna mulai merasakan perubahan dalam beberapa minggu ketika konsumsi dilakukan konsisten dan dibarengi pola hidup yang lebih terjaga.",
+						text: "Panduan pada halaman ini menggunakan 6 tetes dalam 100 ml air hangat, diminum 3 kali sehari. Sesuaikan dengan arahan tenaga kesehatan bila Anda sedang menjalani terapi tertentu.",
 					},
 				},
 				{
 					"@type": "Question",
-					name: "Boleh dikonsumsi bersamaan dengan obat dokter?",
+					name: "Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
 					acceptedAnswer: {
 						"@type": "Answer",
-						text: "Boleh sebagai pendamping, tetapi keputusan terbaik tetap berdasarkan arahan dokter yang menangani kondisi Anda agar tidak mengganggu pengobatan utama.",
+						text: "Tidak. Alpha Propolis adalah suplemen pendamping dan bukan pengganti obat dokter, insulin, atau terapi medis utama.",
 					},
 				},
 				{
 					"@type": "Question",
-					name: "Apakah ada efek samping?",
+					name: "Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
 					acceptedAnswer: {
 						"@type": "Answer",
-						text: "Secara umum dikonsumsi sebagai suplemen, namun bila Anda memiliki alergi terhadap produk lebah atau kondisi medis tertentu, konsultasikan terlebih dahulu dengan dokter.",
+						text: "Kandungan propolis diposisikan sebagai pendamping untuk membantu daya tahan tubuh. Pengobatan TBC dengan OAT tetap wajib dilanjutkan sampai selesai sesuai instruksi dokter.",
 					},
 				},
 				{
 					"@type": "Question",
-					name: "Bagaimana jika tidak ada perubahan setelah konsumsi?",
+					name: "Apakah Alpha Propolis sudah bersertifikasi Halal?",
 					acceptedAnswer: {
 						"@type": "Answer",
-						text: "Tim dapat membantu evaluasi cara konsumsi, rutinitas, dan kondisi Anda. Hal ini juga menjadi alasan adanya garansi untuk paket tertentu.",
+						text: "Ya, materi halaman ini mencantumkan sertifikasi HALAL MUI ID00410000283380322.",
 					},
 				},
 				{
 					"@type": "Question",
-					name: "Apa perbedaan Alpha Propolis dengan propolis biasa?",
+					name: "Apakah bisa melakukan pembayaran di tempat (COD)?",
 					acceptedAnswer: {
 						"@type": "Answer",
-						text: "Alpha Propolis menekankan formula premium dengan komposisi Trigona dan Apis Mellifera serta positioning yang lebih fokus pada pendamping perjalanan sehat penderita diabetes.",
+						text: "Hubungi tim WhatsApp untuk memastikan ketersediaan COD berdasarkan wilayah pengiriman Anda.",
 					},
 				},
 			],
@@ -113,21 +247,27 @@ const structuredData = {
 <Layout
 	title={title}
 	description={description}
+	image={image}
+	keywords={keywords}
 	structuredData={structuredData}
 >
+	<Header />
+
 	<main id="main-content" class="landing-page">
-		<HeroSection />
-		<SymptomsSection />
-		<MedicalWarningSection />
-		<WhyAlphaSection />
-		<DoctorsSection />
-		<HowToUseSection />
-		<CertificationSection />
-		<RiskJourneySection />
-		<TestimonialsSection />
-		<PricingSection />
-		<FaqSection />
-		<FinalCtaSection />
+		<article aria-labelledby="hero-title">
+			<HeroSection />
+			<SymptomsSection />
+			<MedicalWarningSection />
+			<WhyAlphaSection />
+			<DoctorsSection />
+			<HowToUseSection />
+			<CertificationSection />
+			<RiskJourneySection />
+			<TestimonialsSection />
+			<PricingSection />
+			<FaqSection />
+			<FinalCtaSection />
+		</article>
 	</main>
 
 	<FooterSection />

@@ -1,14 +1,24 @@
 ---
-import Button from "../ui/Button.astro";
 ---
 
 <footer id="footer" class="border-t border-white/10 bg-slate-950">
 	<div class="site-content py-10 sm:py-12">
+		<div class="flex items-center justify-start">
+			<img
+				src="/images/logo-gold.webp"
+				alt="Alpha Propolis"
+				width="160"
+				height="98"
+				loading="lazy"
+				decoding="async"
+				class="h-16 w-auto object-contain"
+			/>
+		</div>
 		<div
 			class="mt-10 flex flex-col gap-3 border-t border-white/10 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between"
 		>
 			<p>© {new Date().getFullYear()} Alpha Propolis</p>
-			<p>Crafted with Astro and Tailwind CSS.</p>
+			<p>Alpha Propolis official landing page.</p>
 		</div>
 	</div>
 </footer>

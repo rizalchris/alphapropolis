@@ -1,69 +1,35 @@
 ---
+import SectionLabel from "../shared/SectionLabel.astro";
+import CertificationChips from "../shared/CertificationChips.astro";
+
 const certifications = [
-	{
-		code: "BPOM",
-		subcode: "RI",
-		label: "Badan Pengawas Obat & Makanan RI",
-		bg: "bg-[var(--color-info)]",
-		text: "text-white",
-	},
-	{
-		code: "HALAL",
-		subcode: "MUI",
-		label: "Majelis Ulama Indonesia",
-		bg: "bg-[var(--color-success-strong)]",
-		text: "text-white",
-	},
-	{
-		code: "GMP",
-		subcode: "Certified",
-		label: "Good Manufacturing Practice",
-		bg: "bg-[var(--color-primary)]",
-		text: "text-[var(--color-heading)]",
-	},
-	{
-		code: "ISO",
-		subcode: "22000",
-		label: "Food Safety Management System",
-		bg: "bg-gray-700",
-		text: "text-white",
-	},
+	{ label: "BPOM TR-213656281", image: "/images/BPOM.webp", alt: "Sertifikasi BPOM Alpha Propolis" },
+	{ label: "HALAL MUI ID00410000283380322", image: "/images/Logo Halal.webp", alt: "Sertifikasi Halal MUI Alpha Propolis" },
+	{ label: "CPOTB", image: "/images/Standart CPOTB.webp", alt: "Sertifikasi CPOTB Alpha Propolis" },
+	{ label: "ISO 9001:2015", image: "/images/ISOQAR.webp", alt: "Sertifikasi ISO 9001 2015 Alpha Propolis" },
 ];
 ---
 
-<section
-	id="certification"
-	aria-labelledby="certification-title"
-	class="landing-section bg-[var(--color-white)] px-6 py-20 sm:px-8 lg:px-10"
->
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
-		<div class="max-w-3xl text-center">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
-				Sertifikasi Resmi
-			</div>
-			<h2 id="certification-title" class="mt-5 text-[var(--color-heading)]">
-				100% Legal &amp; Tersertifikasi
+<section id="certification" aria-labelledby="certification-title" class="landing-section bg-white px-6 py-24 sm:px-8 lg:px-10">
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+		<div class="flex max-w-5xl flex-col items-center gap-5 text-center">
+			<SectionLabel text="Sertifikasi Resmi" />
+			<h2 id="certification-title" class="text-gray-900">
+				Garansi Kualitas Terbaik untuk Kesehatan Anda
 			</h2>
-			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
-				Diproduksi di fasilitas berstandar internasional dengan pengawasan ketat.
-			</p>
 		</div>
 
-		<div class="grid w-full gap-6 sm:grid-cols-2 xl:grid-cols-4">
+		<ul class="grid gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4">
 			{
 				certifications.map((item) => (
-					<article class="flex flex-col items-center text-center">
-						<div class:list={["flex h-28 w-28 flex-col items-center justify-center rounded-full shadow-card-lg", item.bg, item.text]}>
-							<p class="text-xl font-extrabold tracking-[0.12em]">{item.code}</p>
-							<p class="mt-1 text-xs opacity-80">{item.subcode}</p>
+					<li>
+						<div class="flex h-48 flex-col items-center justify-start gap-4 text-center">
+							<img src={item.image} alt={item.alt} width="167" height="142" loading="lazy" decoding="async" class="h-36 w-auto object-contain mix-blend-darken" />
+							<CertificationChips items={[item.label]} />
 						</div>
-						<p class="mt-4 max-w-[18rem] text-xs leading-5 text-[var(--color-muted)]">
-							{item.label}
-						</p>
-					</article>
+					</li>
 				))
 			}
-		</div>
+		</ul>
 	</div>
 </section>

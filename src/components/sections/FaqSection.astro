@@ -1,69 +1,65 @@
 ---
+import { ChevronDown } from "lucide-astro";
+import SectionLabel from "../shared/SectionLabel.astro";
+
 const faqs = [
 	{
-		question: "Apakah Alpha Propolis aman untuk penderita diabetes?",
-		answer:
-			"Produk ini diformulasikan sebagai suplemen pendamping. Tetap gunakan sesuai anjuran dan konsultasikan dengan tenaga medis jika Anda sedang menjalani terapi khusus.",
+		question: "Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
+		answer: "Gunakan sesuai aturan pakai. Jika Anda memiliki kondisi khusus, sedang hamil, menyusui, alergi produk lebah, atau menjalani pengobatan rutin, konsultasikan dengan dokter terlebih dahulu.",
 	},
 	{
-		question: "Berapa lama baru merasakan hasilnya?",
-		answer:
-			"Respon tubuh setiap orang berbeda, tetapi banyak pengguna mulai merasakan perubahan dalam beberapa minggu ketika konsumsi dilakukan konsisten dan dibarengi pola hidup yang lebih terjaga.",
+		question: "Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
+		answer: "Panduan pada halaman ini menggunakan 6 tetes dalam 100 ml air hangat, diminum 3 kali sehari. Sesuaikan dengan arahan tenaga kesehatan bila Anda sedang menjalani terapi tertentu.",
 	},
 	{
-		question: "Apakah ada efek samping?",
-		answer:
-			"Secara umum dikonsumsi sebagai suplemen, namun bila Anda memiliki alergi terhadap produk lebah atau kondisi medis tertentu, konsultasikan terlebih dahulu dengan dokter.",
+		question: "Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
+		answer: "Tidak. Alpha Propolis adalah suplemen pendamping dan bukan pengganti obat dokter, insulin, atau terapi medis utama.",
 	},
 	{
-		question: "Boleh dikonsumsi bersamaan dengan obat dokter?",
-		answer:
-			"Boleh sebagai pendamping, tetapi keputusan terbaik tetap berdasarkan arahan dokter yang menangani kondisi Anda agar tidak mengganggu pengobatan utama.",
+		question: "Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
+		answer: "Kandungan propolis diposisikan sebagai pendamping untuk membantu daya tahan tubuh. Pengobatan TBC dengan OAT tetap wajib dilanjutkan sampai selesai sesuai instruksi dokter.",
 	},
 	{
-		question: "Bagaimana jika tidak ada perubahan setelah konsumsi?",
-		answer:
-			"Tim dapat membantu evaluasi cara konsumsi, rutinitas, dan kondisi Anda. Hal ini juga menjadi alasan adanya garansi untuk paket tertentu.",
+		question: "Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
+		answer: "Berikan jeda konsumsi minimal 1 jam dari obat dokter dan konsultasikan dengan dokter yang menangani Anda, terutama bila terapi tidak boleh putus.",
 	},
 	{
-		question: "Apa perbedaan Alpha Propolis dengan propolis biasa?",
-		answer:
-			"Alpha Propolis menekankan formula premium dengan komposisi Trigona dan Apis Mellifera serta positioning yang lebih fokus pada pendamping perjalanan sehat penderita diabetes.",
+		question: "Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
+		answer: "Gula darah tinggi berkaitan dengan stres oksidatif. Asupan antioksidan membantu mendukung perlindungan sel sebagai bagian dari pola hidup sehat.",
+	},
+	{
+		question: "Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
+		answer: "Pastikan membeli melalui kanal resmi, periksa kemasan, segel, kode edar, dan informasi produsen pada label produk.",
+	},
+	{
+		question: "Apakah Alpha Propolis sudah bersertifikasi Halal?",
+		answer: "Ya, materi halaman ini mencantumkan sertifikasi HALAL MUI ID00410000283380322.",
+	},
+	{
+		question: "Apakah bisa melakukan pembayaran di tempat (COD)?",
+		answer: "Hubungi tim WhatsApp untuk memastikan ketersediaan COD berdasarkan wilayah pengiriman Anda.",
 	},
 ];
 ---
 
-<section
-	id="faq"
-	aria-labelledby="faq-title"
-	class="landing-section bg-[var(--color-white)] px-6 py-20 sm:px-8 lg:px-10"
->
-	<div class="mx-auto flex w-full max-w-4xl flex-col items-center gap-12">
-		<div class="max-w-2xl text-center">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
-				FAQ
-			</div>
-			<h2 id="faq-title" class="mt-5 text-[var(--color-heading)]">Ada Pertanyaan?</h2>
-			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
-				Kami siap menjawab semua kekhawatiran Anda.
-			</p>
+<section id="faq" aria-labelledby="faq-title" class="landing-section bg-white px-6 py-24 sm:px-8 lg:px-10">
+	<div class="mx-auto flex w-full max-w-[800px] flex-col items-center">
+		<div class="flex flex-col items-center gap-5 text-center">
+			<SectionLabel text="FAQ" />
+			<h2 id="faq-title" class="text-gray-900">
+				Temukan Jawaban Lengkap untuk Kesehatan Anda di Sini
+			</h2>
 		</div>
 
-		<div class="flex w-full flex-col gap-3">
+		<div class="flex w-full flex-col gap-3 pt-12">
 			{
-				faqs.map((item, index) => (
-					<details
-						class="group rounded-[20px] border border-[color:rgb(251_191_36_/_0.2)] bg-[var(--color-surface-alt)] px-6 py-5"
-						open={index === 0}
-					>
-						<summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-semibold text-[var(--color-heading)]">
+				faqs.map((item) => (
+					<details class="group rounded-[20px] border border-amber-400/20 bg-stone-100">
+						<summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-7 py-5 text-left text-base font-semibold leading-6 text-gray-900">
 							<span>{item.question}</span>
-							<span class="text-xl font-normal text-[var(--color-primary-dark)] transition-transform group-open:rotate-45">
-								+
-							</span>
+							<ChevronDown class="h-4 w-4 shrink-0 text-amber-400 transition-transform group-open:rotate-180" aria-hidden="true" />
 						</summary>
-						<p class="pt-4 pr-8 text-sm text-[var(--color-muted)]">{item.answer}</p>
+						<p class="px-7 pb-5 pr-12 text-base leading-7 text-stone-700">{item.answer}</p>
 					</details>
 				))
 			}

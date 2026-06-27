@@ -1,67 +1,37 @@
 ---
+import SectionLabel from "../shared/SectionLabel.astro";
+
 const steps = [
-	{
-		icon: "📦",
-		number: "01",
-		title: "Buka Kemasan",
-		description: "Periksa segel produk. Pastikan masih utuh sebelum digunakan.",
-	},
-	{
-		icon: "💧",
-		number: "02",
-		title: "Tuang 10-15 Tetes",
-		description: "Gunakan pipet bawaan. Ukur dengan tepat sesuai kebutuhan.",
-	},
-	{
-		icon: "🫖",
-		number: "03",
-		title: "Campur Air Hangat",
-		description: "Larutkan dalam 100 ml air hangat atau madu untuk rasa lebih baik.",
-	},
-	{
-		icon: "🌅",
-		number: "04",
-		title: "Konsumsi 2x Sehari",
-		description: "Pagi sebelum sarapan dan malam sebelum tidur untuk hasil optimal.",
-	},
+	{ number: "01", title: "Air Putih Hangat 100ml", image: "/images/cara konsumsi 1.webp" },
+	{ number: "02", title: "Alpha Propolis 6 tetes", image: "/images/cara konsumsi 2.webp" },
+	{ number: "03", title: "Aduk sampai tercampur rata", image: "/images/cara konsumsi 3.webp" },
+	{ number: "04", title: "Minum 3 Kali Sehari", image: "/images/cara konsumsi 4.webp" },
 ];
 ---
 
-<section
-	id="how-to-use"
-	aria-labelledby="how-to-use-title"
-	class="landing-section bg-[var(--color-surface)] px-6 py-20 sm:px-8 lg:px-10"
->
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
-		<div class="max-w-3xl text-center">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
-				Cara Konsumsi
-			</div>
-			<h2 id="how-to-use-title" class="mt-5 text-[var(--color-heading)]">
-				Semudah Ini. Dalam 4 Langkah.
-			</h2>
+<section id="how-to-use" aria-labelledby="how-to-use-title" class="landing-section bg-stone-50 px-6 py-24 sm:px-8 lg:px-10">
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+		<div class="flex flex-col items-center gap-5 text-center">
+			<SectionLabel text="Cara Konsumsi" />
+			<h2 id="how-to-use-title" class="text-gray-900">Praktis, Mudah dan Simple</h2>
 		</div>
 
-		<div class="grid w-full gap-5 lg:grid-cols-4">
+		<ol class="grid w-full gap-5 pt-8 lg:grid-cols-4">
 			{
 				steps.map((step) => (
-					<article class="relative rounded-3xl border border-[var(--color-border)] bg-[var(--color-white)] px-6 py-8 text-center shadow-card-lg">
-						<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl border-2 border-[color:rgb(251_191_36_/_0.3)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft-2))] text-3xl">
-							{step.icon}
+					<li>
+						<div class="flex h-full flex-col items-center gap-5 rounded-3xl border border-stone-200 bg-white px-6 py-9 text-center shadow-card-lg">
+							<p class="text-2xl font-bold leading-7 text-neutral-800">{step.number}</p>
+							<img src={step.image} alt={step.title} width="213" height="298" loading="lazy" decoding="async" class="h-72 w-52 rounded-[10px] object-cover" />
+							<h3 class="text-2xl font-bold leading-7 text-neutral-800">{step.title}</h3>
 						</div>
-						<p class="mt-5 text-xs font-extrabold tracking-[0.18em] text-[var(--color-primary-dark)]">
-							{step.number}
-						</p>
-						<h3 class="mt-2 text-base font-bold text-[var(--color-heading)]">
-							{step.title}
-						</h3>
-						<p class="mt-3 text-sm leading-6 text-[var(--color-muted)]">
-							{step.description}
-						</p>
-					</article>
+					</li>
 				))
 			}
-		</div>
+		</ol>
+
+		<p class="max-w-[899px] pt-5 text-center text-2xl leading-8 text-gray-900">
+			<strong>Catatan:</strong> Jika sedang mengkonsumsi obat dokter, cukup berikan jeda selama 1 jam sebelum atau sesudah obat harian Anda.
+		</p>
 	</div>
 </section>

@@ -1,100 +1,286 @@
 ---
-const alphaPoints = [
-	"1600 mg/L Phenol",
-	"67% Lebah Trigona (stingless)",
-	"33% Apis Mellifera",
-	"IC50 rendah, antioksidan tinggi",
-	"Flavonoid kadar tinggi",
-	"Phenolic acid terstandarisasi",
-	"Sertifikasi BPOM RI",
-	"Sertifikasi HALAL MUI",
+import { ArrowRight, Check, MessageCircle, X } from "lucide-astro";
+import Button from "../ui/Button.astro";
+import SectionLabel from "../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../lib/site";
+
+const whatsappHref = whatsappOrderUrl;
+
+const comparisons = [
+	{
+		alphaTitle: "Alpha Propolis 1.600 mg/L",
+		genericTitle: "Propolis Biasa SNI 1000 mg/L",
+		note: "Kadar Fenol 60% lebih pekat untuk tubuh yang jauh lebih kuat.",
+		alphaImage: "/images/USP_Alpha_Propolis.webp",
+		genericImage: "/images/USP_Alpha%20Propolis_Biasa.webp",
+	},
+	{
+		alphaTitle: "Lebah Trigona 67%",
+		genericTitle: "Lebah Apis Mellifera 33%",
+		note: "Perlindungan ganda untuk menjaga imun dan mempercepat pemulihan Anda.",
+		alphaImage: "/images/Lebah%20Trigona.webp",
+		genericImage: "/images/Lebah%20Apis%20Mellifera.webp",
+	},
 ];
 
-const genericPoints = [
-	"Potensi kandungan aktif tidak jelas",
-	"Komposisi lebah sering tidak transparan",
-	"Antioksidan tidak terukur",
-	"Standarisasi formula lemah",
-	"Flavonoid tidak konsisten",
-	"Legalitas produk sering tidak lengkap",
-	"Manfaat jangka panjang sulit dipetakan",
-	"Dukungan brand dan edukasi terbatas",
+const alphaFeatures = [
+	"1600 mg/L Phenol",
+	"67% Lebah Trigona (Stingless)",
+	"33% Apis Mellifera",
+	"IC50 Rendah - Antioksidan Tinggi",
+	"Flavonoid Kadar Tinggi",
+	"Phenolic Acid Terstandarisasi",
 ];
 ---
 
 <section
 	id="why-alpha"
 	aria-labelledby="why-alpha-title"
-	class="landing-section bg-[var(--color-surface-alt)] px-6 py-20 sm:px-8 lg:px-10"
+	class="landing-section bg-stone-100 px-6 py-24 sm:px-8 lg:px-10"
 >
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
-		<div class="max-w-3xl text-center">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
-				Mengapa Alpha Propolis?
+	<div
+		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12"
+	>
+		<div class="flex w-full max-w-[1200px] flex-col items-center gap-8 text-center">
+			<figure class="w-full overflow-hidden rounded-3xl border border-amber-400/20 bg-white shadow-card-md">
+				<img
+					src="/images/customer-alphapropolis.webp"
+					alt="Customer Alpha Propolis"
+					width="1200"
+					height="420"
+					loading="lazy"
+					decoding="async"
+					class="h-auto w-full object-cover"
+				/>
+			</figure>
+			<div class="flex max-w-[805px] flex-col items-center gap-5 text-center">
+				<SectionLabel text="Mengapa Alpha Propolis?" />
+				<h2 id="why-alpha-title" class="text-gray-900">
+					Alasan Mengapa Alpha Propolis Lebih Kuat dari Propolis Biasa
+				</h2>
 			</div>
-			<h2 id="why-alpha-title" class="mt-5 text-[var(--color-heading)]">
-				Formula Superior,
-				<span class="block text-[var(--color-primary-dark)]">Hasil yang Nyata</span>
-			</h2>
-			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
-				Bukan sekadar klaim, tetapi pendekatan produk yang terasa lebih matang
-				dan terarah dibanding propolis generik.
-			</p>
 		</div>
 
-		<div class="grid w-full max-w-6xl gap-6 lg:grid-cols-2">
-			<article class="rounded-3xl border-2 border-[var(--color-primary)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft-2))] p-8 shadow-product">
-				<div class="flex flex-col items-center text-center">
-					<div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] text-sm font-extrabold text-white shadow-primary">
-						AP
+		<div class="flex w-full max-w-5xl flex-col items-center gap-5">
+			{
+				comparisons.map((item) => (
+					<section
+						class="contents"
+						aria-label={`${item.alphaTitle} dibanding ${item.genericTitle}`}
+					>
+						<div class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+							<div class="flex h-full flex-col items-center gap-5 rounded-3xl border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md">
+								<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-lg bg-stone-50">
+									<img
+										src={item.alphaImage}
+										alt={item.alphaTitle}
+										width="278"
+										height="165"
+										loading="lazy"
+										decoding="async"
+										class="h-full w-full object-contain"
+									/>
+								</div>
+								<h3 class="text-2xl font-bold leading-7 text-red-700">
+									{item.alphaTitle}
+								</h3>
+							</div>
+							<div class="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp">
+								VS
+							</div>
+							<div class="flex h-full flex-col items-center gap-5 rounded-3xl border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md">
+								<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-lg bg-stone-50">
+									<img
+										src={item.genericImage}
+										alt={item.genericTitle}
+										width="278"
+										height="165"
+										loading="lazy"
+										decoding="async"
+										class="h-full w-full object-contain"
+									/>
+								</div>
+								<h3 class="text-2xl font-bold leading-7 text-neutral-800">
+									{item.genericTitle}
+								</h3>
+							</div>
+						</div>
+						<p class="flex w-full items-center gap-5 rounded-2xl border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-xl font-bold leading-5 text-stone-900 shadow-product">
+							<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-xl bg-green-100">
+								<Check
+									class="h-3 w-3 text-green-500"
+									aria-hidden="true"
+								/>
+							</span>
+							<span>{item.note}</span>
+						</p>
+					</section>
+				))
+			}
+
+			<div class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+				<div
+					class="flex h-full flex-col items-center gap-5 rounded-3xl border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
+				>
+					<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-lg bg-stone-50">
+						<img
+							src="/images/IC50_1-50ppm.webp"
+							alt="IC50 Alpha Propolis 1 sampai 50 ppm"
+							width="203"
+							height="155"
+							loading="lazy"
+							decoding="async"
+							class="h-full w-full object-contain"
+						/>
 					</div>
-					<h3 class="mt-4 text-lg font-extrabold text-[var(--color-heading)]">
+					<h3 class="text-2xl font-bold leading-7 text-red-700">
+						IC<sub>50</sub> 1-50ppm
+					</h3>
+					<ul
+						class="w-full divide-y divide-neutral-200 text-xl font-bold leading-6 text-stone-900"
+					>
+						<li class="py-2.5">Larut Sempurna &amp; Instan</li>
+						<li class="py-2.5">Langsung Diserap Tubuh</li>
+					</ul>
+				</div>
+				<div
+					class="flex h-16 w-16 self-center items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
+				>
+					VS
+				</div>
+				<div
+					class="flex h-full flex-col items-center gap-5 rounded-3xl border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
+				>
+					<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-lg bg-stone-50">
+						<img
+							src="/images/IC50_150ppm.webp"
+							alt="IC50 propolis biasa lebih dari 150 ppm"
+							width="278"
+							height="155"
+							loading="lazy"
+							decoding="async"
+							class="h-full w-full object-contain"
+						/>
+					</div>
+					<h3 class="text-2xl font-bold leading-7 text-neutral-800">
+						IC<sub>50</sub> &gt; 150ppm
+					</h3>
+					<ul
+						class="w-full divide-y divide-neutral-200 text-xl font-bold leading-6 text-stone-900"
+					>
+						<li class="py-2.5">Perlindungan kurang optimal</li>
+						<li class="py-2.5">
+							Kurang Efektif Meredam Radikal Bebas
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div
+				class="flex w-full flex-col items-center gap-5 rounded-3xl border border-amber-100 bg-white p-5 shadow-card-md sm:flex-row"
+			>
+				<img
+					src="/images/Flavonoid%20dan%20Asam%20Fenolat.webp"
+					alt="Flavonoid dan Asam Fenolat Alpha Propolis"
+					width="203"
+					height="144"
+					loading="lazy"
+					decoding="async"
+					class="block w-full rounded-lg object-contain sm:w-52"
+				/>
+				<div>
+					<h3 class="text-2xl font-bold leading-7 text-red-700">
+						Flavonoid dan Asam Fenolat
+					</h3>
+					<p class="mt-5 text-xl font-bold leading-6 text-stone-900">
+						Merawat sensitivitas insulin tubuh, memastikan energi
+						Anda tetap terjaga sepanjang hari.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid w-full max-w-[840px] gap-12 lg:grid-cols-2">
+			<div
+				class="rounded-3xl border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] p-9 shadow-product"
+			>
+				<div class="flex flex-col items-center gap-2.5 text-center">
+					<img
+						src="/images/logo.webp"
+						alt="Alpha Propolis"
+						width="117"
+						height="72"
+						class="h-16 w-28 object-contain"
+					/>
+					<h3 class="text-lg font-bold leading-4 text-gray-900">
 						Alpha Propolis
 					</h3>
-					<p class="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-dark)]">
+					<p class="text-xs font-bold leading-3 text-amber-400">
 						Formula Premium
 					</p>
 				</div>
-
-				<ul class="mt-7 flex flex-col gap-3">
+				<ul class="mt-7 flex flex-col gap-2.5">
 					{
-						alphaPoints.map((point) => (
-							<li class="flex items-start gap-3 rounded-2xl border border-[color:rgb(251_191_36_/_0.18)] bg-[var(--color-white)]/75 px-4 py-3 text-sm text-[var(--color-heading)] shadow-card">
-								<span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-success-soft)] text-xs font-bold text-[var(--color-success-strong)]">
-									✓
+						alphaFeatures.map((feature) => (
+							<li class="flex items-center gap-3 rounded-2xl border border-amber-400/20 bg-white/70 px-3.5 py-2.5 text-sm font-medium leading-5 text-stone-900">
+								<span class="flex h-6 w-6 items-center justify-center rounded-xl bg-green-100">
+									<Check
+										class="h-3 w-3 text-green-500"
+										aria-hidden="true"
+									/>
 								</span>
-								<span>{point}</span>
+								<span>{feature}</span>
 							</li>
 						))
 					}
 				</ul>
-			</article>
+			</div>
 
-			<article class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
-				<div class="flex flex-col items-center text-center">
-					<div class="flex h-14 w-14 items-center justify-center rounded-3xl bg-gray-200 text-xs font-bold text-[var(--color-muted-light)]">
+			<div
+				class="rounded-3xl border border-stone-200 bg-stone-50 p-9"
+			>
+				<div class="flex flex-col items-center gap-5 text-center">
+					<div
+						class="flex h-16 w-16 items-center justify-center rounded-3xl bg-gray-200 text-xs font-bold leading-4 text-stone-400"
+					>
 						GEN
 					</div>
-					<h3 class="mt-4 text-lg font-bold text-[var(--color-muted-light)]">
-						Propolis Biasa
-					</h3>
-					<p class="mt-1 text-xs text-gray-400">Produk generik</p>
+					<div>
+						<h3 class="text-lg font-bold leading-4 text-stone-400">
+							Propolis Biasa
+						</h3>
+						<p class="mt-2.5 text-xs leading-3 text-gray-400">
+							Produk Generik
+						</p>
+					</div>
 				</div>
-
-				<ul class="mt-7 flex flex-col gap-3">
+				<ul class="mt-7 flex flex-col gap-2.5">
 					{
-						genericPoints.map((point) => (
-							<li class="flex items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-white)] px-4 py-3 text-sm text-gray-400">
-								<span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-danger-soft)] text-xs font-bold text-[var(--color-danger-strong)]">
-									✕
+						alphaFeatures.map((feature) => (
+							<li class="flex items-center gap-3 rounded-2xl border border-stone-200 bg-white px-3.5 py-2.5 text-sm leading-5 text-gray-400">
+								<span class="flex h-6 w-6 items-center justify-center rounded-xl bg-red-100">
+									<X
+										class="h-3 w-3 text-red-600"
+										aria-hidden="true"
+									/>
 								</span>
-								<span>{point}</span>
+								<span>{feature}</span>
 							</li>
 						))
 					}
 				</ul>
-			</article>
+			</div>
 		</div>
+
+		<Button
+			href={whatsappHref}
+			size="lg"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<MessageCircle class="h-4 w-4" aria-hidden="true" />
+			<span>Proteksi Maksimal Ginjal</span>
+			<ArrowRight class="h-4 w-4" aria-hidden="true" />
+		</Button>
 	</div>
 </section>

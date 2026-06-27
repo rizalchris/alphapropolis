@@ -1,99 +1,76 @@
 ---
-const contactItems = [
-	{ label: "Telepon", value: "+62 812-3456-7890", href: "tel:+6281234567890" },
-	{ label: "Email", value: "info@alphapropolis.id", href: "mailto:info@alphapropolis.id" },
-	{ label: "Lokasi", value: "Jakarta, Indonesia" },
+import { Facebook, Instagram, Mail, MapPin, Phone, Smartphone, Youtube } from "lucide-astro";
+import CertificationChips from "../shared/CertificationChips.astro";
+
+const contacts = [
+	{ Icon: Smartphone, label: "0811-813-1000", href: "tel:+628118131000" },
+	{ Icon: Phone, label: "021-4586 7977", href: "tel:+622145867977" },
+	{ Icon: Mail, label: "info@alphapropolis.id", href: "mailto:info@alphapropolis.id" },
+	{
+		Icon: MapPin,
+		label: "PT. Unimax Power, Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading, Jakarta Utara",
+		href: "https://www.google.com/maps/search/?api=1&query=PT.%20Unimax%20Power%20Jl.%20Gading%20Bukit%20Indah%20Blok%20L%2017%20Kelapa%20Gading%20Jakarta%20Utara",
+	},
+	{
+		Icon: MapPin,
+		label: "Outlet Resmi: Herbal King Store, Mall Artha Gading Lt.1, Blok A6 No.1, Jakarta Utara",
+		href: "https://www.google.com/maps/search/?api=1&query=Herbal%20King%20Store%20Mall%20Artha%20Gading%20Lt.1%20Blok%20A6%20No.1%20Jakarta%20Utara",
+	},
 ];
 
-const socialItems = [
-	{ label: "Instagram", value: "@alphapropolis.id" },
-	{ label: "YouTube", value: "Alpha Propolis Official" },
-	{ label: "TikTok", value: "Alpha Propolis Indonesia" },
+const socials = [
+	{ Icon: Instagram, label: "@alphapropolis_", href: "https://www.instagram.com/alphapropolis_/" },
+	{ Icon: Youtube, label: "@alphapropolis", href: "https://www.youtube.com/@alphapropolis" },
+	{ Icon: Facebook, label: "Alpha Propolis", href: "https://www.facebook.com/alphapropolis" },
 ];
 ---
 
-<footer
-	id="site-footer"
-	aria-labelledby="footer-brand"
-	class="landing-section border-t border-[var(--color-footer-border)] bg-[var(--color-footer)] px-6 pt-16 pb-8 sm:px-8 lg:px-10"
->
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col gap-12">
-		<div class="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
-			<div>
-				<div class="flex items-center gap-3">
-					<div class="flex h-10 w-10 items-center justify-center rounded-[20px] bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] text-xs font-extrabold text-white">
-						AP
-					</div>
-					<p id="footer-brand" class="text-lg font-extrabold text-white">Alpha Propolis</p>
-				</div>
-				<p class="mt-4 max-w-md text-sm text-[var(--color-dark-muted)]">
-					Suplemen kesehatan premium dari lebah Trigona &amp; Apis Mellifera.
-					Membantu ribuan penderita diabetes hidup lebih sehat.
-				</p>
-				<p class="mt-4 text-xs tracking-wide text-[var(--color-footer-muted)]">
-					BPOM RI NA18230411097
-				</p>
-			</div>
+<footer id="site-footer" aria-labelledby="footer-brand" class="landing-section bg-slate-900 px-6 py-16 text-slate-100 sm:px-8 lg:px-10">
+	<div class="mx-auto grid w-full max-w-[var(--container-xl)] gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
+		<section aria-labelledby="footer-brand" class="flex flex-col items-start gap-5">
+			<a href="/" aria-label="Alpha Propolis home" class="inline-flex">
+				<img src="/images/logo-gold.webp" alt="Alpha Propolis" width="160" height="98" loading="lazy" decoding="async" class="h-16 w-auto object-contain" />
+			</a>
+			<h2 id="footer-brand" class="sr-only">Alpha Propolis</h2>
+			<p class="max-w-[503px] text-base font-medium leading-5 text-slate-100">
+				Alpha Propolis berkomitmen penuh untuk menghadirkan kebaikan alami murni demi menjaga stabilitas gula darah dan kekuatan paru-paru keluarga Indonesia. Mari bersama #JagaSenyumKeluarga tercinta setiap hari.
+			</p>
+			<CertificationChips />
+		</section>
 
-			<div>
-				<h2 class="text-xs font-bold uppercase tracking-[0.16em] text-white">
-					Kontak
-				</h2>
-				<address class="not-italic">
-					<ul class="mt-5 flex flex-col gap-3">
-						{
-							contactItems.map((item) => (
-								<li>
-									<p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)]">
-										{item.label}
-									</p>
-									{
-										item.href ? (
-											<a
-												href={item.href}
-												class="mt-1 block text-sm text-[var(--color-dark-muted)] transition-colors hover:text-white"
-											>
-												{item.value}
-											</a>
-										) : (
-											<p class="mt-1 text-sm text-[var(--color-dark-muted)]">
-												{item.value}
-											</p>
-										)
-									}
-								</li>
-							))
-						}
-					</ul>
-				</address>
-			</div>
-
-			<div>
-				<h2 class="text-xs font-bold uppercase tracking-[0.16em] text-white">
-					Ikuti Kami
-				</h2>
-				<ul class="mt-5 flex flex-col gap-3">
+		<section aria-labelledby="footer-contact-title" class="flex flex-col items-start gap-2.5">
+			<h2 id="footer-contact-title" class="text-xs font-bold uppercase leading-4 tracking-wide text-white">Kontak</h2>
+			<address class="not-italic">
+				<ul class="flex flex-col gap-2.5">
 					{
-						socialItems.map((item) => (
-							<li>
-								<p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-dark)]">
-									{item.label}
-								</p>
-								<p class="mt-1 text-sm text-[var(--color-dark-muted)]">
-									{item.value}
-								</p>
+						contacts.map(({ Icon, label, href }) => (
+							<li class="flex max-w-80 items-start gap-2.5 text-xs leading-5 text-neutral-200">
+								<Icon class="mt-1 h-3.5 w-3.5 shrink-0 text-amber-400" aria-hidden="true" />
+								<a href={href} class="hover:text-white" target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>{label}</a>
 							</li>
 						))
 					}
 				</ul>
-			</div>
-		</div>
+			</address>
+		</section>
 
-		<div class="h-px w-full bg-[var(--color-footer-border)]"></div>
-
-		<div class="flex flex-col gap-3 text-xs text-[var(--color-footer-muted)] lg:flex-row lg:items-center lg:justify-between">
-			<p>© 2026 Alpha Propolis. Hak cipta dilindungi.</p>
-			<p>Produk ini bukan obat. Tidak untuk mendiagnosis atau mengobati penyakit.</p>
-		</div>
+		<section aria-labelledby="footer-social-title" class="flex flex-col items-start gap-2.5">
+			<h2 id="footer-social-title" class="text-xs font-bold uppercase leading-4 tracking-wide text-white">
+				Dapatkan Info Kesehatan Gratis
+			</h2>
+			<ul class="flex flex-col gap-2.5">
+				{
+					socials.map(({ Icon, label, href }) => (
+						<li class="flex items-center gap-2.5 text-xs leading-5 text-neutral-200">
+							<Icon class="h-3.5 w-3.5 text-amber-400" aria-hidden="true" />
+							<a href={href} class="hover:text-white" target="_blank" rel="noopener noreferrer">{label}</a>
+						</li>
+					))
+				}
+			</ul>
+			<p class="max-w-80 text-xs font-bold text-slate-100">
+				Info update promo, tips diabetes, dan konten kesehatan harian.
+			</p>
+		</section>
 	</div>
 </footer>

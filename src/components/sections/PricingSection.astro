@@ -1,40 +1,30 @@
 ---
+import { ArrowRight, Check, Clock, MessageCircle, Star } from "lucide-astro";
 import Button from "../ui/Button.astro";
+import SectionLabel from "../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../lib/site";
 
-const whatsappHref = "https://wa.me/6281234567890";
+const whatsappHref = whatsappOrderUrl;
 
 const packages = [
 	{
-		name: "Paket A",
 		label: "Paket Hemat",
-		description: "1 Botol Alpha Propolis · 30 ml",
-		originalPrice: "Rp 500.000",
-		price: "Rp 350.000",
-		savings: "Hemat Rp 150.000 (30%)",
-		features: [
-			"1 Botol Alpha Propolis (30 ml)",
-			"Panduan konsumsi lengkap",
-			"Garansi keaslian produk",
-		],
-		cta: "Pilih Paket A",
+		name: "Paket A",
+		oldPrice: "Rp 250.000",
+		price: "Rp 185.000",
+		image: "/images/paket-biasa.webp",
+		features: ["1 Botol Alpha Propolis", "Panduan konsumsi lengkap"],
+		cta: "Mulai Perlindungan Awal",
 		featured: false,
 	},
 	{
-		name: "Paket B",
 		label: "Paket Premium",
-		description: "3 Botol Alpha Propolis · 90 ml",
-		originalPrice: "Rp 1.500.000",
-		price: "Rp 900.000",
-		savings: "Hemat Rp 600.000 (40%) + BONUS",
-		features: [
-			"3 Botol Alpha Propolis (90 ml)",
-			"Panduan konsumsi lengkap",
-			"Gratis konsultasi dokter",
-			"Gratis ongkir seluruh Indonesia",
-			"Garansi uang kembali 30 hari",
-			"Priority customer service 24/7",
-		],
-		cta: "Pilih Paket B - Terbaik",
+		name: "Paket Spesial Bundling",
+		oldPrice: "Rp 500.000",
+		price: "Rp 370.000",
+		image: "/images/paket-premium.webp",
+		features: ["2 Botol Alpha Propolis", "Panduan konsumsi lengkap"],
+		cta: "Klaim Khusus Hari Ini",
 		featured: true,
 	},
 ];
@@ -43,105 +33,62 @@ const packages = [
 <section
 	id="pricing"
 	aria-labelledby="pricing-title"
-	class="landing-section border-t border-[var(--color-border)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft))] px-6 py-20 sm:px-8 lg:px-10"
+	class="landing-section bg-[linear-gradient(150deg,#FAF7F2_7.74%,#FFF5DC_50%,#FAF7F2_92.26%)] px-6 py-24 sm:px-8 lg:px-10"
 >
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
-		<div class="max-w-3xl text-center">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
-				Penawaran Spesial Hari Ini
-			</div>
-			<h2 id="pricing-title" class="mt-5 text-[var(--color-heading)]">
-				Investasi Terbaik untuk
-				<span class="block text-[var(--color-primary-dark)]">Kesehatan Anda</span>
-			</h2>
-			<p class="mt-4 text-[length:var(--font-size-body-lg)] text-[var(--color-muted)]">
-				Mulai perjalanan sehat hari ini. Stok terbatas!
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+		<div class="flex flex-col items-center gap-5 text-center">
+			<SectionLabel text="Penawaran Spesial Hari Ini" />
+			<h2 id="pricing-title" class="text-gray-900">Mulai Lebih Hemat, Hasil Lebih Maksimal</h2>
+			<p class="max-w-[869px] text-stone-900">
+				Amankan pilihan Anda sekarang untuk selalu siap <strong>#JagaSenyumKeluarga</strong> melalui penawaran paket hemat khusus di bawah ini.
 			</p>
-			<p class="mt-5 inline-flex rounded-full bg-[var(--color-danger-soft)] px-5 py-2 text-sm font-bold text-[var(--color-danger-strong)]">
-				Stok tersisa 23 unit - Promo berakhir hari ini
+			<p class="inline-flex items-center gap-2.5 rounded-full bg-red-100 px-6 py-4 text-lg font-bold leading-5 text-red-600">
+				<Clock class="h-5 w-5" aria-hidden="true" />
+				<span>Stok tersisa 23 pcs - Promo berakhir hari ini</span>
 			</p>
 		</div>
 
-		<div class="grid w-full max-w-5xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+		<div class="grid w-full max-w-[920px] items-stretch gap-6 pt-4 lg:grid-cols-[0.9fr_1.1fr]">
 			{
 				packages.map((pkg) => (
-					<article
-						class:list={[
-							"relative flex h-full flex-col rounded-3xl p-8 shadow-card-lg",
-							pkg.featured
-								? "border-2 border-[var(--color-primary)] bg-[linear-gradient(180deg,var(--color-primary-soft),var(--color-primary-soft-2))] shadow-product"
-								: "border border-[var(--color-border)] bg-[var(--color-white)]",
-						]}
-					>
+					<div class:list={[
+						"relative flex flex-col items-start gap-2.5 rounded-3xl p-9 shadow-card-md",
+						pkg.featured
+							? "border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] shadow-product"
+							: "border border-stone-200 bg-white",
+					]}>
 						{pkg.featured && (
-							<div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] px-5 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-white shadow-primary">
-								Best Seller
-							</div>
+							<p class="absolute right-8 top-0 flex -translate-y-1/2 rotate-[1.48deg] items-center gap-1 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 px-6 py-1.5 text-xs font-extrabold leading-5 text-white shadow-primary">
+								<Star class="h-3 w-3 fill-current" aria-hidden="true" />
+								<span>BEST SELLER - PALING HEMAT</span>
+							</p>
 						)}
-
-						<p
-							class:list={[
-								"text-xs font-bold uppercase tracking-[0.16em]",
-								pkg.featured
-									? "text-[var(--color-primary-dark)]"
-									: "text-[var(--color-muted-light)]",
-							]}
-						>
+						<p class:list(["text-xs font-bold uppercase leading-4 tracking-wide", pkg.featured ? "text-amber-400" : "text-stone-400"]}>
 							{pkg.label}
 						</p>
-						<h3 class="mt-3 text-[var(--color-heading)]">{pkg.name}</h3>
-						<p class="mt-2 text-sm text-[var(--color-muted)]">{pkg.description}</p>
-
-						<div class="mt-6">
-							<p class="text-base text-[var(--color-muted-light)] line-through">
-								{pkg.originalPrice}
-							</p>
-							<p class="mt-1 text-4xl font-extrabold text-[var(--color-heading)]">
-								{pkg.price}
-							</p>
-							<p class="mt-2 text-sm font-bold text-[var(--color-success-strong)]">
-								{pkg.savings}
-							</p>
+						<img src={pkg.image} alt={pkg.name} width={pkg.featured ? 405 : 343} height={pkg.featured ? 253 : 227} loading="lazy" decoding="async" class="h-auto w-full rounded-[10px] object-contain" />
+						<div class="pt-2.5">
+							<h3 class="text-3xl font-bold leading-7 text-gray-900">{pkg.name}</h3>
+							<p class="mt-2.5 text-base leading-4 text-stone-400 line-through">{pkg.oldPrice}</p>
+							<p class="mt-2.5 text-4xl font-bold leading-10 text-gray-900">{pkg.price}</p>
 						</div>
-
-						<hr
-							class:list={[
-								"my-8 border-0 border-t",
-								pkg.featured
-									? "border-[color:rgb(251_191_36_/_0.3)]"
-									: "border-[var(--color-border)]",
-							]}
-						/>
-
-						<ul class="flex flex-1 flex-col gap-4">
-							{pkg.features.map((feature) => (
-								<li class="flex items-start gap-3 text-base text-[var(--color-heading)]">
-									<span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-success-soft)] text-xs font-bold text-[var(--color-success-strong)]">
-										✓
-									</span>
-									<span class={pkg.featured && feature !== pkg.features[0] ? "font-semibold" : ""}>
-										{feature}
-									</span>
-								</li>
-							))}
+						<p class="text-xl font-bold leading-5 text-green-500">Hemat 26%</p>
+						<ul class="w-full flex-1 divide-y divide-neutral-200">
+							{
+								pkg.features.map((feature) => (
+									<li class="flex items-center gap-2.5 py-3.5 text-base font-medium leading-4 text-stone-900">
+										<Check class="h-4 w-4 text-green-500" aria-hidden="true" />
+										<span>{feature}</span>
+									</li>
+								))
+							}
 						</ul>
-
-						<div class="mt-8">
-							<Button
-								href={whatsappHref}
-								size={pkg.featured ? "lg" : "md"}
-								class:list={[
-									"w-full",
-									pkg.featured ? "h-16 px-8 text-lg" : "h-11 px-7",
-								]}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								{pkg.cta}
-							</Button>
-						</div>
-					</article>
+						<Button href={whatsappHref} size={pkg.featured ? "lg" : "md"} class={pkg.featured ? "mt-2 h-16" : "mt-2 h-11 px-7"} target="_blank" rel="noopener noreferrer">
+							<MessageCircle class={pkg.featured ? "h-4 w-4" : "h-3 w-3"} aria-hidden="true" />
+							<span>{pkg.cta}</span>
+							<ArrowRight class={pkg.featured ? "h-4 w-4" : "h-3 w-3"} aria-hidden="true" />
+						</Button>
+					</div>
 				))
 			}
 		</div>

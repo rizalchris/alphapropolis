@@ -4,13 +4,16 @@ import "../styles/global.css";
 const {
 	title = "Alpha Propolis",
 	description = "Landing page Alpha Propolis untuk membantu perjalanan hidup sehat penderita diabetes.",
+	image = "/images/Alpha-Propolis.webp",
+	keywords,
 	structuredData,
 } = Astro.props;
 
 const siteUrl = "https://alphapropolis.id";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
 const fontHref =
-	"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap";
+	"https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700;800;900&display=swap";
 ---
 
 <!doctype html>
@@ -19,17 +22,20 @@ const fontHref =
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
+		{keywords && <meta name="keywords" content={keywords} />}
 		<meta name="robots" content="index, follow" />
 		<meta name="theme-color" content="#111827" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="dns-prefetch" href="https://placehold.co" />
 		<link
 			rel="preload"
-			as="style"
-			href={fontHref}
+			as="image"
+			href={image}
+			type="image/webp"
+			fetchpriority="high"
 		/>
+		<link rel="preload" as="style" href={fontHref} />
 		<link
 			href={fontHref}
 			rel="stylesheet"
@@ -47,9 +53,12 @@ const fontHref =
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:image:alt" content="Botol produk Alpha Propolis" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageUrl} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		{
@@ -62,6 +71,7 @@ const fontHref =
 		}
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 		<slot />
 	</body>
 </html>

@@ -1,110 +1,113 @@
 ---
+import { ArrowRight, Check, MessageCircle } from "lucide-astro";
 import Button from "../ui/Button.astro";
+import SectionLabel from "../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../lib/site";
 
-const whatsappHref = "https://wa.me/6281234567890";
+const whatsappHref = whatsappOrderUrl;
+
+const benefits = [
+	"Menjaga gula darah tetap terkontrol",
+	"Melawan radikal bebas",
+	"Meningkatkan kekebalan tubuh",
+	"Merawat sensitivitas insulin",
+	"Membantu menjaga energi harian",
+	"Mendukung proses percepatan pemulihan luka",
+	"Membantu mengatasi infeksi saluran pernapasan",
+];
 
 const doctors = [
 	{
 		name: "dr. Andi Kurniawan, Sp.PD",
-		role: "Spesialis Penyakit Dalam · RS Cipto Mangunkusumo",
+		image: "/images/dr.%20Andi%20Kurniawan,%20Sp.PD.webp",
 		quote:
-			"Alpha Propolis memiliki kandungan flavonoid dan asam fenolik terstandarisasi yang secara klinis terbukti membantu mengontrol kadar gula darah dan melindungi sel beta pankreas dari stres oksidatif.",
+			"Propolis membantu kontrol gula darah pada pasien Diabetes, karena propolis meningkatkan sensitivitas insulin sehingga lebih peka menarik darah dalam sel.",
 	},
 	{
-		name: "dr. Siti Rahayu, Sp.PD-KEMD",
-		role: "Konsultan Endokrinologi · RS Kariadi Semarang",
+		name: "Dr. Endang, M.Si",
+		image: "/images/Dr.%20Endang,%20M.Si.webp",
 		quote:
-			"IC50 yang rendah menunjukkan kapasitas antioksidan superior. Saya merekomendasikan sebagai suplemen pendukung untuk pasien diabetes dalam upaya mencegah komplikasi jangka panjang.",
+			"Propolis adalah kombinasi getah pohon dan lilin lebah yang kaya polifenol serta flavonoid. Manfaat alaminya bekerja sebagai antivirus, antibakteri, anti radang, sekaligus melindungi dan memperbaiki sistem saraf.",
 	},
-];
-
-const benefits = [
-	"Menurunkan kadar gula darah secara alami dan bertahap",
-	"Melindungi sel beta pankreas dari kerusakan oksidatif",
-	"Mengurangi resistensi insulin di tingkat sel",
-	"Mencegah komplikasi diabetes jangka panjang",
-	"Meningkatkan energi dan vitalitas sehari-hari",
-	"Aman untuk konsumsi jangka panjang",
+	{
+		name: "Dr. Mahani, M.Si",
+		image: "/images/Dr.%20Mahani,%20M.Si.webp",
+		quote:
+			"Dengan minum Propolis, konsentrasi gula pada darah akan berkurang, sehingga kesempatan gula dijadikan media tumbuh bagi jamur tidak terjadi, sehingga luka akan bisa sembuh.",
+	},
 ];
 ---
 
-<section
-	id="doctors"
-	aria-labelledby="doctors-title"
-	class="landing-section bg-[var(--color-white)] px-6 py-20 sm:px-8 lg:px-10"
->
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12">
-		<div class="max-w-3xl text-center">
-			<div class="inline-flex items-center gap-2 rounded-full border border-[color:rgb(251_191_36_/_0.3)] bg-[var(--color-primary-soft)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-				<span class="h-2.5 w-2.5 rounded-full border border-[var(--color-primary)]"></span>
-				Validasi Ahli Kesehatan
+<section id="doctors" aria-labelledby="doctors-title" class="landing-section bg-white px-6 py-24 sm:px-8 lg:px-10">
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-10">
+		<section class="flex w-full flex-col items-center gap-12 rounded-3xl border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12" aria-labelledby="diabetes-comfort-title">
+			<div class="flex max-w-4xl flex-col items-center gap-5 text-center">
+				<h2 id="diabetes-comfort-title" class="text-4xl font-bold leading-8 text-gray-900">
+					Cara Nyaman Berdamai dengan Diabetes
+				</h2>
+				<p class="text-stone-900">
+					Mulai langkah praktis harian ini demi tubuh yang tetap aktif, bertenaga, dan selalu siap #JagaSenyumKeluarga.
+				</p>
 			</div>
-			<h2 id="doctors-title" class="mt-5 text-[var(--color-heading)]">
-				Dipercaya Para Dokter
-				<span class="block text-[var(--color-primary-dark)]">Spesialis Indonesia</span>
-			</h2>
-		</div>
-
-		<div class="grid w-full gap-6 lg:grid-cols-2">
-			{
-				doctors.map((doctor) => (
-					<article class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-white)] p-8 shadow-card-lg">
-						<div class="flex items-start gap-4">
-							<img
-								class="h-16 w-16 rounded-full border-[3px] border-[var(--color-primary-soft)] object-cover"
-								src="https://placehold.co/72x72"
-								alt={`Foto ${doctor.name}`}
-								width="72"
-								height="72"
-								loading="lazy"
-								decoding="async"
-							/>
-							<div>
-								<h3 class="text-base font-bold text-[var(--color-heading)]">
-									{doctor.name}
-								</h3>
-								<p class="mt-1 text-xs text-[var(--color-muted)]">{doctor.role}</p>
-							</div>
-						</div>
-
-						<blockquote class="mt-5 rounded-2xl border-l-4 border-[var(--color-primary)] bg-[var(--color-primary-soft)] px-6 py-5">
-							<p class="text-base leading-7 text-[var(--color-heading)]">
-								"{doctor.quote}"
-							</p>
-						</blockquote>
-					</article>
-				))
-			}
-		</div>
-
-		<div class="w-full rounded-3xl border border-[color:rgb(251_191_36_/_0.3)] bg-[linear-gradient(180deg,var(--color-primary-soft),#fafaf9)] px-6 py-8 sm:px-8">
-			<h3 class="text-center text-xl font-extrabold text-[var(--color-heading)]">
-				Manfaat Nyata yang Dirasakan Pengguna
-			</h3>
-			<ul class="mt-7 grid gap-4 lg:grid-cols-2">
+			<ul class="grid w-full max-w-5xl gap-2.5 lg:grid-cols-2">
 				{
 					benefits.map((benefit) => (
-						<li class="flex items-start gap-3 text-base text-[var(--color-heading)]">
-							<span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-xl bg-[var(--color-success-soft)] text-xs font-bold text-[var(--color-success-strong)]">
-								✓
+						<li class="flex items-start gap-3 text-xl leading-6 text-stone-900">
+							<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-xl bg-green-100">
+								<Check class="h-3 w-3 text-green-500" aria-hidden="true" />
 							</span>
 							<span>{benefit}</span>
 						</li>
 					))
 				}
 			</ul>
-		</div>
+		</section>
 
-		<div class="w-full max-w-md">
-			<Button
-				href={whatsappHref}
-				size="lg"
-				class="h-16 w-full px-8 text-lg"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Konsultasi Gratis via WhatsApp
+		<section class="flex w-full flex-col items-center gap-10" aria-labelledby="doctors-title">
+			<div class="flex flex-col items-center gap-5 text-center">
+				<SectionLabel text="Validasi Ahli Kesehatan" />
+				<h2 id="doctors-title" class="max-w-[651px] text-gray-900">
+					Beralih ke Propolis Terbaik Pilihan Dokter untuk Anda
+				</h2>
+			</div>
+			<ul class="grid w-full gap-5 lg:grid-cols-3">
+				{
+					doctors.map((doctor) => (
+						<li class="h-full">
+							<div class="flex h-full w-full flex-col gap-5 rounded-3xl bg-white p-5 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-stone-200">
+								<div class="flex items-center gap-4">
+									<div class="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-[36px] bg-stone-100 p-1 outline outline-[3px] outline-offset-[-3px] outline-orange-50">
+										<img
+											src={doctor.image}
+											alt={doctor.name}
+											width="79"
+											height="158"
+											loading="lazy"
+											decoding="async"
+											class="h-full w-full object-contain"
+										/>
+									</div>
+									<div class="w-full">
+										<div class="text-2xl font-bold leading-8 text-gray-900">
+											{doctor.name}
+										</div>
+									</div>
+								</div>
+								<div class="flex h-full flex-col justify-start rounded-2xl border-l-4 border-amber-400 bg-orange-50 px-6 py-5">
+									<div class="text-base font-normal leading-6 text-stone-900">
+										{doctor.quote}
+									</div>
+								</div>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+			<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer">
+				<MessageCircle class="h-4 w-4" aria-hidden="true" />
+				<span>Pilih Rekomendasi Dokter</span>
+				<ArrowRight class="h-4 w-4" aria-hidden="true" />
 			</Button>
-		</div>
+		</section>
 	</div>
 </section>

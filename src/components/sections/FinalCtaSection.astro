@@ -1,82 +1,29 @@
 ---
+import { ArrowRight, MessageCircle, ShieldCheck, Truck } from "lucide-astro";
 import Button from "../ui/Button.astro";
-import {
-	ArrowRight,
-	Check,
-	MessageCircle,
-	ShieldCheck,
-} from "lucide-astro";
+import CertificationChips from "../shared/CertificationChips.astro";
+import { whatsappOrderUrl } from "../../lib/site";
 
-const whatsappHref = "https://wa.me/6281234567890";
-
-const certifications = ["BPOM RI", "HALAL MUI", "GMP", "ISO 22000"];
-
-const guarantees =
-	"🛡️ Garansi 30 Hari · 🚚 Gratis Ongkir · 💬 Respons < 5 menit";
+const whatsappHref = whatsappOrderUrl;
 ---
 
-<section
-	id="final-cta"
-	aria-labelledby="final-cta-title"
-	class="landing-section relative overflow-hidden bg-[linear-gradient(135deg,#111827_0%,#1C1917_100%)] px-6 py-20 sm:px-8 lg:px-10 lg:py-24"
->
-	<div class="pointer-events-none absolute inset-0 overflow-hidden">
-		<div
-			class="absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(231,181,57,0.12),rgba(0,0,0,0)_65%)] blur-sm"
-		></div>
-	</div>
-
-	<div class="relative mx-auto flex w-full max-w-[760px] flex-col items-center text-center">
-		<div class="flex h-16 w-16 items-center justify-center text-4xl leading-none">
-			💛
-		</div>
-
-		<div class="mt-5">
-			<h2
-				id="final-cta-title"
-				class="text-4xl font-extrabold leading-tight text-white sm:text-5xl sm:leading-[1.15]"
-			>
-				Masih Ada Waktu untuk
-				<span class="text-[var(--color-primary)]">Kembali Sehat</span>
-				<span class="block">untuk Orang yang Anda Cintai</span>
-			</h2>
-		</div>
-
-		<p class="mt-6 max-w-3xl text-lg leading-9 text-gray-400 sm:text-[19px]">
-			Suami, istri, anak, cucu Anda membutuhkan Anda yang sehat dan berdaya.
-			Ambil satu langkah kecil hari ini dan ubah segalanya.
-		</p>
-
-		<div class="mt-[52px] w-full">
-			<Button
-				href={whatsappHref}
-				size="lg"
-				class="mx-auto h-[68px] px-10 text-lg font-bold shadow-[0_6px_20px_rgba(34,197,94,0.30)] sm:px-12"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<MessageCircle class="h-[18px] w-[18px]" aria-hidden="true" />
-				<span>Chat via WhatsApp Sekarang</span>
-				<ArrowRight class="h-[17px] w-[17px]" aria-hidden="true" />
+<section id="final-cta" aria-labelledby="final-cta-title" class="landing-section bg-white px-6 py-24 sm:px-8 lg:px-10">
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-12 rounded-3xl border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12">
+		<h2 id="final-cta-title" class="max-w-[658px] text-center text-gray-900">
+			Sudah terbukti aman dan dipercaya ribuan orang
+		</h2>
+		<CertificationChips class="justify-center" />
+		<div class="flex flex-col items-center gap-2.5">
+			<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer">
+				<MessageCircle class="h-4 w-4" aria-hidden="true" />
+				<span>Sekarang Giliran Anda!</span>
+				<ArrowRight class="h-4 w-4" aria-hidden="true" />
 			</Button>
+			<p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs leading-5 text-gray-700">
+				<span class="inline-flex items-center gap-1"><ShieldCheck class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" /> Garansi 30 Hari</span>
+				<span class="inline-flex items-center gap-1"><Truck class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" /> Gratis Ongkir</span>
+				<span>Respons &lt; 5 menit</span>
+			</p>
 		</div>
-
-		<ul class="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-			{
-				certifications.map((item) => (
-					<li class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.06em] text-gray-500">
-						<span class="inline-flex h-3 w-3 items-center justify-center text-[var(--color-primary)]">
-							<Check class="h-3 w-3" aria-hidden="true" />
-						</span>
-						<span>{item}</span>
-					</li>
-				))
-			}
-		</ul>
-
-		<p class="mt-4 inline-flex items-center gap-2 text-center text-sm leading-5 text-gray-700">
-			<ShieldCheck class="h-4 w-4 text-[var(--color-primary)]" aria-hidden="true" />
-			<span>{guarantees}</span>
-		</p>
 	</div>
 </section>
