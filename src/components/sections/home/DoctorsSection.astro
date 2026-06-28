@@ -274,106 +274,118 @@ const doctorVideos = [
 		</div>
 	</dialog>
 	<script is:inline>
-		const section = document.currentScript?.closest("section");
-		const dialog = document.getElementById("doctor-video-dialog");
-		const player = document.getElementById("doctor-video-player");
-		const triggers = section?.querySelectorAll("[data-video-trigger]") ?? [];
-		const closeButtons = document.querySelectorAll("[data-video-close]");
-		const track = section?.querySelector("[data-video-carousel-track]");
-		const prevButton = section?.querySelector("[data-video-carousel-prev]");
-		const nextButton = section?.querySelector("[data-video-carousel-next]");
-		let activeTrigger = null;
+		(() => {
+			const doctorsSection = document.getElementById("doctors");
+			const dialog = document.getElementById("doctor-video-dialog");
+			const player = document.getElementById("doctor-video-player");
+			const triggers =
+				doctorsSection?.querySelectorAll("[data-video-trigger]") ?? [];
+			const closeButtons = document.querySelectorAll("[data-video-close]");
+			const track = doctorsSection?.querySelector("[data-video-carousel-track]");
+			const prevButton = doctorsSection?.querySelector("[data-video-carousel-prev]");
+			const nextButton = doctorsSection?.querySelector("[data-video-carousel-next]");
+			let activeTrigger = null;
 
-		if (track instanceof HTMLElement) {
-			const getScrollAmount = () => {
-				const firstCard = track.querySelector("li");
-				if (!(firstCard instanceof HTMLElement)) {
-					return track.clientWidth;
-				}
+			if (track instanceof HTMLElement) {
+				const getScrollAmount = () => {
+					const firstCard = track.querySelector("li");
+					if (!(firstCard instanceof HTMLElement)) {
+						return track.clientWidth;
+					}
 
-				const styles = window.getComputedStyle(track);
-				const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
+					const styles = window.getComputedStyle(track);
+					const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
 
-				return firstCard.getBoundingClientRect().width + gap;
-			};
+					return firstCard.getBoundingClientRect().width + gap;
+				};
 
-			const updateControls = () => {
-				if (!(prevButton instanceof HTMLButtonElement) || !(nextButton instanceof HTMLButtonElement)) {
-					return;
-				}
-
-				const maxScrollLeft = track.scrollWidth - track.clientWidth;
-				prevButton.disabled = track.scrollLeft <= 4;
-				nextButton.disabled = track.scrollLeft >= maxScrollLeft - 4;
-			};
-
-			prevButton?.addEventListener("click", () => {
-				track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
-			});
-
-			nextButton?.addEventListener("click", () => {
-				track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
-			});
-
-			track.addEventListener("scroll", updateControls, { passive: true });
-			window.addEventListener("resize", updateControls);
-			updateControls();
-		}
-
-		if (
-			dialog instanceof HTMLDialogElement &&
-			player instanceof HTMLVideoElement
-		) {
-			const stopVideo = () => {
-				player.pause();
-				player.removeAttribute("src");
-				player.load();
-			};
-
-			const closeDialog = () => {
-				stopVideo();
-				if (dialog.open) {
-					dialog.close();
-				}
-				if (activeTrigger instanceof HTMLElement) {
-					activeTrigger.focus();
-				}
-			};
-
-			triggers.forEach((trigger) => {
-				trigger.addEventListener("click", () => {
-					const src = trigger.getAttribute("data-video-src");
-
-					if (!src) {
+				const updateControls = () => {
+					if (
+						!(prevButton instanceof HTMLButtonElement) ||
+						!(nextButton instanceof HTMLButtonElement)
+					) {
 						return;
 					}
 
-					activeTrigger = trigger;
-					player.src = src;
-					player.load();
+					const maxScrollLeft = track.scrollWidth - track.clientWidth;
+					prevButton.disabled = track.scrollLeft <= 4;
+					nextButton.disabled = track.scrollLeft >= maxScrollLeft - 4;
+				};
 
-					if (!dialog.open) {
-						dialog.showModal();
-					}
-
-					player.play().catch(() => {
-						// Autoplay can be blocked in some browsers; controls remain available.
+				prevButton?.addEventListener("click", () => {
+					track.scrollTo({
+						left: track.scrollLeft - getScrollAmount(),
+						behavior: "smooth",
 					});
 				});
-			});
 
-			closeButtons.forEach((button) => {
-				button.addEventListener("click", closeDialog);
-			});
+				nextButton?.addEventListener("click", () => {
+					track.scrollTo({
+						left: track.scrollLeft + getScrollAmount(),
+						behavior: "smooth",
+					});
+				});
 
-			dialog.addEventListener("click", (event) => {
-				const target = event.target;
-				if (target === dialog) {
-					closeDialog();
-				}
-			});
+				track.addEventListener("scroll", updateControls, { passive: true });
+				window.addEventListener("resize", updateControls);
+				updateControls();
+			}
 
-			dialog.addEventListener("close", stopVideo);
-		}
+			if (
+				dialog instanceof HTMLDialogElement &&
+				player instanceof HTMLVideoElement
+			) {
+				const stopVideo = () => {
+					player.pause();
+					player.removeAttribute("src");
+					player.load();
+				};
+
+				const closeDialog = () => {
+					stopVideo();
+					if (dialog.open) {
+						dialog.close();
+					}
+					if (activeTrigger instanceof HTMLElement) {
+						activeTrigger.focus();
+					}
+				};
+
+				triggers.forEach((trigger) => {
+					trigger.addEventListener("click", () => {
+						const src = trigger.getAttribute("data-video-src");
+
+						if (!src) {
+							return;
+						}
+
+						activeTrigger = trigger;
+						player.src = src;
+						player.load();
+
+						if (!dialog.open) {
+							dialog.showModal();
+						}
+
+						player.play().catch(() => {
+							// Autoplay can be blocked in some browsers; controls remain available.
+						});
+					});
+				});
+
+				closeButtons.forEach((button) => {
+					button.addEventListener("click", closeDialog);
+				});
+
+				dialog.addEventListener("click", (event) => {
+					const target = event.target;
+					if (target === dialog) {
+						closeDialog();
+					}
+				});
+
+				dialog.addEventListener("close", stopVideo);
+			}
+		})();
 	</script>
 </section>
