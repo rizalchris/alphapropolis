@@ -25,16 +25,19 @@ const benefits = [
 const doctors = [
 	{
 		name: "dr. Robert",
+		title: "Konsultan Medis",
 		image: "/images/dr.%20Andi%20Kurniawan,%20Sp.PD.webp",
 		quote: "Propolis membantu kontrol gula darah pada pasien Diabetes, karena propolis meningkatkan sensitivitas insulin sehingga lebih peka menarik darah dalam sel.",
 	},
 	{
 		name: "dr. Endang, M.Si (Herbs)",
+		title: "Konsultan Medis",
 		image: "/images/Dr.%20Endang,%20M.Si.webp",
 		quote: "Propolis adalah kombinasi getah pohon dan lilin lebah yang kaya polifenol serta flavonoid. Manfaat alaminya bekerja sebagai antivirus, antibakteri, anti radang, sekaligus melindungi dan memperbaiki sistem saraf.",
 	},
 	{
 		name: "Dr. Mahani, SP., M.Si",
+		title: "Pakar Propolis & Madu SNI",
 		image: "/images/Dr.%20Mahani,%20M.Si.webp",
 		quote: "Dengan minum Propolis, konsentrasi gula pada darah akan berkurang, sehingga kesempatan gula dijadikan media tumbuh bagi jamur tidak terjadi, sehingga luka akan bisa sembuh.",
 	},
@@ -124,24 +127,6 @@ const doctorVideos = [
 			</div>
 
 			<div class="w-full max-w-6xl">
-				<div class="mb-4 flex items-center justify-end gap-3">
-					<button
-						type="button"
-						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-						data-video-carousel-prev
-						aria-label="Video sebelumnya"
-					>
-						<ChevronLeft class="size-5" aria-hidden="true" />
-					</button>
-					<button
-						type="button"
-						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-						data-video-carousel-next
-						aria-label="Video berikutnya"
-					>
-						<ChevronRight class="size-5" aria-hidden="true" />
-					</button>
-				</div>
 				<ul
 					class="flex gap-4 overflow-x-auto scroll-smooth pb-2"
 					data-video-carousel-track
@@ -195,12 +180,33 @@ const doctorVideos = [
 						))
 					}
 				</ul>
+				<div class="mt-4 flex w-full items-center justify-end gap-3">
+					<button
+						type="button"
+						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						data-video-carousel-prev
+						aria-label="Video sebelumnya"
+					>
+						<ChevronLeft class="size-5" aria-hidden="true" />
+					</button>
+					<button
+						type="button"
+						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						data-video-carousel-next
+						aria-label="Video berikutnya"
+					>
+						<ChevronRight class="size-5" aria-hidden="true" />
+					</button>
+				</div>
 			</div>
 
-			<ul class="grid w-full gap-5 lg:grid-cols-3">
+			<ul
+				class="flex w-full snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-3 lg:overflow-visible"
+				data-doctor-cards-track
+			>
 				{
 					doctors.map((doctor) => (
-						<li class="h-full">
+						<li class="h-full w-[82vw] max-w-[320px] shrink-0 snap-start lg:w-auto lg:max-w-none">
 							<article class="flex h-full w-full flex-col gap-5 rounded-3xl bg-white p-5 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-stone-200">
 								<div class="flex items-center gap-4">
 									<div class="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-[36px] bg-stone-100 p-1 outline outline-[3px] outline-offset-[-3px] outline-orange-50">
@@ -218,6 +224,9 @@ const doctorVideos = [
 										<div class="text-2xl font-bold leading-8 text-gray-900">
 											{doctor.name}
 										</div>
+										<div class="text-[20px] font-normal leading-[120%] text-stone-900">
+											{doctor.title}
+										</div>
 									</div>
 								</div>
 								<blockquote class="flex h-full flex-col justify-start rounded-2xl border-l-4 border-amber-400 bg-orange-50 px-6 py-5">
@@ -228,9 +237,27 @@ const doctorVideos = [
 								</blockquote>
 							</article>
 						</li>
-					))
-				}
+						))
+					}
 			</ul>
+			<div class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden">
+				<button
+					type="button"
+					class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+					data-doctor-cards-prev
+					aria-label="Dokter sebelumnya"
+				>
+					<ChevronLeft class="size-5" aria-hidden="true" />
+				</button>
+				<button
+					type="button"
+					class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+					data-doctor-cards-next
+					aria-label="Dokter berikutnya"
+				>
+					<ChevronRight class="size-5" aria-hidden="true" />
+				</button>
+			</div>
 
 			<Button
 				href={whatsappHref}
@@ -297,6 +324,9 @@ const doctorVideos = [
 			const track = section?.querySelector("[data-video-carousel-track]");
 			const prevButton = section?.querySelector("[data-video-carousel-prev]");
 			const nextButton = section?.querySelector("[data-video-carousel-next]");
+			const doctorCardsTrack = section?.querySelector("[data-doctor-cards-track]");
+			const doctorCardsPrev = section?.querySelector("[data-doctor-cards-prev]");
+			const doctorCardsNext = section?.querySelector("[data-doctor-cards-next]");
 			let activeTrigger = null;
 
 			if (track instanceof HTMLElement) {
@@ -341,6 +371,52 @@ const doctorVideos = [
 				track.addEventListener("scroll", updateControls, { passive: true });
 				window.addEventListener("resize", updateControls);
 				updateControls();
+			}
+
+			if (
+				doctorCardsTrack instanceof HTMLElement &&
+				doctorCardsPrev instanceof HTMLButtonElement &&
+				doctorCardsNext instanceof HTMLButtonElement
+			) {
+				const getDoctorCardsScrollAmount = () => {
+					const firstCard = doctorCardsTrack.querySelector("li");
+					if (!(firstCard instanceof HTMLElement)) {
+						return doctorCardsTrack.clientWidth;
+					}
+
+					const styles = window.getComputedStyle(doctorCardsTrack);
+					const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
+
+					return firstCard.getBoundingClientRect().width + gap;
+				};
+
+				const updateDoctorCardsControls = () => {
+					const maxScrollLeft =
+						doctorCardsTrack.scrollWidth - doctorCardsTrack.clientWidth;
+					doctorCardsPrev.disabled = doctorCardsTrack.scrollLeft <= 4;
+					doctorCardsNext.disabled =
+						doctorCardsTrack.scrollLeft >= maxScrollLeft - 4;
+				};
+
+				doctorCardsPrev.addEventListener("click", () => {
+					doctorCardsTrack.scrollBy({
+						left: -getDoctorCardsScrollAmount(),
+						behavior: "smooth",
+					});
+				});
+
+				doctorCardsNext.addEventListener("click", () => {
+					doctorCardsTrack.scrollBy({
+						left: getDoctorCardsScrollAmount(),
+						behavior: "smooth",
+					});
+				});
+
+				doctorCardsTrack.addEventListener("scroll", updateDoctorCardsControls, {
+					passive: true,
+				});
+				window.addEventListener("resize", updateDoctorCardsControls);
+				updateDoctorCardsControls();
 			}
 
 			if (
