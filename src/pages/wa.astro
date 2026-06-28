@@ -13,24 +13,234 @@ import WaFinalCtaSection from "../components/sections/wa/WaFinalCtaSection.astro
 import WaFooterSection from "../components/sections/wa/WaFooterSection.astro";
 import { whatsappOrderUrl } from "../lib/site";
 
-const title = "Alpha Propolis | Promo WhatsApp";
+const title = "Alpha Propolis Promo WhatsApp | Suplemen Halal BPOM";
 const description =
-	"Halaman promo WhatsApp Alpha Propolis untuk membantu menjaga tubuh dari risiko komplikasi diabetes dan mendukung daya tahan tubuh harian.";
+	"Promo WhatsApp Alpha Propolis, suplemen halal BPOM untuk membantu menjaga daya tahan tubuh, rutinitas diabetes, dan pendamping masa pengobatan TBC.";
 const image = "/images/Alpha-Propolis.webp";
+const imageAlt = "Botol Alpha Propolis dengan kemasan produk resmi";
 const keywords =
-	"Alpha Propolis WhatsApp, promo Alpha Propolis, propolis diabetes, propolis TBC, suplemen halal BPOM";
+	"Alpha Propolis WhatsApp, promo Alpha Propolis, harga Alpha Propolis, propolis diabetes, propolis TBC, suplemen halal BPOM, propolis Trigona, propolis Apis Mellifera";
+const siteUrl = "https://alphapropolis.id";
+const pageUrl = `${siteUrl}/wa/`;
+const productImageUrl = `${siteUrl}/images/Alpha-Propolis.webp`;
+const logoUrl = `${siteUrl}/images/logo.webp`;
+const faqItems = [
+	{
+		question: "Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
+		answer: "Gunakan sesuai aturan pakai. Jika Anda memiliki kondisi khusus, sedang hamil, menyusui, alergi produk lebah, atau menjalani pengobatan rutin, konsultasikan dengan dokter terlebih dahulu.",
+	},
+	{
+		question: "Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
+		answer: "Panduan pada halaman ini menggunakan 6 tetes dalam 100 ml air hangat. Sesuaikan dengan arahan tenaga kesehatan bila Anda sedang menjalani terapi tertentu.",
+	},
+	{
+		question: "Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
+		answer: "Tidak. Alpha Propolis adalah suplemen pendamping dan bukan pengganti obat dokter, insulin, atau terapi medis utama.",
+	},
+	{
+		question: "Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
+		answer: "Kandungan propolis diposisikan sebagai pendamping untuk membantu daya tahan tubuh. Pengobatan TBC dengan OAT tetap wajib dilanjutkan sampai selesai sesuai instruksi dokter.",
+	},
+	{
+		question: "Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
+		answer: "Berikan jeda konsumsi minimal 1 jam dari obat dokter dan konsultasikan dengan dokter yang menangani Anda, terutama bila terapi tidak boleh putus.",
+	},
+	{
+		question: "Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
+		answer: "Antioksidan membantu tubuh menghadapi radikal bebas. Untuk kondisi diabetes, tetap ikuti anjuran dokter dan gunakan suplemen hanya sebagai pendamping rutinitas sehat.",
+	},
+	{
+		question: "Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
+		answer: "Pesan melalui kanal resmi Alpha Propolis atau hubungi tim WhatsApp untuk memastikan produk, harga, dan paket yang tersedia.",
+	},
+	{
+		question: "Apakah Alpha Propolis sudah bersertifikasi Halal?",
+		answer: "Ya, materi halaman ini mencantumkan sertifikasi HALAL MUI ID00410000283380322.",
+	},
+	{
+		question: "Apakah bisa melakukan pembayaran di tempat (COD)?",
+		answer: "Hubungi tim WhatsApp untuk memastikan ketersediaan COD berdasarkan wilayah pengiriman Anda.",
+	},
+];
 
 const structuredData = {
 	"@context": "https://schema.org",
-	"@type": "WebPage",
-	name: title,
-	description,
-	url: "https://alphapropolis.id/wa",
-	primaryImageOfPage: "https://alphapropolis.id/images/Alpha-Propolis.webp",
-	potentialAction: {
-		"@type": "CommunicateAction",
-		target: whatsappOrderUrl,
-	},
+	"@graph": [
+		{
+			"@type": "Organization",
+			"@id": `${siteUrl}/#organization`,
+			name: "Alpha Propolis",
+			legalName: "PT. Unimax Power",
+			url: siteUrl,
+			logo: logoUrl,
+			image: productImageUrl,
+			email: "info@alphapropolis.id",
+			telephone: "+628118131000",
+			address: {
+				"@type": "PostalAddress",
+				streetAddress: "Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading",
+				addressLocality: "Jakarta Utara",
+				addressRegion: "DKI Jakarta",
+				addressCountry: "ID",
+			},
+			contactPoint: {
+				"@type": "ContactPoint",
+				telephone: "+628118131000",
+				contactType: "customer service",
+				availableLanguage: ["id"],
+				url: whatsappOrderUrl,
+			},
+		},
+		{
+			"@type": "WebSite",
+			"@id": `${siteUrl}/#website`,
+			name: "Alpha Propolis",
+			url: siteUrl,
+			publisher: {
+				"@id": `${siteUrl}/#organization`,
+			},
+			inLanguage: "id-ID",
+		},
+		{
+			"@type": "WebPage",
+			"@id": `${pageUrl}#webpage`,
+			url: pageUrl,
+			name: title,
+			description,
+			isPartOf: {
+				"@id": `${siteUrl}/#website`,
+			},
+			about: {
+				"@id": `${pageUrl}#product`,
+			},
+			primaryImageOfPage: {
+				"@type": "ImageObject",
+				url: productImageUrl,
+				width: 480,
+				height: 592,
+				caption: imageAlt,
+			},
+			breadcrumb: {
+				"@id": `${pageUrl}#breadcrumb`,
+			},
+			potentialAction: {
+				"@type": "CommunicateAction",
+				target: whatsappOrderUrl,
+				name: "Chat WhatsApp Alpha Propolis",
+			},
+			inLanguage: "id-ID",
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": `${pageUrl}#breadcrumb`,
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Beranda",
+					item: `${siteUrl}/`,
+				},
+				{
+					"@type": "ListItem",
+					position: 2,
+					name: "Promo WhatsApp Alpha Propolis",
+					item: pageUrl,
+				},
+			],
+		},
+		{
+			"@type": "Product",
+			"@id": `${pageUrl}#product`,
+			name: "Alpha Propolis",
+			sku: "ALPHA-PROPOLIS",
+			description:
+				"Suplemen kesehatan berbahan propolis dari lebah Trigona dan Apis Mellifera sebagai pendamping rutinitas sehat harian.",
+			image: productImageUrl,
+			brand: {
+				"@id": `${siteUrl}/#organization`,
+			},
+			category: "HealthSupplement",
+			offers: [
+				{
+					"@type": "Offer",
+					name: "Paket A",
+					price: "185000",
+					priceCurrency: "IDR",
+					availability: "https://schema.org/InStock",
+					itemCondition: "https://schema.org/NewCondition",
+					url: `${pageUrl}#wa-pricing`,
+					seller: {
+						"@id": `${siteUrl}/#organization`,
+					},
+				},
+				{
+					"@type": "Offer",
+					name: "Paket Spesial Bundling",
+					price: "370000",
+					priceCurrency: "IDR",
+					availability: "https://schema.org/InStock",
+					itemCondition: "https://schema.org/NewCondition",
+					url: `${pageUrl}#wa-pricing`,
+					seller: {
+						"@id": `${siteUrl}/#organization`,
+					},
+				},
+			],
+		},
+		{
+			"@type": "HowTo",
+			"@id": `${pageUrl}#how-to-use`,
+			name: "Cara konsumsi Alpha Propolis",
+			description: "Panduan konsumsi Alpha Propolis dengan 100 ml air hangat dan 6 tetes Alpha Propolis.",
+			image: `${siteUrl}/images/Aduk%20Rata%20%26%20Siap%20Minum.webp`,
+			totalTime: "PT2M",
+			supply: [
+				{
+					"@type": "HowToSupply",
+					name: "100 ml air hangat",
+				},
+				{
+					"@type": "HowToSupply",
+					name: "6 tetes Alpha Propolis",
+				},
+			],
+			step: [
+				{
+					"@type": "HowToStep",
+					position: 1,
+					name: "Siapkan 100 ml air hangat",
+					text: "Tuangkan air putih hangat ke dalam gelas.",
+					image: `${siteUrl}/images/100ml%20Air%20Hangat.webp`,
+				},
+				{
+					"@type": "HowToStep",
+					position: 2,
+					name: "Tambahkan 6 tetes Alpha Propolis",
+					text: "Teteskan Alpha Propolis langsung ke dalam gelas.",
+					image: `${siteUrl}/images/6%20Tetes%20Alpha%20Propolis.webp`,
+				},
+				{
+					"@type": "HowToStep",
+					position: 3,
+					name: "Aduk rata dan siap minum",
+					text: "Aduk perlahan sampai tercampur rata dan siap diminum.",
+					image: `${siteUrl}/images/Aduk%20Rata%20%26%20Siap%20Minum.webp`,
+				},
+			],
+		},
+		{
+			"@type": "FAQPage",
+			"@id": `${pageUrl}#faq`,
+			mainEntity: faqItems.map((item) => ({
+				"@type": "Question",
+				name: item.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: item.answer,
+				},
+			})),
+		},
+	],
 };
 ---
 
@@ -38,6 +248,9 @@ const structuredData = {
 	title={title}
 	description={description}
 	image={image}
+	imageAlt={imageAlt}
+	imageWidth={480}
+	imageHeight={592}
 	keywords={keywords}
 	structuredData={structuredData}
 >
@@ -62,6 +275,7 @@ const structuredData = {
 			href={whatsappOrderUrl}
 			target="_blank"
 			rel="noopener noreferrer"
+			aria-label="Chat Alpha Propolis melalui WhatsApp"
 			class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center gap-2.5 rounded-full bg-green-500 px-5 py-3 text-center shadow-[0px_0px_0px_17.589099884033203px_rgba(37,211,102,0.01)] sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5"
 		>
 			<span class="text-base font-bold leading-6 text-white">Chat via WhatsApp</span>

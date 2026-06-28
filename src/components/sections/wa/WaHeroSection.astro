@@ -12,11 +12,11 @@ const highlights = [
 ---
 
 <section id="wa-hero" aria-labelledby="wa-hero-title" class="mx-auto w-full overflow-hidden">
-	<div class="flex w-full flex-wrap items-center justify-center gap-x-10 gap-y-2 bg-stone-950 px-5 py-2.5 text-center">
+	<ul class="flex w-full flex-wrap items-center justify-center gap-x-10 gap-y-2 bg-stone-950 px-5 py-2.5 text-center">
 		{highlights.map((item) => (
-			<div class="text-base font-bold uppercase leading-4 tracking-wide text-white/90">{item}</div>
+			<li class="text-base font-bold uppercase leading-4 tracking-wide text-white/90">{item}</li>
 		))}
-	</div>
+	</ul>
 
 	<div class="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-center gap-10 px-6 py-16 text-center sm:px-8 lg:flex-row lg:py-28 lg:text-left">
 		<div class="flex w-full max-w-[680px] flex-col items-center justify-start gap-8 lg:items-start">
@@ -44,6 +44,7 @@ const highlights = [
 					href={whatsappOrderUrl}
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label="Chat WhatsApp untuk pesan Alpha Propolis sekarang"
 					class="inline-flex min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-7 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] sm:px-12"
 				>
 					<MessageCircle class="size-4 text-white" aria-hidden="true" />
@@ -60,7 +61,7 @@ const highlights = [
 			<img
 				class="h-full w-full object-cover"
 				src="/images/Alpha-Propolis.webp"
-				alt="Alpha Propolis"
+				alt="Botol Alpha Propolis dalam kemasan resmi"
 				width="672"
 				height="538"
 				loading="eager"

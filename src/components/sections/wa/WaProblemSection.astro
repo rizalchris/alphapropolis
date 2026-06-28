@@ -43,21 +43,19 @@ const warningImages = [
 			Sebelum komplikasi diabetes benar-benar terjadi, kenali dulu tanda-tandanya:
 		</p>
 
-		<ul class="flex w-full max-w-3xl justify-center pb-7">
-			<li class="flex flex-col items-start justify-start gap-2.5 text-left">
-				{
-					symptoms.map((symptom) => (
-						<div class="inline-flex items-start justify-start gap-3">
-							<div class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-xl bg-amber-200">
-								<Check class="size-3 text-amber-400" aria-hidden="true" />
-							</div>
-							<div class="text-base font-normal leading-6 text-stone-900 sm:text-xl">
-								{symptom}
-							</div>
-						</div>
-					))
-				}
-			</li>
+		<ul class="flex w-full max-w-3xl flex-col items-start justify-start gap-2.5 pb-7 text-left">
+			{
+				symptoms.map((symptom) => (
+					<li class="inline-flex items-start justify-start gap-3">
+						<span class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-xl bg-amber-200">
+							<Check class="size-3 text-amber-400" aria-hidden="true" />
+						</span>
+						<span class="text-base font-normal leading-6 text-stone-900 sm:text-xl">
+							{symptom}
+						</span>
+					</li>
+				))
+			}
 		</ul>
 
 		<h3 class="max-w-[650px] text-2xl font-bold leading-8 text-gray-900 sm:text-3xl sm:leading-9">
@@ -67,7 +65,7 @@ const warningImages = [
 		<div class="w-[calc(100%+3rem)] -mx-6 overflow-hidden rounded-none sm:mx-0 sm:w-full sm:max-w-[1200px] sm:rounded-[20px]">
 			<img
 				src="/images/ancaman-komplikasi.webp"
-				alt="Ancaman komplikasi diabetes"
+				alt="Ilustrasi ancaman komplikasi diabetes jika tanda awal terus dibiarkan"
 				width="1200"
 				height="675"
 				loading="lazy"
@@ -83,7 +81,7 @@ const warningImages = [
 						<img
 							class="aspect-[297/364] w-full rounded-sm object-cover"
 							src={image}
-							alt={`Testimoni WhatsApp ${index + 1}`}
+							alt={`Bukti testimoni WhatsApp pengguna Alpha Propolis ${index + 1}`}
 							width="297"
 							height="364"
 							loading="lazy"
@@ -98,6 +96,7 @@ const warningImages = [
 			href={whatsappOrderUrl}
 			target="_blank"
 			rel="noopener noreferrer"
+			aria-label="Buktikan sendiri manfaat Alpha Propolis melalui WhatsApp"
 			class="inline-flex min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-8 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] sm:px-12"
 		>
 			<MessageCircle class="size-4 text-white" aria-hidden="true" />

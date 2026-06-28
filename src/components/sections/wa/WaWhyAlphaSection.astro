@@ -59,10 +59,11 @@ const benefits = [
 			decoding="async"
 		/>
 
-		<div class="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
+		<ul class="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
 			{
 				benefits.map((benefit) => (
-					<div class="flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-3xl bg-white px-5 py-9 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.07)] outline outline-1 outline-offset-[-1px] outline-amber-100">
+					<li class="h-full">
+					<article class="flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-3xl bg-white px-5 py-9 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.07)] outline outline-1 outline-offset-[-1px] outline-amber-100">
 						<div class="relative aspect-[216/162] w-full max-w-52 overflow-hidden rounded-[10px] bg-stone-50">
 							<img
 								class="absolute inset-0 h-full w-full object-cover object-center"
@@ -85,9 +86,10 @@ const benefits = [
 						<div class="self-stretch text-center text-base font-normal leading-6 text-gray-900 sm:text-lg">
 							{benefit.body}
 						</div>
-					</div>
+					</article>
+					</li>
 				))
 			}
-		</div>
+		</ul>
 	</div>
 </section>

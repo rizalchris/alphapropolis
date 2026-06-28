@@ -12,7 +12,6 @@ const packages = [
 		features: ["1 Botol Alpha Propolis", "Panduan konsumsi lengkap"],
 		cta: "Klaim diskon hari ini",
 		featured: false,
-		class: "left-0 top-[18px] h-[722px] w-96 border border-stone-200 bg-white shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)]",
 	},
 	{
 		label: "PAKET PREMIUM",
@@ -23,7 +22,6 @@ const packages = [
 		features: ["2 Botol Alpha Propolis", "Panduan konsumsi lengkap", "GRATIS Konsultasi Dokter"],
 		cta: "Hemat Hingga Rp 130.000",
 		featured: true,
-		class: "left-[440.73px] top-[18px] w-[479.25px] border-2 border-amber-400 bg-gradient-to-br from-orange-50 to-orange-100 shadow-[0px_16px_56px_0px_rgba(231,181,57,0.28)]",
 	},
 ];
 ---
@@ -48,9 +46,10 @@ const packages = [
 		</div>
 
 		<div class="flex self-stretch flex-col items-center justify-start pt-8">
-			<div class="grid w-full max-w-[920px] items-stretch justify-center gap-6 lg:grid-cols-2">
+			<ul class="grid w-full max-w-[920px] items-stretch justify-center gap-6 lg:grid-cols-2">
 				{packages.map((pkg) => (
-					<div class:list={["relative flex w-full flex-col items-center justify-start gap-2.5 rounded-3xl px-6 py-10 text-center outline outline-offset-[-1px] sm:px-9 lg:items-start lg:text-left", pkg.featured ? "border-2 border-amber-400 bg-gradient-to-br from-orange-50 to-orange-100 shadow-[0px_16px_56px_0px_rgba(231,181,57,0.28)]" : "border border-stone-200 bg-white shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)]"]}>
+					<li class="h-full">
+					<article class:list={["relative flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-3xl px-6 py-10 text-center outline outline-offset-[-1px] sm:px-9 lg:items-start lg:text-left", pkg.featured ? "border-2 border-amber-400 bg-gradient-to-br from-orange-50 to-orange-100 shadow-[0px_16px_56px_0px_rgba(231,181,57,0.28)]" : "border border-stone-200 bg-white shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)]"]}>
 						{pkg.featured && (
 							<div class="absolute left-1/2 top-[-17.72px] flex max-w-[calc(100%-2rem)] -translate-x-1/2 rotate-[1.48deg] flex-col items-start justify-start rounded-full bg-gradient-to-br from-amber-400 to-amber-700 px-4 py-1.5 text-center shadow-[0px_4px_16px_0px_rgba(231,181,57,0.45)] sm:px-6">
 								<div class="inline-flex items-center gap-1 text-xs font-extrabold leading-5 text-white">
@@ -64,22 +63,20 @@ const packages = [
 						<div class="flex flex-col items-center justify-start gap-2.5 pt-2.5 lg:items-start">
 							<h3 class="text-2xl font-bold leading-8 text-gray-900 sm:text-3xl">{pkg.name}</h3>
 							<div class="flex flex-col items-center justify-start gap-2.5 lg:items-start">
-								<div class="text-base font-normal leading-4 text-stone-400 line-through">{pkg.oldPrice}</div>
-								<div class="text-3xl font-bold leading-10 text-gray-900 sm:text-4xl">{pkg.price}</div>
+								<del class="text-base font-normal leading-4 text-stone-400">{pkg.oldPrice}</del>
+								<p class="text-3xl font-bold leading-10 text-gray-900 sm:text-4xl">{pkg.price}</p>
 							</div>
 						</div>
 						<div class="text-xl font-bold leading-5 text-green-500">Hemat 26%</div>
-						<div class="flex self-stretch flex-col items-start justify-start gap-3.5">
-							<div class="h-0 self-stretch outline outline-1 outline-offset-[-0.50px] outline-neutral-200" />
+						<ul class="flex self-stretch flex-col items-start justify-start gap-3.5 border-y border-neutral-200 py-3.5">
 							{pkg.features.map((feature) => (
-								<div class="inline-flex items-center justify-start gap-2.5 text-left">
+								<li class="inline-flex items-center justify-start gap-2.5 text-left">
 									<Check class="size-4 text-green-500" aria-hidden="true" />
-									<div class:list={["text-base leading-4 text-stone-900", feature.startsWith("GRATIS") ? "font-bold" : "font-medium"]}>{feature}</div>
-								</div>
+									<span class:list={["text-base leading-4 text-stone-900", feature.startsWith("GRATIS") ? "font-bold" : "font-medium"]}>{feature}</span>
+								</li>
 							))}
-							<div class="h-0 self-stretch outline outline-1 outline-offset-[-0.50px] outline-neutral-200" />
-						</div>
-						<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" class:list={[
+						</ul>
+						<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" aria-label={`Pesan ${pkg.name} Alpha Propolis melalui WhatsApp`} class:list={[
 							"inline-flex max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)]",
 							pkg.featured ? "min-h-16 px-8 py-5 sm:px-12" : "min-h-11 px-7 py-3",
 						]}>
@@ -87,9 +84,10 @@ const packages = [
 							<span class:list={["text-center font-bold text-white", pkg.featured ? "text-lg leading-7" : "text-base leading-5"]}>{pkg.cta}</span>
 							<ArrowRight class={pkg.featured ? "size-4 text-white" : "size-3 text-white"} aria-hidden="true" />
 						</a>
-					</div>
+					</article>
+					</li>
 				))}
-			</div>
+			</ul>
 		</div>
 	</div>
 </section>

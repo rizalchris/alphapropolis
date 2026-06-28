@@ -2,15 +2,42 @@
 import { ChevronDown, Sparkles } from "lucide-astro";
 
 const faqs = [
-	"Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
-	"Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
-	"Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
-	"Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
-	"Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
-	"Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
-	"Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
-	"Apakah Alpha Propolis sudah bersertifikasi Halal?",
-	"Apakah bisa melakukan pembayaran di tempat (COD)?",
+	{
+		question: "Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
+		answer: "Gunakan sesuai aturan pakai. Jika Anda memiliki kondisi khusus, sedang hamil, menyusui, alergi produk lebah, atau menjalani pengobatan rutin, konsultasikan dengan dokter terlebih dahulu.",
+	},
+	{
+		question: "Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
+		answer: "Panduan pada halaman ini menggunakan 6 tetes dalam 100 ml air hangat. Sesuaikan dengan arahan tenaga kesehatan bila Anda sedang menjalani terapi tertentu.",
+	},
+	{
+		question: "Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
+		answer: "Tidak. Alpha Propolis adalah suplemen pendamping dan bukan pengganti obat dokter, insulin, atau terapi medis utama.",
+	},
+	{
+		question: "Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
+		answer: "Kandungan propolis diposisikan sebagai pendamping untuk membantu daya tahan tubuh. Pengobatan TBC dengan OAT tetap wajib dilanjutkan sampai selesai sesuai instruksi dokter.",
+	},
+	{
+		question: "Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
+		answer: "Berikan jeda konsumsi minimal 1 jam dari obat dokter dan konsultasikan dengan dokter yang menangani Anda, terutama bila terapi tidak boleh putus.",
+	},
+	{
+		question: "Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
+		answer: "Antioksidan membantu tubuh menghadapi radikal bebas. Untuk kondisi diabetes, tetap ikuti anjuran dokter dan gunakan suplemen hanya sebagai pendamping rutinitas sehat.",
+	},
+	{
+		question: "Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
+		answer: "Pesan melalui kanal resmi Alpha Propolis atau hubungi tim WhatsApp untuk memastikan produk, harga, dan paket yang tersedia.",
+	},
+	{
+		question: "Apakah Alpha Propolis sudah bersertifikasi Halal?",
+		answer: "Ya, materi halaman ini mencantumkan sertifikasi HALAL MUI ID00410000283380322.",
+	},
+	{
+		question: "Apakah bisa melakukan pembayaran di tempat (COD)?",
+		answer: "Hubungi tim WhatsApp untuk memastikan ketersediaan COD berdasarkan wilayah pengiriman Anda.",
+	},
 ];
 ---
 
@@ -27,13 +54,16 @@ const faqs = [
 		</div>
 
 		<div class="flex w-full max-w-[800px] flex-col items-start justify-start gap-3 pt-12">
-			{faqs.map((question) => (
-				<div class="flex min-h-16 self-stretch flex-col items-start justify-start overflow-hidden rounded-[20px] bg-stone-100 outline outline-1 outline-offset-[-1px] outline-amber-400/20">
-					<div class="inline-flex min-h-16 self-stretch items-center justify-between gap-4 px-5 py-5 sm:px-7">
-						<div class="text-left text-base font-semibold leading-6 text-gray-900">{question}</div>
-						<ChevronDown class="size-4 shrink-0 text-amber-400" aria-hidden="true" />
-					</div>
-				</div>
+			{faqs.map((faq) => (
+				<details class="group min-h-16 self-stretch overflow-hidden rounded-[20px] bg-stone-100 outline outline-1 outline-offset-[-1px] outline-amber-400/20">
+					<summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 marker:hidden sm:px-7">
+						<span class="text-left text-base font-semibold leading-6 text-gray-900">{faq.question}</span>
+						<ChevronDown class="size-4 shrink-0 text-amber-400 transition-transform group-open:rotate-180" aria-hidden="true" />
+					</summary>
+					<p class="px-5 pb-5 text-left text-base leading-7 text-stone-700 sm:px-7">
+						{faq.answer}
+					</p>
+				</details>
 			))}
 		</div>
 	</div>

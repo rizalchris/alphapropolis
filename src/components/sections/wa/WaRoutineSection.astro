@@ -31,7 +31,7 @@ const steps = [
 	<ol class="grid w-full max-w-[1020px] items-start justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
 		{steps.map((step, index) => (
 			<li class="flex w-full flex-col items-center justify-start gap-2.5">
-				<div class="flex size-16 flex-col items-center justify-center gap-5 rounded-[30px] bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400">
+				<div class="flex size-16 flex-col items-center justify-center gap-5 rounded-[30px] bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400" aria-hidden="true">
 					<div class="text-center text-2xl font-bold leading-8 text-stone-900">{index + 1}</div>
 				</div>
 				<img class="aspect-square w-full max-w-72 rounded-[20px] object-cover" src={step.image} alt={step.title} width="296" height="290" loading="lazy" decoding="async" />
@@ -47,7 +47,7 @@ const steps = [
 		Catatan: Jika sedang mengkonsumsi obat dokter, cukup berikan jeda selama 1 jam sebelum atau sesudah obat harian Anda.
 	</p>
 
-	<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-8 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] sm:px-12">
+	<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" aria-label="Mulai ikhtiar 6 tetes Alpha Propolis sehari melalui WhatsApp" class="inline-flex min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-8 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] sm:px-12">
 		<MessageCircle class="size-4 text-white" aria-hidden="true" />
 		<span class="text-center text-xl font-bold leading-7 text-white">Mulai Ikhtiar 6 Tetes Sehari</span>
 		<ArrowRight class="size-4 text-white" aria-hidden="true" />
