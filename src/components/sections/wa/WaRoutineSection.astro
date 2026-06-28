@@ -21,35 +21,75 @@ const steps = [
 ];
 ---
 
-<section id="wa-routine" aria-labelledby="wa-routine-title" class="mx-auto flex w-full flex-col items-center justify-start gap-14 overflow-hidden bg-stone-100 px-6 py-20 sm:px-8 lg:px-10 lg:py-32">
+<section
+	id="wa-routine"
+	aria-labelledby="wa-routine-title"
+	class="mx-auto flex w-full flex-col items-center justify-start gap-14 overflow-hidden bg-stone-100 px-6 py-20 sm:px-8 lg:px-10 lg:py-32"
+>
 	<div class="flex w-full flex-col items-center justify-start">
-		<h2 id="wa-routine-title" class="max-w-[790px] text-center font-bold leading-tight text-gray-900 lg:leading-[57.60px]">
+		<h2
+			id="wa-routine-title"
+			class="max-w-[790px] text-center font-bold leading-tight text-gray-900 lg:leading-[57.60px]"
+		>
 			Cara Paling Praktis Melindungi Tubuh Anda Setiap Hari
 		</h2>
 	</div>
 
-	<ol class="grid w-full max-w-[1020px] items-start justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-		{steps.map((step, index) => (
-			<li class="flex w-full flex-col items-center justify-start gap-2.5">
-				<div class="flex size-16 flex-col items-center justify-center gap-5 rounded-[30px] bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400" aria-hidden="true">
-					<div class="text-center text-2xl font-bold leading-8 text-stone-900">{index + 1}</div>
-				</div>
-				<img class="aspect-square w-full max-w-72 rounded-[20px] object-cover" src={step.image} alt={step.title} width="296" height="290" loading="lazy" decoding="async" />
-				<div class="flex self-stretch flex-col items-center justify-start gap-2.5">
-					<h3 class="text-2xl font-bold text-black">{step.title}</h3>
-					<p class="self-stretch text-center text-lg font-normal leading-7 text-stone-900 sm:text-2xl">{step.body}</p>
-				</div>
-			</li>
-		))}
+	<ol
+		class="grid w-full max-w-[1020px] items-start justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12"
+	>
+		{
+			steps.map((step, index) => (
+				<li class="flex w-full flex-col items-center justify-start gap-2.5">
+					<div
+						class="flex size-16 flex-col items-center justify-center gap-5 rounded-[30px] bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400"
+						aria-hidden="true"
+					>
+						<div class="text-center text-2xl font-bold leading-8 text-stone-900">
+							{index + 1}
+						</div>
+					</div>
+					<img
+						class="aspect-square w-full max-w-72 rounded-[20px] object-cover"
+						src={step.image}
+						alt={step.title}
+						width="296"
+						height="290"
+						loading="lazy"
+						decoding="async"
+					/>
+					<div class="flex self-stretch flex-col items-center justify-start gap-2.5">
+						<h3 class="text-[24px] sm:text-[28px] font-bold text-black">
+							{step.title}
+						</h3>
+						<p class="self-stretch text-center text-lg font-normal leading-7 text-stone-900 sm:text-2xl">
+							{step.body}
+						</p>
+					</div>
+				</li>
+			))
+		}
 	</ol>
 
-	<p class="max-w-[899px] text-center text-xl font-bold leading-8 text-gray-900 sm:text-2xl">
-		Catatan: Jika sedang mengkonsumsi obat dokter, cukup berikan jeda selama 1 jam sebelum atau sesudah obat harian Anda.
+	<p
+		class="max-w-[899px] text-center text-xl font-bold leading-8 text-gray-900 sm:text-2xl"
+	>
+		Catatan: Jika sedang mengkonsumsi obat dokter, cukup berikan jeda selama
+		1 jam sebelum atau sesudah obat harian Anda.
 	</p>
 
-	<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" aria-label="Mulai ikhtiar 6 tetes Alpha Propolis sehari melalui WhatsApp" class="inline-flex w-full min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-5 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] sm:w-auto sm:px-12">
+	<a
+		href={whatsappOrderUrl}
+		target="_blank"
+		rel="noopener noreferrer"
+		aria-label="Mulai ikhtiar 6 tetes Alpha Propolis sehari melalui WhatsApp"
+		class="inline-flex w-full min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-5 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 sm:w-auto sm:px-12"
+	>
 		<MessageCircle class="size-4 text-white" aria-hidden="true" />
-		<span class="text-center text-[15px] font-bold leading-7 text-white sm:text-xl">Mulai Ikhtiar 6 Tetes Sehari</span>
+		<span
+			class="text-center text-[15px] font-bold leading-7 text-white sm:text-xl"
+			>Mulai Ikhtiar 6 Tetes Sehari</span
+		>
 		<ArrowRight class="size-4 text-white" aria-hidden="true" />
 	</a>
 </section>
