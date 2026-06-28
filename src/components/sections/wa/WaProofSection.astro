@@ -101,7 +101,7 @@ const doctorVideos = [
 			<ul class="grid w-full max-w-5xl gap-2.5 lg:grid-cols-2">
 				{
 					benefits.map((benefit) => (
-					<li class="flex items-start gap-3 text-[20px] font-normal leading-[24.75px] text-[#1C1917]">
+						<li class="flex items-start gap-3 text-[18px] sm:text-[20px] font-normal leading-[24.75px] text-[#1C1917]">
 							<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-xl bg-green-100">
 								<Check
 									class="h-3 w-3 text-green-500"
@@ -201,12 +201,12 @@ const doctorVideos = [
 			</div>
 
 			<ul
-				class="flex w-full snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-3 lg:overflow-visible"
+				class="flex w-full items-stretch snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-3 lg:overflow-visible"
 				data-doctor-cards-track
 			>
 				{
 					doctors.map((doctor) => (
-						<li class="h-full w-[82vw] max-w-[320px] shrink-0 snap-start lg:w-auto lg:max-w-none">
+						<li class="h-full w-[82vw] max-w-[320px] shrink-0 self-stretch snap-start lg:w-auto lg:max-w-none">
 							<article class="flex h-full w-full flex-col gap-5 rounded-3xl bg-white p-5 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-stone-200">
 								<div class="flex items-center gap-4">
 									<div class="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-[36px] bg-stone-100 p-1 outline outline-[3px] outline-offset-[-3px] outline-orange-50">
@@ -237,10 +237,12 @@ const doctorVideos = [
 								</blockquote>
 							</article>
 						</li>
-						))
-					}
+					))
+				}
 			</ul>
-			<div class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden">
+			<div
+				class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
+			>
 				<button
 					type="button"
 					class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
@@ -278,7 +280,9 @@ const doctorVideos = [
 		class="fixed inset-0 m-0 h-full w-full max-w-none border-0 bg-transparent p-0 backdrop:bg-black/70 backdrop:backdrop-blur-sm"
 		aria-label="Video dokter"
 	>
-		<div class="flex min-h-full items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-6">
+		<div
+			class="flex min-h-full items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-6"
+		>
 			<div
 				class="relative h-[100dvh] w-screen overflow-hidden rounded-none bg-black shadow-none sm:h-auto sm:w-full sm:max-w-5xl sm:rounded-3xl sm:shadow-2xl"
 			>
@@ -320,13 +324,24 @@ const doctorVideos = [
 			const player = document.getElementById("doctor-video-player");
 			const triggers =
 				section?.querySelectorAll("[data-video-trigger]") ?? [];
-			const closeButtons = document.querySelectorAll("[data-video-close]");
+			const closeButtons =
+				document.querySelectorAll("[data-video-close]");
 			const track = section?.querySelector("[data-video-carousel-track]");
-			const prevButton = section?.querySelector("[data-video-carousel-prev]");
-			const nextButton = section?.querySelector("[data-video-carousel-next]");
-			const doctorCardsTrack = section?.querySelector("[data-doctor-cards-track]");
-			const doctorCardsPrev = section?.querySelector("[data-doctor-cards-prev]");
-			const doctorCardsNext = section?.querySelector("[data-doctor-cards-next]");
+			const prevButton = section?.querySelector(
+				"[data-video-carousel-prev]",
+			);
+			const nextButton = section?.querySelector(
+				"[data-video-carousel-next]",
+			);
+			const doctorCardsTrack = section?.querySelector(
+				"[data-doctor-cards-track]",
+			);
+			const doctorCardsPrev = section?.querySelector(
+				"[data-doctor-cards-prev]",
+			);
+			const doctorCardsNext = section?.querySelector(
+				"[data-doctor-cards-next]",
+			);
 			let activeTrigger = null;
 
 			if (track instanceof HTMLElement) {
@@ -365,10 +380,15 @@ const doctorVideos = [
 				});
 
 				nextButton?.addEventListener("click", () => {
-					track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+					track.scrollBy({
+						left: getScrollAmount(),
+						behavior: "smooth",
+					});
 				});
 
-				track.addEventListener("scroll", updateControls, { passive: true });
+				track.addEventListener("scroll", updateControls, {
+					passive: true,
+				});
 				window.addEventListener("resize", updateControls);
 				updateControls();
 			}
@@ -385,14 +405,17 @@ const doctorVideos = [
 					}
 
 					const styles = window.getComputedStyle(doctorCardsTrack);
-					const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
+					const gap = Number.parseFloat(
+						styles.columnGap || styles.gap || "0",
+					);
 
 					return firstCard.getBoundingClientRect().width + gap;
 				};
 
 				const updateDoctorCardsControls = () => {
 					const maxScrollLeft =
-						doctorCardsTrack.scrollWidth - doctorCardsTrack.clientWidth;
+						doctorCardsTrack.scrollWidth -
+						doctorCardsTrack.clientWidth;
 					doctorCardsPrev.disabled = doctorCardsTrack.scrollLeft <= 4;
 					doctorCardsNext.disabled =
 						doctorCardsTrack.scrollLeft >= maxScrollLeft - 4;
@@ -412,9 +435,13 @@ const doctorVideos = [
 					});
 				});
 
-				doctorCardsTrack.addEventListener("scroll", updateDoctorCardsControls, {
-					passive: true,
-				});
+				doctorCardsTrack.addEventListener(
+					"scroll",
+					updateDoctorCardsControls,
+					{
+						passive: true,
+					},
+				);
 				window.addEventListener("resize", updateDoctorCardsControls);
 				updateDoctorCardsControls();
 			}
