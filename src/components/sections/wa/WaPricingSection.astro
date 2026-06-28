@@ -14,7 +14,7 @@ const packages = [
 		price: "Rp 185.000",
 		image: "/images/paket-biasa.webp",
 		features: ["1 Botol Alpha Propolis", "Panduan konsumsi lengkap"],
-		cta: "Mulai Perlindungan Awal",
+		cta: "Klaim Promo",
 		featured: false,
 	},
 	{
@@ -35,35 +35,57 @@ const packages = [
 	aria-labelledby="wa-pricing-title"
 	class="landing-section bg-[linear-gradient(150deg,#FAF7F2_7.74%,#FFF5DC_50%,#FAF7F2_92.26%)] px-6 py-24 sm:px-8 lg:px-10"
 >
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+	<div
+		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5"
+	>
 		<div class="flex flex-col items-center gap-5 text-center">
 			<SectionLabel text="Penawaran Spesial Hari Ini" />
-			<h2 id="wa-pricing-title" class="text-gray-900">Mulai Lebih Hemat, Hasil Lebih Maksimal</h2>
+			<h2 id="wa-pricing-title" class="text-gray-900">
+				Mulai Lebih Hemat, Hasil Lebih Maksimal
+			</h2>
 			<p class="max-w-[869px] text-stone-900">
-				Amankan pilihan Anda sekarang untuk selalu siap <strong>#JagaSenyumKeluarga</strong> melalui penawaran paket hemat khusus di bawah ini.
+				Amankan pilihan Anda sekarang untuk selalu siap <strong
+					>#JagaSenyumKeluarga</strong
+				> melalui penawaran paket hemat khusus di bawah ini.
 			</p>
-			<p class="inline-flex items-center gap-2.5 rounded-full bg-red-100 px-6 py-4 text-lg font-bold leading-5 text-red-600">
+			<p
+				class="inline-flex items-center gap-2.5 rounded-full bg-red-100 px-6 py-4 text-lg font-bold leading-5 text-red-600"
+			>
 				<Clock class="h-5 w-5" aria-hidden="true" />
 				<span>Stok tersisa 23 pcs - Promo berakhir hari ini</span>
 			</p>
 		</div>
 
-		<div class="grid w-full max-w-[920px] items-stretch gap-6 pt-4 lg:grid-cols-[0.9fr_1.1fr]">
+		<div
+			class="grid w-full max-w-[920px] items-stretch gap-6 pt-4 lg:grid-cols-[0.9fr_1.1fr]"
+		>
 			{
 				packages.map((pkg) => (
-					<div class:list={[
-						"relative flex flex-col items-start gap-2.5 rounded-3xl p-9 shadow-card-md",
-						pkg.featured
-							? "border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] shadow-product"
-							: "border border-stone-200 bg-white",
-					]}>
+					<div
+						class:list={[
+							"relative flex flex-col items-start gap-2.5 rounded-3xl p-9 shadow-card-md",
+							pkg.featured
+								? "border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] shadow-product"
+								: "border border-stone-200 bg-white",
+						]}
+					>
 						{pkg.featured && (
 							<p class="absolute right-8 top-0 flex -translate-y-1/2 rotate-[1.48deg] items-center gap-1 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 px-6 py-1.5 text-xs font-extrabold leading-5 text-white shadow-primary">
-								<Star class="h-3 w-3 fill-current" aria-hidden="true" />
+								<Star
+									class="h-3 w-3 fill-current"
+									aria-hidden="true"
+								/>
 								<span>BEST SELLER - PALING HEMAT</span>
 							</p>
 						)}
-						<p class:list={["text-xs font-bold uppercase leading-4 tracking-wide", pkg.featured ? "text-amber-400" : "text-stone-400"]}>
+						<p
+							class:list={[
+								"text-xs font-bold uppercase leading-4 tracking-wide",
+								pkg.featured
+									? "text-amber-400"
+									: "text-stone-400",
+							]}
+						>
 							{pkg.label}
 						</p>
 						<img
@@ -86,16 +108,19 @@ const packages = [
 								{pkg.price}
 							</p>
 						</div>
-						<p class="text-xl font-bold leading-5 text-green-500">Hemat 26%</p>
+						<p class="text-xl font-bold leading-5 text-green-500">
+							Hemat 26%
+						</p>
 						<ul class="w-full flex-1 divide-y divide-neutral-200">
-							{
-								pkg.features.map((feature) => (
-									<li class="flex items-center gap-2.5 py-3.5 text-base font-medium leading-4 text-stone-900">
-										<Check class="h-4 w-4 text-green-500" aria-hidden="true" />
-										<span>{feature}</span>
-									</li>
-								))
-							}
+							{pkg.features.map((feature) => (
+								<li class="flex items-center gap-2.5 py-3.5 text-base font-medium leading-4 text-stone-900">
+									<Check
+										class="h-4 w-4 text-green-500"
+										aria-hidden="true"
+									/>
+									<span>{feature}</span>
+								</li>
+							))}
 						</ul>
 						<Button
 							href={whatsappHref}
