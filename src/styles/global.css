@@ -72,8 +72,12 @@
 		--line-height-body: 28px;
 		--font-size-display: 42px;
 		--font-size-h1: 42px;
-		--font-size-h2: 34px;
+		--font-size-h2: 32px;
 		--font-size-h3: 26px;
+	}
+
+	.landing-page .text-base {
+		font-size: 18px;
 	}
 }
 
