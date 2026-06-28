@@ -1,8 +1,8 @@
 ---
 import { ArrowRight, Check, MessageCircle, X } from "lucide-astro";
-import Button from "../ui/Button.astro";
-import SectionLabel from "../shared/SectionLabel.astro";
-import { whatsappOrderUrl } from "../../lib/site";
+import Button from "../../ui/Button.astro";
+import SectionLabel from "../../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
 
@@ -105,7 +105,7 @@ const alphaFeatures = [
 								</h3>
 							</div>
 						</div>
-						<p class="flex w-full items-center gap-5 rounded-2xl border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-xl font-bold leading-5 text-stone-900 shadow-product">
+						<p class="flex w-full flex-col items-center gap-4 rounded-2xl border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-center text-xl font-bold leading-7 text-stone-900 shadow-product lg:flex-row lg:items-center lg:gap-5 lg:text-left">
 							<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-xl bg-green-100">
 								<Check
 									class="h-3 w-3 text-green-500"

@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WaHeroSection from "../components/sections/wa/WaHeroSection.astro";
+import WaProblemSection from "../components/sections/wa/WaProblemSection.astro";
+import WaWhyAlphaSection from "../components/sections/wa/WaWhyAlphaSection.astro";
+import WaRoutineSection from "../components/sections/wa/WaRoutineSection.astro";
+import WaTbcSupportSection from "../components/sections/wa/WaTbcSupportSection.astro";
+import WaProofSection from "../components/sections/wa/WaProofSection.astro";
+import TestimonialsSection from "../components/sections/home/TestimonialsSection.astro";
+import WaPricingSection from "../components/sections/wa/WaPricingSection.astro";
+import WaFaqSection from "../components/sections/wa/WaFaqSection.astro";
+import WaFinalCtaSection from "../components/sections/wa/WaFinalCtaSection.astro";
+import WaFooterSection from "../components/sections/wa/WaFooterSection.astro";
+import { whatsappOrderUrl } from "../lib/site";
+
+const title = "Alpha Propolis | Promo WhatsApp";
+const description =
+	"Halaman promo WhatsApp Alpha Propolis untuk membantu menjaga tubuh dari risiko komplikasi diabetes dan mendukung daya tahan tubuh harian.";
+const image = "/images/Alpha-Propolis.webp";
+const keywords =
+	"Alpha Propolis WhatsApp, promo Alpha Propolis, propolis diabetes, propolis TBC, suplemen halal BPOM";
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	name: title,
+	description,
+	url: "https://alphapropolis.id/wa",
+	primaryImageOfPage: "https://alphapropolis.id/images/Alpha-Propolis.webp",
+	potentialAction: {
+		"@type": "CommunicateAction",
+		target: whatsappOrderUrl,
+	},
+};
+---
+
+<Layout
+	title={title}
+	description={description}
+	image={image}
+	keywords={keywords}
+	structuredData={structuredData}
+>
+	<main
+		id="main-content"
+		class="min-h-screen overflow-x-hidden bg-[linear-gradient(60deg,#f5f5f4_0%,#ffedd5_50%,#f5f5f4_100%)] font-['Google_Sans']"
+	>
+		<article aria-labelledby="wa-hero-title">
+			<WaHeroSection />
+			<WaProblemSection />
+			<WaWhyAlphaSection />
+			<WaRoutineSection />
+			<WaTbcSupportSection />
+			<WaProofSection />
+			<TestimonialsSection />
+			<WaPricingSection />
+			<WaFaqSection />
+			<WaFinalCtaSection />
+		</article>
+		<WaFooterSection />
+		<a
+			href={whatsappOrderUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center gap-2.5 rounded-full bg-green-500 px-5 py-3 text-center shadow-[0px_0px_0px_17.589099884033203px_rgba(37,211,102,0.01)] sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5"
+		>
+			<span class="text-base font-bold leading-6 text-white">Chat via WhatsApp</span>
+		</a>
+	</main>
+</Layout>

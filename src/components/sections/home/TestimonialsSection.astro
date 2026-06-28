@@ -1,8 +1,8 @@
 ---
 import { ArrowRight, MessageCircle } from "lucide-astro";
-import Button from "../ui/Button.astro";
-import SectionLabel from "../shared/SectionLabel.astro";
-import { whatsappOrderUrl } from "../../lib/site";
+import Button from "../../ui/Button.astro";
+import SectionLabel from "../../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
 
@@ -18,9 +18,9 @@ const stories = [
 <section id="testimonials" aria-labelledby="testimonials-title" class="landing-section overflow-hidden bg-white py-24">
 	<div class="flex flex-col items-center gap-5">
 		<div class="flex max-w-[1344px] flex-col items-center gap-5 px-6 text-center sm:px-8 lg:px-10">
-			<SectionLabel text="Kisah Transformasi Nyata" />
+			<SectionLabel text="Bukti Nyata" />
 			<h2 id="testimonials-title" class="text-gray-900">
-				Kisah Nyata Mereka yang Telah Berhasil #JagaSenyumKeluarga
+				Ini Kata Dokter dan Kata Mereka yang Sudah Membuktikan
 			</h2>
 		</div>
 
@@ -46,7 +46,7 @@ const stories = [
 
 		<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer">
 			<MessageCircle class="h-4 w-4" aria-hidden="true" />
-			<span>Mau Seperti Mereka</span>
+			<span>Lihat Bukti Lainnya</span>
 			<ArrowRight class="h-4 w-4" aria-hidden="true" />
 		</Button>
 	</div>

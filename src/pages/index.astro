@@ -1,19 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/layouts/Header.astro";
-import HeroSection from "../components/sections/HeroSection.astro";
-import SymptomsSection from "../components/sections/SymptomsSection.astro";
-import MedicalWarningSection from "../components/sections/MedicalWarningSection.astro";
-import WhyAlphaSection from "../components/sections/WhyAlphaSection.astro";
-import DoctorsSection from "../components/sections/DoctorsSection.astro";
-import HowToUseSection from "../components/sections/HowToUseSection.astro";
-import CertificationSection from "../components/sections/CertificationSection.astro";
-import RiskJourneySection from "../components/sections/RiskJourneySection.astro";
-import TestimonialsSection from "../components/sections/TestimonialsSection.astro";
-import PricingSection from "../components/sections/PricingSection.astro";
-import FaqSection from "../components/sections/FaqSection.astro";
-import FinalCtaSection from "../components/sections/FinalCtaSection.astro";
-import FooterSection from "../components/sections/FooterSection.astro";
+import HeroSection from "../components/sections/home/HeroSection.astro";
+import SymptomsSection from "../components/sections/home/SymptomsSection.astro";
+import MedicalWarningSection from "../components/sections/home/MedicalWarningSection.astro";
+import WhyAlphaSection from "../components/sections/home/WhyAlphaSection.astro";
+import DoctorsSection from "../components/sections/home/DoctorsSection.astro";
+import HowToUseSection from "../components/sections/home/HowToUseSection.astro";
+import CertificationSection from "../components/sections/home/CertificationSection.astro";
+import RiskJourneySection from "../components/sections/home/RiskJourneySection.astro";
+import TestimonialsSection from "../components/sections/home/TestimonialsSection.astro";
+import PricingSection from "../components/sections/home/PricingSection.astro";
+import FaqSection from "../components/sections/home/FaqSection.astro";
+import FinalCtaSection from "../components/sections/home/FinalCtaSection.astro";
+import FooterSection from "../components/sections/home/FooterSection.astro";
 import FloatingWhatsApp from "../components/shared/FloatingWhatsApp.astro";
 import { whatsappOrderUrl } from "../lib/site";
 
@@ -260,10 +260,10 @@ const structuredData = {
 			<MedicalWarningSection />
 			<WhyAlphaSection />
 			<DoctorsSection />
-			<HowToUseSection />
-			<CertificationSection />
-			<RiskJourneySection />
 			<TestimonialsSection />
+			<HowToUseSection />
+			<RiskJourneySection />
+			<CertificationSection />
 			<PricingSection />
 			<FaqSection />
 			<FinalCtaSection />

@@ -1,0 +1,292 @@
+---
+import { ArrowRight, Check, MessageCircle } from "lucide-astro";
+import Button from "../../ui/Button.astro";
+import SectionLabel from "../../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../../lib/site";
+
+const whatsappHref = whatsappOrderUrl;
+
+const benefits = [
+	"Menjaga gula darah tetap terkontrol",
+	"Melawan radikal bebas",
+	"Meningkatkan kekebalan tubuh",
+	"Merawat sensitivitas insulin",
+	"Membantu menjaga energi harian",
+	"Mendukung proses percepatan pemulihan luka",
+	"Membantu mengatasi infeksi saluran pernapasan",
+];
+
+const doctors = [
+	{
+		name: "dr. Robert",
+		image: "/images/dr.%20Andi%20Kurniawan,%20Sp.PD.webp",
+		quote: "Propolis membantu kontrol gula darah pada pasien Diabetes, karena propolis meningkatkan sensitivitas insulin sehingga lebih peka menarik darah dalam sel.",
+	},
+	{
+		name: "dr. Endang, M.Si (Herbs)",
+		image: "/images/Dr.%20Endang,%20M.Si.webp",
+		quote: "Propolis adalah kombinasi getah pohon dan lilin lebah yang kaya polifenol serta flavonoid. Manfaat alaminya bekerja sebagai antivirus, antibakteri, anti radang, sekaligus melindungi dan memperbaiki sistem saraf.",
+	},
+	{
+		name: "Dr. Mahani, SP., M.Si",
+		image: "/images/Dr.%20Mahani,%20M.Si.webp",
+		quote: "Dengan minum Propolis, konsentrasi gula pada darah akan berkurang, sehingga kesempatan gula dijadikan media tumbuh bagi jamur tidak terjadi, sehingga luka akan bisa sembuh.",
+	},
+];
+
+const doctorVideos = [
+	{
+		title: "Dr Robert",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Robert.mp4",
+		description: "Klik untuk menonton video Dr Robert",
+	},
+	{
+		title: "Dr Endang",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Endang.mp4",
+		description: "Klik untuk menonton video Dr Endang",
+	},
+	{
+		title: "Dr Mahani",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Mahani.mp4",
+		description: "Klik untuk menonton video Dr Mahani",
+	},
+	{
+		title: "Dr Robert 2",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Robert_2.mp4",
+		description: "Klik untuk menonton video Dr Robert 2",
+	},
+];
+---
+
+<section
+	id="doctors"
+	aria-labelledby="doctors-title"
+	class="landing-section bg-white px-6 py-24 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-10">
+		<div class="flex w-full flex-col items-center gap-12 rounded-3xl border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12" aria-labelledby="diabetes-comfort-title">
+			<div class="flex max-w-4xl flex-col items-center gap-5 text-center">
+				<h2 id="diabetes-comfort-title" class="text-4xl font-bold leading-8 text-gray-900">
+					Cara Nyaman Berdamai dengan Diabetes
+				</h2>
+				<p class="text-stone-900">
+					Mulai langkah praktis harian ini demi tubuh yang tetap aktif, bertenaga, dan selalu siap #JagaSenyumKeluarga.
+				</p>
+			</div>
+			<ul class="grid w-full max-w-5xl gap-2.5 lg:grid-cols-2">
+				{benefits.map((benefit) => (
+					<li class="flex items-start gap-3 text-xl leading-6 text-stone-900">
+						<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-xl bg-green-100">
+							<Check class="h-3 w-3 text-green-500" aria-hidden="true" />
+						</span>
+						<span>{benefit}</span>
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="flex w-full flex-col items-center gap-10" aria-labelledby="doctors-title">
+			<div class="flex flex-col items-center gap-5 text-center">
+				<SectionLabel text="Validasi Ahli Kesehatan" />
+				<h2 id="doctors-title" class="max-w-[651px] text-gray-900">
+					Beralih ke Propolis Terbaik Pilihan Dokter untuk Anda
+				</h2>
+			</div>
+
+			<div class="w-full max-w-6xl">
+				<ul class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+					{doctorVideos.map((video) => (
+						<li>
+							<button
+								type="button"
+								class="group flex w-full flex-col gap-3 rounded-3xl border border-stone-200 bg-white p-3 text-left shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+								data-video-trigger
+								data-video-src={video.src}
+								data-video-title={video.title}
+								data-video-description={video.description}
+							>
+								<div class="relative overflow-hidden rounded-2xl bg-stone-950">
+									<video
+										class="aspect-[16/10] w-full object-cover opacity-85 transition duration-300 group-hover:scale-[1.02]"
+										src={video.src}
+										muted
+										playsinline
+										loop
+										preload="metadata"
+										aria-hidden="true"
+									/>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+									<div class="absolute inset-0 flex items-center justify-center">
+										<span class="flex size-14 items-center justify-center rounded-full bg-white/90 text-stone-950 shadow-lg transition-transform duration-200 group-hover:scale-105">
+											<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="ml-0.5 size-6">
+												<path d="M8 5v14l11-7z" />
+											</svg>
+										</span>
+									</div>
+								</div>
+								<div class="px-1 pb-1">
+									<div class="text-lg font-bold leading-6 text-gray-900">
+										{video.title}
+									</div>
+									<div class="mt-1 text-sm leading-5 text-stone-600">
+										{video.description}
+									</div>
+								</div>
+							</button>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<ul class="grid w-full gap-5 lg:grid-cols-3">
+				{doctors.map((doctor) => (
+					<li class="h-full">
+						<div class="flex h-full w-full flex-col gap-5 rounded-3xl bg-white p-5 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-stone-200">
+							<div class="flex items-center gap-4">
+								<div class="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-[36px] bg-stone-100 p-1 outline outline-[3px] outline-offset-[-3px] outline-orange-50">
+									<img
+										src={doctor.image}
+										alt={doctor.name}
+										width="79"
+										height="158"
+										loading="lazy"
+										decoding="async"
+										class="h-full w-full object-contain"
+									/>
+								</div>
+								<div class="w-full">
+									<div class="text-2xl font-bold leading-8 text-gray-900">
+										{doctor.name}
+									</div>
+								</div>
+							</div>
+							<div class="flex h-full flex-col justify-start rounded-2xl border-l-4 border-amber-400 bg-orange-50 px-6 py-5">
+								<div class="text-base font-normal leading-6 text-stone-900">
+									{doctor.quote}
+								</div>
+							</div>
+						</div>
+					</li>
+				))}
+			</ul>
+
+			<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer">
+				<MessageCircle class="h-4 w-4" aria-hidden="true" />
+				<span>Pilih Rekomendasi Dokter</span>
+				<ArrowRight class="h-4 w-4" aria-hidden="true" />
+			</Button>
+		</div>
+	</div>
+
+	<dialog
+		id="doctor-video-dialog"
+		class="fixed inset-0 m-0 h-full w-full max-w-none border-0 bg-transparent p-0 backdrop:bg-black/70 backdrop:backdrop-blur-sm"
+		aria-labelledby="doctor-video-title"
+	>
+		<div class="flex min-h-full items-center justify-center p-4 sm:p-6">
+			<div class="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-black shadow-2xl">
+				<button
+					type="button"
+					class="absolute right-3 top-3 z-20 flex size-11 items-center justify-center rounded-full bg-white/90 text-stone-900 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+					data-video-close
+					aria-label="Tutup video"
+				>
+					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="size-5">
+						<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+					</svg>
+				</button>
+				<div class="flex flex-col gap-0 lg:grid lg:grid-cols-[1.5fr_0.9fr]">
+					<div class="bg-black">
+						<video
+							id="doctor-video-player"
+							class="aspect-video w-full bg-black object-contain"
+							controls
+							playsinline
+							autoplay
+						></video>
+					</div>
+					<div class="flex flex-col justify-between gap-6 bg-stone-950 p-6 text-white">
+						<div>
+							<p class="text-sm uppercase tracking-[0.2em] text-amber-300">
+								Video dokter
+							</p>
+							<h3 id="doctor-video-title" class="mt-3 text-3xl font-bold leading-tight">
+								Pilih video untuk diputar
+							</h3>
+							<p id="doctor-video-description" class="mt-3 text-base leading-6 text-stone-300">
+								Klik salah satu thumbnail untuk membuka popup video dan memutarnya secara otomatis.
+							</p>
+						</div>
+						<p class="text-sm leading-6 text-stone-400">
+							Gunakan tombol tutup atau tekan tombol Esc untuk kembali ke daftar dokter.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</dialog>
+
+	<script is:inline>
+		const dialog = document.getElementById("doctor-video-dialog");
+		const player = document.getElementById("doctor-video-player");
+		const title = document.getElementById("doctor-video-title");
+		const description = document.getElementById("doctor-video-description");
+		const triggers = document.querySelectorAll("[data-video-trigger]");
+		const closeButtons = document.querySelectorAll("[data-video-close]");
+
+		if (dialog instanceof HTMLDialogElement && player instanceof HTMLVideoElement) {
+			const stopVideo = () => {
+				player.pause();
+				player.removeAttribute("src");
+				player.load();
+			};
+
+			const closeDialog = () => {
+				stopVideo();
+				if (dialog.open) {
+					dialog.close();
+				}
+			};
+
+			triggers.forEach((trigger) => {
+				trigger.addEventListener("click", () => {
+					const src = trigger.getAttribute("data-video-src");
+					const videoTitle = trigger.getAttribute("data-video-title") ?? "Video dokter";
+					const videoDescription =
+						trigger.getAttribute("data-video-description") ??
+						"Klik salah satu thumbnail untuk membuka popup video dan memutarnya secara otomatis.";
+
+					if (!src) {
+						return;
+					}
+
+					title.textContent = videoTitle;
+					description.textContent = videoDescription;
+					player.src = src;
+					player.load();
+
+					if (!dialog.open) {
+						dialog.showModal();
+					}
+
+					player.play().catch(() => {
+						// Autoplay can be blocked in some browsers; controls remain available.
+					});
+				});
+			});
+
+			closeButtons.forEach((button) => {
+				button.addEventListener("click", closeDialog);
+			});
+
+			dialog.addEventListener("click", (event) => {
+				const target = event.target;
+				if (target === dialog) {
+					closeDialog();
+				}
+			});
+
+			dialog.addEventListener("close", stopVideo);
+		}
+	</script>
+</section>

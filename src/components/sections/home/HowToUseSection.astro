@@ -1,11 +1,31 @@
 ---
-import SectionLabel from "../shared/SectionLabel.astro";
+import SectionLabel from "../../shared/SectionLabel.astro";
 
 const steps = [
-	{ number: "01", title: "Air Putih Hangat 100ml", image: "/images/cara konsumsi 1.webp" },
-	{ number: "02", title: "Alpha Propolis 6 tetes", image: "/images/cara konsumsi 2.webp" },
-	{ number: "03", title: "Aduk sampai tercampur rata", image: "/images/cara konsumsi 3.webp" },
-	{ number: "04", title: "Minum 3 Kali Sehari", image: "/images/cara konsumsi 4.webp" },
+	{
+		number: "01",
+		title: "100ml Air Hangat",
+		body: "Tuangkan air putih hangat ke dalam gelas.",
+		image: "/images/cara konsumsi 1.webp",
+	},
+	{
+		number: "02",
+		title: "6 Tetes Alpha Propolis",
+		body: "Teteskan langsung ke dalam gelas.",
+		image: "/images/cara konsumsi 2.webp",
+	},
+	{
+		number: "03",
+		title: "Aduk Rata & Siap Minum",
+		body: "Aduk perlahan sampai tercampur rata.",
+		image: "/images/cara konsumsi 3.webp",
+	},
+	{
+		number: "04",
+		title: "Minum 3 Kali Sehari",
+		body: "Jika sedang mengonsumsi obat dokter, beri jeda 1 jam sebelum atau sesudah obat harian Anda.",
+		image: "/images/cara konsumsi 4.webp",
+	},
 ];
 ---
 
@@ -13,7 +33,7 @@ const steps = [
 	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
 		<div class="flex flex-col items-center gap-5 text-center">
 			<SectionLabel text="Cara Konsumsi" />
-			<h2 id="how-to-use-title" class="text-gray-900">Praktis, Mudah dan Simple</h2>
+			<h2 id="how-to-use-title" class="text-gray-900">Cara Paling Praktis Melindungi Tubuh Anda Setiap Hari</h2>
 		</div>
 
 		<ol class="grid w-full gap-5 pt-8 lg:grid-cols-4">
@@ -24,6 +44,7 @@ const steps = [
 							<p class="text-2xl font-bold leading-7 text-neutral-800">{step.number}</p>
 							<img src={step.image} alt={step.title} width="213" height="298" loading="lazy" decoding="async" class="h-72 w-52 rounded-[10px] object-cover" />
 							<h3 class="text-2xl font-bold leading-7 text-neutral-800">{step.title}</h3>
+							<p class="text-base leading-6 text-stone-700">{step.body}</p>
 						</div>
 					</li>
 				))

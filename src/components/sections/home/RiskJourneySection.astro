@@ -1,15 +1,15 @@
 ---
 import { ArrowRight, Check, MessageCircle } from "lucide-astro";
-import Button from "../ui/Button.astro";
-import SectionLabel from "../shared/SectionLabel.astro";
-import { whatsappOrderUrl } from "../../lib/site";
+import Button from "../../ui/Button.astro";
+import SectionLabel from "../../shared/SectionLabel.astro";
+import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
 
 const reasons = [
-	"Mengurangi mual dan lemas akibat dosis OAT.",
-	"Menjaga daya tahan tubuh",
-	"Mengoptimalkan fungsi paru-paru kembali normal di fase pemulihan.",
+	"Mendukung stamina agar tetap fit selama menjalani OAT.",
+	"Membantu menjaga daya tahan tubuh di masa pengobatan.",
+	"Mendampingi tubuh agar lebih siap menjalani terapi sampai tuntas.",
 ];
 ---
 
@@ -18,11 +18,10 @@ const reasons = [
 		<div class="flex max-w-5xl flex-col items-center gap-5 text-center">
 			<SectionLabel text="Pendamping Pengobatan TBC" />
 			<h2 id="tbc-support-title" class="text-gray-900">
-				Dampingi Pengobatan TBC Anda<br class="hidden sm:block" />
-				Jaga Daya Tahan Tubuh Selama Masa Pengobatan
+				Pendamping Alami untuk Membantu Pemulihan TBC Anda
 			</h2>
 			<p class="max-w-[843px] text-stone-900">
-				Obat TBC (OAT) wajib dikonsumsi sampai selesai, meski efek sampingnya bikin mual, lemas, nafsu makan hilang, dan imun menjadi lemah.
+				Obat TBC (OAT) wajib dikonsumsi sampai selesai, meski efek sampingnya bisa memicu mual, lemas, nafsu makan turun, dan tubuh terasa lebih rentan.
 			</p>
 		</div>
 

@@ -1,0 +1,40 @@
+---
+import { ChevronDown, Sparkles } from "lucide-astro";
+
+const faqs = [
+	"Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
+	"Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
+	"Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
+	"Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
+	"Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
+	"Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
+	"Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
+	"Apakah Alpha Propolis sudah bersertifikasi Halal?",
+	"Apakah bisa melakukan pembayaran di tempat (COD)?",
+];
+---
+
+<section id="wa-faq" aria-labelledby="wa-faq-title" class="mx-auto flex w-full flex-col items-center justify-start bg-white px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
+	<div class="flex w-full flex-col items-center justify-start">
+		<div class="flex w-full max-w-[797px] flex-col items-center justify-start gap-5">
+			<div class="inline-flex h-8 items-center justify-start gap-1.5 rounded-full bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30">
+				<Sparkles class="size-2.5 text-amber-400" aria-hidden="true" />
+				<div class="text-center text-xs font-bold uppercase leading-4 tracking-wide text-amber-400">FAQ</div>
+			</div>
+			<h2 id="wa-faq-title" class="self-stretch text-center text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl lg:leading-[57.60px]">
+				Temukan Jawaban Lengkap untuk Kesehatan Anda di Sini
+			</h2>
+		</div>
+
+		<div class="flex w-full max-w-[800px] flex-col items-start justify-start gap-3 pt-12">
+			{faqs.map((question) => (
+				<div class="flex min-h-16 self-stretch flex-col items-start justify-start overflow-hidden rounded-[20px] bg-stone-100 outline outline-1 outline-offset-[-1px] outline-amber-400/20">
+					<div class="inline-flex min-h-16 self-stretch items-center justify-between gap-4 px-5 py-5 sm:px-7">
+						<div class="text-left text-base font-semibold leading-6 text-gray-900">{question}</div>
+						<ChevronDown class="size-4 shrink-0 text-amber-400" aria-hidden="true" />
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
