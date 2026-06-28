@@ -7,28 +7,51 @@ import { whatsappOrderUrl } from "../../../lib/site";
 const whatsappHref = whatsappOrderUrl;
 
 const stories = [
-	{ src: "/images/Testimoni-42.webp", alt: "Kisah transformasi pengguna Alpha Propolis 42" },
-	{ src: "/images/Testimoni-43.webp", alt: "Kisah transformasi pengguna Alpha Propolis 43" },
-	{ src: "/images/Testimoni-44.webp", alt: "Kisah transformasi pengguna Alpha Propolis 44" },
-	{ src: "/images/Testimoni-45.webp", alt: "Kisah transformasi pengguna Alpha Propolis 45" },
-	{ src: "/images/Testimoni-46.webp", alt: "Kisah transformasi pengguna Alpha Propolis 46" },
+	{
+		src: "/images/Testimoni-42.webp",
+		alt: "Kisah transformasi pengguna Alpha Propolis 42",
+	},
+	{
+		src: "/images/Testimoni-43.webp",
+		alt: "Kisah transformasi pengguna Alpha Propolis 43",
+	},
+	{
+		src: "/images/Testimoni-44.webp",
+		alt: "Kisah transformasi pengguna Alpha Propolis 44",
+	},
+	{
+		src: "/images/Testimoni-45.webp",
+		alt: "Kisah transformasi pengguna Alpha Propolis 45",
+	},
+	{
+		src: "/images/Testimoni-46.webp",
+		alt: "Kisah transformasi pengguna Alpha Propolis 46",
+	},
 ];
 ---
 
-<section id="testimonials" aria-labelledby="testimonials-title" class="landing-section overflow-hidden bg-white py-24">
+<section
+	id="testimonials"
+	aria-labelledby="testimonials-title"
+	class="landing-section overflow-hidden bg-white py-24"
+>
 	<div class="flex flex-col items-center gap-5">
-		<div class="flex max-w-[1344px] flex-col items-center gap-5 px-6 text-center sm:px-8 lg:px-10">
+		<div
+			class="flex max-w-[1344px] flex-col items-center gap-5 px-6 text-center sm:px-8 lg:px-10"
+		>
 			<SectionLabel text="Bukti Nyata" />
 			<h2 id="testimonials-title" class="text-gray-900">
 				Ini Kata Dokter dan Kata Mereka yang Sudah Membuktikan
 			</h2>
 		</div>
 
-		<ul class="flex w-full gap-5 overflow-x-auto px-6 py-5 sm:px-8 lg:px-10">
+		<ul
+			class="flex w-full gap-5 overflow-x-auto px-6 py-5 sm:px-8 lg:px-10"
+		>
 			{
 				stories.map((story) => (
 					<li class="shrink-0">
-						<div class="flex h-[382px] w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-[10px] bg-stone-50">
+						<div class="flex h-[382px] w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-[10px]">
 							<img
 								src={story.src}
 								alt={story.alt}
@@ -44,7 +67,12 @@ const stories = [
 			}
 		</ul>
 
-		<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer">
+		<Button
+			href={whatsappHref}
+			size="lg"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<MessageCircle class="h-4 w-4" aria-hidden="true" />
 			<span>Lihat Bukti Lainnya</span>
 			<ArrowRight class="h-4 w-4" aria-hidden="true" />
