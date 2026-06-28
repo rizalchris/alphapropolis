@@ -1,93 +1,116 @@
 ---
-import { ArrowRight, Check, Clock, MessageCircle, Sparkles, Star } from "lucide-astro";
+import { ArrowRight, Check, Clock, MessageCircle, Star } from "lucide-astro";
+import Button from "../../ui/Button.astro";
+import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
+
+const whatsappHref = whatsappOrderUrl;
 
 const packages = [
 	{
-		label: "PAKET HEMAT",
+		label: "Paket Hemat",
 		name: "Paket A",
 		oldPrice: "Rp 250.000",
 		price: "Rp 185.000",
 		image: "/images/paket-biasa.webp",
 		features: ["1 Botol Alpha Propolis", "Panduan konsumsi lengkap"],
-		cta: "Klaim diskon hari ini",
+		cta: "Mulai Perlindungan Awal",
 		featured: false,
 	},
 	{
-		label: "PAKET PREMIUM",
+		label: "Paket Premium",
 		name: "Paket Spesial Bundling",
 		oldPrice: "Rp 500.000",
 		price: "Rp 370.000",
 		image: "/images/paket-premium.webp",
-		features: ["2 Botol Alpha Propolis", "Panduan konsumsi lengkap", "GRATIS Konsultasi Dokter"],
-		cta: "Hemat Hingga Rp 130.000",
+		features: ["2 Botol Alpha Propolis", "Panduan konsumsi lengkap"],
+		cta: "Klaim Khusus Hari Ini",
 		featured: true,
 	},
 ];
 ---
 
-<section id="wa-pricing" aria-labelledby="wa-pricing-title" class="mx-auto flex w-full flex-col items-center justify-start px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
-	<div class="flex w-full max-w-[1200px] flex-col items-start justify-start">
-		<div class="flex self-stretch flex-col items-center justify-start gap-5">
-			<div class="inline-flex h-8 items-center justify-start gap-1.5 rounded-full bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30">
-				<Sparkles class="size-2.5 text-amber-400" aria-hidden="true" />
-				<div class="text-center text-xs font-bold uppercase leading-4 tracking-wide text-amber-400">Penawaran Spesial Hari Ini</div>
-			</div>
-			<h2 id="wa-pricing-title" class="self-stretch text-center text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl lg:leading-[48px]">
-				Hemat Lebih Banyak, Lindungi Lebih Maksimal
-			</h2>
-			<p class="max-w-[869px] text-center text-lg font-bold leading-8 text-stone-900 sm:text-2xl sm:leading-9">
-				Jangan tunda lagi, amankan stok Alpha Propolis Anda sekarang dan tetap jadi teman ikhtiar terbaik untuk diri sendiri dan keluarga, lewat paket hemat spesial di bawah ini.
+<section
+	id="wa-pricing"
+	aria-labelledby="wa-pricing-title"
+	class="landing-section bg-[linear-gradient(150deg,#FAF7F2_7.74%,#FFF5DC_50%,#FAF7F2_92.26%)] px-6 py-24 sm:px-8 lg:px-10"
+>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+		<div class="flex flex-col items-center gap-5 text-center">
+			<SectionLabel text="Penawaran Spesial Hari Ini" />
+			<h2 id="wa-pricing-title" class="text-gray-900">Mulai Lebih Hemat, Hasil Lebih Maksimal</h2>
+			<p class="max-w-[869px] text-stone-900">
+				Amankan pilihan Anda sekarang untuk selalu siap <strong>#JagaSenyumKeluarga</strong> melalui penawaran paket hemat khusus di bawah ini.
 			</p>
-			<div class="inline-flex items-center justify-center gap-2.5 rounded-full bg-red-100 px-5 py-4 text-center sm:px-6">
-				<Clock class="size-5 text-red-600" aria-hidden="true" />
-				<div class="text-center text-lg font-bold leading-5 text-red-600">Stok tersisa 23 pcs - Promo berakhir hari ini</div>
-			</div>
+			<p class="inline-flex items-center gap-2.5 rounded-full bg-red-100 px-6 py-4 text-lg font-bold leading-5 text-red-600">
+				<Clock class="h-5 w-5" aria-hidden="true" />
+				<span>Stok tersisa 23 pcs - Promo berakhir hari ini</span>
+			</p>
 		</div>
 
-		<div class="flex self-stretch flex-col items-center justify-start pt-8">
-			<ul class="grid w-full max-w-[920px] items-stretch justify-center gap-6 lg:grid-cols-2">
-				{packages.map((pkg) => (
-					<li class="h-full">
-					<article class:list={["relative flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-3xl px-6 py-10 text-center outline outline-offset-[-1px] sm:px-9 lg:items-start lg:text-left", pkg.featured ? "border-2 border-amber-400 bg-gradient-to-br from-orange-50 to-orange-100 shadow-[0px_16px_56px_0px_rgba(231,181,57,0.28)]" : "border border-stone-200 bg-white shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)]"]}>
+		<div class="grid w-full max-w-[920px] items-stretch gap-6 pt-4 lg:grid-cols-[0.9fr_1.1fr]">
+			{
+				packages.map((pkg) => (
+					<div class:list={[
+						"relative flex flex-col items-start gap-2.5 rounded-3xl p-9 shadow-card-md",
+						pkg.featured
+							? "border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] shadow-product"
+							: "border border-stone-200 bg-white",
+					]}>
 						{pkg.featured && (
-							<div class="absolute left-1/2 top-[-17.72px] flex max-w-[calc(100%-2rem)] -translate-x-1/2 rotate-[1.48deg] flex-col items-start justify-start rounded-full bg-gradient-to-br from-amber-400 to-amber-700 px-4 py-1.5 text-center shadow-[0px_4px_16px_0px_rgba(231,181,57,0.45)] sm:px-6">
-								<div class="inline-flex items-center gap-1 text-xs font-extrabold leading-5 text-white">
-									<Star class="size-3 fill-current" aria-hidden="true" />
-									<span>BEST SELLER - PALING HEMAT</span>
-								</div>
-							</div>
+							<p class="absolute right-8 top-0 flex -translate-y-1/2 rotate-[1.48deg] items-center gap-1 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 px-6 py-1.5 text-xs font-extrabold leading-5 text-white shadow-primary">
+								<Star class="h-3 w-3 fill-current" aria-hidden="true" />
+								<span>BEST SELLER - PALING HEMAT</span>
+							</p>
 						)}
-						<div class:list={["text-xs font-bold leading-4 tracking-wide", pkg.featured ? "text-amber-400" : "text-stone-400"]}>{pkg.label}</div>
-						<img class:list={[pkg.featured ? "max-w-96" : "max-w-80", "h-auto w-full rounded-[10px] object-contain"]} src={pkg.image} alt={pkg.name} width="405" height="253" loading="lazy" decoding="async" />
-						<div class="flex flex-col items-center justify-start gap-2.5 pt-2.5 lg:items-start">
-							<h3 class="text-2xl font-bold leading-8 text-gray-900 sm:text-3xl">{pkg.name}</h3>
-							<div class="flex flex-col items-center justify-start gap-2.5 lg:items-start">
-								<del class="text-base font-normal leading-4 text-stone-400">{pkg.oldPrice}</del>
-								<p class="text-3xl font-bold leading-10 text-gray-900 sm:text-4xl">{pkg.price}</p>
-							</div>
+						<p class:list={["text-xs font-bold uppercase leading-4 tracking-wide", pkg.featured ? "text-amber-400" : "text-stone-400"]}>
+							{pkg.label}
+						</p>
+						<img
+							src={pkg.image}
+							alt={pkg.name}
+							width={pkg.featured ? 405 : 343}
+							height={pkg.featured ? 253 : 227}
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full rounded-[10px] object-contain"
+						/>
+						<div class="pt-2.5">
+							<h3 class="text-3xl font-bold leading-7 text-gray-900">
+								{pkg.name}
+							</h3>
+							<p class="mt-2.5 text-base leading-4 text-stone-400 line-through">
+								{pkg.oldPrice}
+							</p>
+							<p class="mt-2.5 text-4xl font-bold leading-10 text-gray-900">
+								{pkg.price}
+							</p>
 						</div>
-						<div class="text-xl font-bold leading-5 text-green-500">Hemat 26%</div>
-						<ul class="flex self-stretch flex-col items-start justify-start gap-3.5 border-y border-neutral-200 py-3.5">
-							{pkg.features.map((feature) => (
-								<li class="inline-flex items-center justify-start gap-2.5 text-left">
-									<Check class="size-4 text-green-500" aria-hidden="true" />
-									<span class:list={["text-base leading-4 text-stone-900", feature.startsWith("GRATIS") ? "font-bold" : "font-medium"]}>{feature}</span>
-								</li>
-							))}
+						<p class="text-xl font-bold leading-5 text-green-500">Hemat 26%</p>
+						<ul class="w-full flex-1 divide-y divide-neutral-200">
+							{
+								pkg.features.map((feature) => (
+									<li class="flex items-center gap-2.5 py-3.5 text-base font-medium leading-4 text-stone-900">
+										<Check class="h-4 w-4 text-green-500" aria-hidden="true" />
+										<span>{feature}</span>
+									</li>
+								))
+							}
 						</ul>
-						<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" aria-label={`Pesan ${pkg.name} Alpha Propolis melalui WhatsApp`} class:list={[
-							"inline-flex max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)]",
-							pkg.featured ? "min-h-16 px-8 py-5 sm:px-12" : "min-h-11 px-7 py-3",
-						]}>
-							<MessageCircle class={pkg.featured ? "size-4 text-white" : "size-3 text-white"} aria-hidden="true" />
-							<span class:list={["text-center font-bold text-white", pkg.featured ? "text-lg leading-7" : "text-base leading-5"]}>{pkg.cta}</span>
-							<ArrowRight class={pkg.featured ? "size-4 text-white" : "size-3 text-white"} aria-hidden="true" />
-						</a>
-					</article>
-					</li>
-				))}
-			</ul>
+						<Button
+							href={whatsappHref}
+							size={pkg.featured ? "lg" : "md"}
+							class={pkg.featured ? "mt-2 h-16" : "mt-2 h-11 px-7"}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<MessageCircle class={pkg.featured ? "h-4 w-4" : "h-3 w-3"} aria-hidden="true" />
+							<span>{pkg.cta}</span>
+							<ArrowRight class={pkg.featured ? "h-4 w-4" : "h-3 w-3"} aria-hidden="true" />
+						</Button>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </section>

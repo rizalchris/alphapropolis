@@ -27,7 +27,7 @@ const alphaFeatures = [
 	"1600 mg/L Phenol",
 	"67% Lebah Trigona (Stingless)",
 	"33% Apis Mellifera",
-	"IC50 Rendah - Antioksidan Tinggi",
+	"IC<sub>50</sub> Rendah - Antioksidan Tinggi",
 	"Flavonoid Kadar Tinggi",
 	"Phenolic Acid Terstandarisasi",
 ];
@@ -227,7 +227,13 @@ const alphaFeatures = [
 										aria-hidden="true"
 									/>
 								</span>
-								<span>{feature}</span>
+								<span>
+									{feature === "IC<sub>50</sub> Rendah - Antioksidan Tinggi" ? (
+										<>IC<sub>50</sub> Rendah - Antioksidan Tinggi</>
+									) : (
+										feature
+									)}
+								</span>
 							</li>
 						))
 					}
@@ -262,7 +268,13 @@ const alphaFeatures = [
 										aria-hidden="true"
 									/>
 								</span>
-								<span>{feature}</span>
+								<span>
+									{feature === "IC<sub>50</sub> Rendah - Antioksidan Tinggi" ? (
+										<>IC<sub>50</sub> Rendah - Antioksidan Tinggi</>
+									) : (
+										feature
+									)}
+								</span>
 							</li>
 						))
 					}

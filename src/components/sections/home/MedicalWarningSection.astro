@@ -26,15 +26,21 @@ const whatsappHref = whatsappOrderUrl;
 			</h2>
 		</div>
 
-		<img
-			src="/images/Resiko-Diabetes.webp"
-			alt="Resiko Diabetes"
-			width="1269"
-			height="494"
-			loading="lazy"
-			decoding="async"
-			class="h-auto w-full rounded-[10px] object-cover"
-		/>
+		<picture class="block w-full">
+			<source
+				media="(max-width: 640px)"
+				srcset="/images/Resiko%20Diabetes%20mobile.webp"
+			/>
+			<img
+				src="/images/Resiko-Diabetes.webp"
+				alt="Resiko Diabetes"
+				width="1269"
+				height="494"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full rounded-[10px] object-cover"
+			/>
+		</picture>
 	</div>
 </section>
 
@@ -44,7 +50,7 @@ const whatsappHref = whatsappOrderUrl;
 >
 	<h2
 		id="proof-title"
-		class="max-w-[733px] text-center text-5xl font-bold leading-[57.6px] text-white"
+		class="max-w-[733px] text-center font-bold leading-[57.6px] text-white"
 	>
 		Lebih dari 100 Ribu Orang Telah Merasakan Manfaatnya
 	</h2>

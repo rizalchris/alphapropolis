@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, Check, MessageCircle } from "lucide-astro";
+import { ArrowRight, Check, ChevronLeft, ChevronRight, MessageCircle } from "lucide-astro";
 import Button from "../../ui/Button.astro";
 import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
@@ -39,21 +39,31 @@ const doctorVideos = [
 		title: "Dr Robert",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Robert.mp4",
 		description: "Klik untuk menonton video Dr Robert",
+		label: "Tonton video Dr Robert",
 	},
 	{
-		title: "Dr Endang",
+		title: "dr. Endang, M.Si (Herbs)",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Endang.mp4",
 		description: "Klik untuk menonton video Dr Endang",
+		label: "Tonton video dr. Endang, M.Si (Herbs)",
 	},
 	{
-		title: "Dr Mahani",
+		title: "Dr. Mahani, SP., M.Si",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Mahani.mp4",
 		description: "Klik untuk menonton video Dr Mahani",
+		label: "Tonton video Dr. Mahani, SP., M.Si",
 	},
 	{
-		title: "Dr Robert 2",
+		title: "Dr Robert",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Robert_2.mp4",
 		description: "Klik untuk menonton video Dr Robert 2",
+		label: "Tonton video Dr Robert 2",
+	},
+	{
+		title: "Ratih Purwasih - Penyanyi",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/RETARGETING-1.mov",
+		description: "Klik untuk menonton video Ratih Purwasih - Penyanyi",
+		label: "Tonton video Ratih Purwasih - Penyanyi",
 	},
 ];
 ---
@@ -73,7 +83,7 @@ const doctorVideos = [
 			<div class="flex max-w-4xl flex-col items-center gap-5 text-center">
 				<h2
 					id="diabetes-comfort-title"
-					class="text-4xl font-bold leading-8 text-gray-900"
+					class="font-bold text-gray-900"
 				>
 					Cara Nyaman Berdamai dengan Diabetes
 				</h2>
@@ -110,10 +120,28 @@ const doctorVideos = [
 				</h2>
 			</div>
 			<div class="w-full max-w-6xl">
-				<ul class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+				<div class="mb-4 flex items-center justify-end gap-3">
+					<button
+						type="button"
+						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition hover:-translate-y-0.5 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						data-video-carousel-prev
+						aria-label="Video sebelumnya"
+					>
+						<ChevronLeft class="size-5" aria-hidden="true" />
+					</button>
+					<button
+						type="button"
+						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition hover:-translate-y-0.5 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						data-video-carousel-next
+						aria-label="Video berikutnya"
+					>
+						<ChevronRight class="size-5" aria-hidden="true" />
+					</button>
+				</div>
+				<ul class="flex gap-4 overflow-x-auto scroll-smooth pb-2" data-video-carousel-track>
 					{
 						doctorVideos.map((video) => (
-							<li>
+							<li class="w-full shrink-0 basis-full md:basis-[calc((100%-2rem)/3)] lg:basis-[calc((100%-3rem)/4)]">
 								<button
 									type="button"
 									class="group flex w-full flex-col gap-3 rounded-3xl border border-stone-200 bg-white p-3 text-left shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
@@ -121,6 +149,7 @@ const doctorVideos = [
 									data-video-src={video.src}
 									data-video-title={video.title}
 									data-video-description={video.description}
+									aria-label={video.label}
 								>
 									<div class="relative overflow-hidden rounded-2xl bg-stone-950">
 										<video
@@ -277,12 +306,52 @@ const doctorVideos = [
 		</div>
 	</dialog>
 	<script is:inline>
+		const section = document.currentScript?.closest("section");
 		const dialog = document.getElementById("doctor-video-dialog");
 		const player = document.getElementById("doctor-video-player");
 		const title = document.getElementById("doctor-video-title");
 		const description = document.getElementById("doctor-video-description");
-		const triggers = document.querySelectorAll("[data-video-trigger]");
+		const triggers = section?.querySelectorAll("[data-video-trigger]") ?? [];
 		const closeButtons = document.querySelectorAll("[data-video-close]");
+		const track = section?.querySelector("[data-video-carousel-track]");
+		const prevButton = section?.querySelector("[data-video-carousel-prev]");
+		const nextButton = section?.querySelector("[data-video-carousel-next]");
+
+		if (track instanceof HTMLElement) {
+			const getScrollAmount = () => {
+				const firstCard = track.querySelector("li");
+				if (!(firstCard instanceof HTMLElement)) {
+					return track.clientWidth;
+				}
+
+				const styles = window.getComputedStyle(track);
+				const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
+
+				return firstCard.getBoundingClientRect().width + gap;
+			};
+
+			const updateControls = () => {
+				if (!(prevButton instanceof HTMLButtonElement) || !(nextButton instanceof HTMLButtonElement)) {
+					return;
+				}
+
+				const maxScrollLeft = track.scrollWidth - track.clientWidth;
+				prevButton.disabled = track.scrollLeft <= 4;
+				nextButton.disabled = track.scrollLeft >= maxScrollLeft - 4;
+			};
+
+			prevButton?.addEventListener("click", () => {
+				track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+			});
+
+			nextButton?.addEventListener("click", () => {
+				track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+			});
+
+			track.addEventListener("scroll", updateControls, { passive: true });
+			window.addEventListener("resize", updateControls);
+			updateControls();
+		}
 
 		if (
 			dialog instanceof HTMLDialogElement &&
