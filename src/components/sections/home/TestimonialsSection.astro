@@ -40,9 +40,7 @@ const stories = [
 			class="flex max-w-[1344px] flex-col items-center gap-5 px-6 text-center sm:px-8 lg:px-10"
 		>
 			<SectionLabel text="Bukti Nyata" />
-			<h2 id="testimonials-title" class="text-gray-900">
-				Ini Kata Dokter dan Kata Mereka yang Sudah Membuktikan
-			</h2>
+			<h2 id="testimonials-title" class="text-gray-900">Testimoni</h2>
 		</div>
 
 		<ul
@@ -50,8 +48,8 @@ const stories = [
 		>
 			{
 				stories.map((story) => (
-				<li class="shrink-0">
-					<div class="flex w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-[10px]">
+					<li class="shrink-0">
+						<div class="flex w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-[10px]">
 							<img
 								src={story.src}
 								alt={story.alt}
