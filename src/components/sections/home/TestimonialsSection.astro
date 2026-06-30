@@ -1,5 +1,10 @@
 ---
-import { ArrowRight, MessageCircle } from "lucide-astro";
+import {
+	ArrowRight,
+	ChevronLeft,
+	ChevronRight,
+	MessageCircle,
+} from "lucide-astro";
 import Button from "../../ui/Button.astro";
 import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
@@ -26,6 +31,29 @@ const stories = [
 	{
 		src: "/images/Testimoni-46.webp",
 		alt: "Kisah transformasi pengguna Alpha Propolis 46",
+	},
+];
+
+const testimonialVideos = [
+	{
+		title: "Ratih Purwasih - Penyanyi",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/RETARGETING-1.mov",
+	},
+	{
+		title: "David Hofman - Aktor",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/David-Hofman-Aktor-.mp4",
+	},
+	{
+		title: "Sarwana Thamrin - Penyanyi",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Saharan-Thamrin-Penyanyi.mov",
+	},
+	{
+		title: "Saryo - Real Customer",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Saryo.mov",
+	},
+	{
+		title: "Real Customer - Bandung",
+		src: "https://bipolaragency.com/wp-content/uploads/2026/06/real-customer-bandung.mp4",
 	},
 ];
 ---
@@ -65,6 +93,65 @@ const stories = [
 			}
 		</ul>
 
+		<div
+			class="flex w-full max-w-[1344px] flex-col gap-5 px-6 sm:px-8 lg:px-10"
+		>
+			<div class="flex flex-col items-center gap-5 text-center">
+				<SectionLabel text="Video Testimoni" />
+				<h3 class="text-gray-900">
+					Dengar langsung dari pengguna kami
+				</h3>
+			</div>
+			<div class="w-full">
+				<ul
+					class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+					data-testimonial-video-track
+				>
+					{
+						testimonialVideos.map((video) => (
+							<li class="w-full shrink-0 basis-full snap-start md:basis-[calc((100%-2rem)/3)] lg:basis-[calc((100%-3rem)/4)]">
+								<div class="overflow-hidden rounded-[10px] bg-white shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)]">
+									<div class="relative bg-stone-950">
+										<video
+											class="aspect-[3/4] w-full object-cover"
+											src={video.src}
+											controls
+											playsinline
+											preload="metadata"
+											aria-label={video.title}
+										/>
+									</div>
+									<div class="p-4">
+										<div class="text-lg font-bold leading-6 text-gray-900">
+											{video.title}
+										</div>
+									</div>
+								</div>
+							</li>
+						))
+					}
+				</ul>
+				<div class="mt-4 flex w-full items-center justify-end gap-3">
+					<button
+						type="button"
+						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						data-testimonial-video-prev
+						aria-label="Video sebelumnya"
+					>
+						<ChevronLeft class="size-5" aria-hidden="true" />
+					</button>
+					<button
+						type="button"
+						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						data-testimonial-video-next
+						aria-label="Video berikutnya"
+					>
+						<ChevronRight class="size-5" aria-hidden="true" />
+					</button>
+				</div>
+			</div>
+		</div>
+
 		<Button
 			href={whatsappHref}
 			size="lg"
@@ -78,3 +165,61 @@ const stories = [
 		</Button>
 	</div>
 </section>
+
+<script>
+	const testimonialsSection = document.getElementById("testimonials");
+	const track = testimonialsSection?.querySelector(
+		"[data-testimonial-video-track]",
+	);
+	const prevButton = testimonialsSection?.querySelector(
+		"[data-testimonial-video-prev]",
+	);
+	const nextButton = testimonialsSection?.querySelector(
+		"[data-testimonial-video-next]",
+	);
+
+	if (
+		track instanceof HTMLElement &&
+		prevButton instanceof HTMLButtonElement &&
+		nextButton instanceof HTMLButtonElement
+	) {
+		const getStep = () => {
+			const firstCard = track.querySelector("li");
+			if (!(firstCard instanceof HTMLElement)) {
+				return track.clientWidth;
+			}
+
+			const styles = window.getComputedStyle(track);
+			const gap = Number.parseFloat(
+				styles.columnGap || styles.gap || "0",
+			);
+
+			return firstCard.getBoundingClientRect().width + gap;
+		};
+
+		const updateControls = () => {
+			const maxScrollLeft = track.scrollWidth - track.clientWidth;
+			prevButton.disabled = track.scrollLeft <= 4;
+			nextButton.disabled = track.scrollLeft >= maxScrollLeft - 4;
+		};
+
+		const scrollTrack = (direction) => {
+			track.scrollBy({
+				left: direction * getStep(),
+				behavior: "smooth",
+			});
+		};
+
+		prevButton.addEventListener("click", () => {
+			scrollTrack(-1);
+		});
+
+		nextButton.addEventListener("click", () => {
+			scrollTrack(1);
+		});
+
+		track.addEventListener("scroll", updateControls, { passive: true });
+		window.addEventListener("resize", updateControls);
+		updateControls();
+	}
+</script>
