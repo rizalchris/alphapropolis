@@ -13,23 +13,6 @@ import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
 
-const comparisons = [
-	{
-		alphaTitle: "Alpha Propolis 1.600 mg/L",
-		genericTitle: "Propolis Biasa SNI 1000 mg/L",
-		note: "Kadar Fenol 60% lebih pekat untuk tubuh yang jauh lebih kuat.",
-		alphaImage: "/images/USP_Alpha_Propolis.webp",
-		genericImage: "/images/USP_Alpha%20Propolis_Biasa.webp",
-	},
-	{
-		alphaTitle: "Lebah Trigona 67%",
-		genericTitle: "Lebah Apis Mellifera 33%",
-		note: "Perlindungan ganda untuk menjaga imun dan mempercepat pemulihan Anda.",
-		alphaImage: "/images/Lebah%20Trigona.webp",
-		genericImage: "/images/Lebah%20Apis%20Mellifera.webp",
-	},
-];
-
 const alphaFeatures = [
 	"1600 mg/L Phenol",
 	"67% Lebah Trigona (Stingless)",
@@ -89,7 +72,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 								alt={customerGallery[0].alt}
 								width="900"
 								height="720"
-								loading="eager"
+								loading="lazy"
 								decoding="async"
 								class="h-full w-full object-contain"
 								data-why-alpha-slide-primary
@@ -150,61 +133,147 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 		</div>
 
 		<div class="flex w-full max-w-5xl flex-col items-center gap-5">
-			{
-				comparisons.map((item) => (
-					<section
-						class="contents"
-						aria-label={`${item.alphaTitle} dibanding ${item.genericTitle}`}
+			<section
+				class="contents"
+				aria-label="Alpha Propolis 1.600 mg/L dibanding Propolis Biasa SNI 1000 mg/L"
+			>
+				<div
+					class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
+				>
+					<div
+						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
 					>
-						<div class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-							<div class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md">
-								<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50">
-									<img
-										src={item.alphaImage}
-										alt={item.alphaTitle}
-										width="278"
-										height="165"
-										loading="lazy"
-										decoding="async"
-										class="h-full w-full object-contain"
-									/>
-								</div>
-								<h3 class="text-2xl font-bold leading-7 text-red-700">
-									{item.alphaTitle}
-								</h3>
-							</div>
-							<div class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp">
-								+
-							</div>
-							<div class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md">
-								<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50">
-									<img
-										src={item.genericImage}
-										alt={item.genericTitle}
-										width="278"
-										height="165"
-										loading="lazy"
-										decoding="async"
-										class="h-full w-full object-contain"
-									/>
-								</div>
-								<h3 class="text-2xl font-bold leading-7 text-red-700">
-									{item.genericTitle}
-								</h3>
-							</div>
+						<div
+							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
+						>
+							<img
+								src="/images/USP_Alpha_Propolis.webp"
+								alt="Alpha Propolis 1.600 mg/L"
+								width="278"
+								height="165"
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-contain"
+							/>
 						</div>
-						<p class="flex w-full flex-col items-center gap-4 rounded-none border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-center text-[18px] font-bold leading-7 text-stone-900 shadow-product lg:flex-row lg:items-center lg:gap-5 lg:text-left">
-							<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100">
-								<Check
-									class="h-3 w-3 text-green-500"
-									aria-hidden="true"
-								/>
-							</span>
-							<span>{item.note}</span>
-						</p>
-					</section>
-				))
-			}
+						<h3 class="text-2xl font-bold leading-7 text-red-700">
+							Alpha Propolis 1.600 mg/L
+						</h3>
+					</div>
+					<div
+						class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
+					>
+						VS
+					</div>
+					<div
+						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
+					>
+						<div
+							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
+						>
+							<img
+								src="/images/USP_Alpha%20Propolis_Biasa.webp"
+								alt="Propolis Biasa SNI 1000 mg/L"
+								width="278"
+								height="165"
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-contain"
+							/>
+						</div>
+						<h3 class="text-2xl font-bold leading-7 text-red-700">
+							Propolis Biasa SNI 1000 mg/L
+						</h3>
+					</div>
+				</div>
+				<p
+					class="flex w-full flex-col items-center gap-4 rounded-none border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-center text-[18px] font-bold leading-7 text-stone-900 shadow-product lg:flex-row lg:items-center lg:gap-5 lg:text-left"
+				>
+					<span
+						class="flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100"
+					>
+						<Check
+							class="h-3 w-3 text-green-500"
+							aria-hidden="true"
+						/>
+					</span>
+					<span
+						>Kadar Fenol 60% lebih pekat untuk tubuh yang jauh lebih
+						kuat.</span
+					>
+				</p>
+			</section>
+
+			<section
+				class="contents"
+				aria-label="Lebah Trigona 67% dibanding Lebah Apis Mellifera 33%"
+			>
+				<div
+					class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
+				>
+					<div
+						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
+					>
+						<div
+							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
+						>
+							<img
+								src="/images/Lebah%20Trigona.webp"
+								alt="Lebah Trigona 67%"
+								width="278"
+								height="165"
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-contain"
+							/>
+						</div>
+						<h3 class="text-2xl font-bold leading-7 text-red-700">
+							Lebah Trigona 67%
+						</h3>
+					</div>
+					<div
+						class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
+					>
+						+
+					</div>
+					<div
+						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
+					>
+						<div
+							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
+						>
+							<img
+								src="/images/Lebah%20Apis%20Mellifera.webp"
+								alt="Lebah Apis Mellifera 33%"
+								width="278"
+								height="165"
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-contain"
+							/>
+						</div>
+						<h3 class="text-2xl font-bold leading-7 text-red-700">
+							Lebah Apis Mellifera 33%
+						</h3>
+					</div>
+				</div>
+				<p
+					class="flex w-full flex-col items-center gap-4 rounded-none border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-center text-[18px] font-bold leading-7 text-stone-900 shadow-product lg:flex-row lg:items-center lg:gap-5 lg:text-left"
+				>
+					<span
+						class="flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100"
+					>
+						<Check
+							class="h-3 w-3 text-green-500"
+							aria-hidden="true"
+						/>
+					</span>
+					<span
+						>Perlindungan ganda untuk menjaga imun dan mempercepat
+						pemulihan Anda.</span
+					>
+				</p>
+			</section>
 
 			<div
 				class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
@@ -238,7 +307,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 				<div
 					class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
 				>
-					+
+					VS
 				</div>
 				<div
 					class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"

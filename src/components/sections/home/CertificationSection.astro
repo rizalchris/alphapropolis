@@ -3,15 +3,37 @@ import SectionLabel from "../../shared/SectionLabel.astro";
 import CertificationChips from "../../shared/CertificationChips.astro";
 
 const certifications = [
-	{ label: "BPOM TR-213656281", image: "/images/BPOM.webp", alt: "Sertifikasi BPOM Alpha Propolis" },
-	{ label: "HALAL MUI ID00410000283380322", image: "/images/Logo Halal.webp", alt: "Sertifikasi Halal MUI Alpha Propolis" },
-	{ label: "CPOTB", image: "/images/Standart CPOTB.webp", alt: "Sertifikasi CPOTB Alpha Propolis" },
-	{ label: "ISO 9001:2015", image: "/images/ISOQAR.webp", alt: "Sertifikasi ISO 9001 2015 Alpha Propolis" },
+	{
+		label: "BPOM TR-213656281",
+		image: "/images/BPOM.webp",
+		alt: "Sertifikasi BPOM Alpha Propolis",
+	},
+	{
+		label: "HALAL MUI ID00410000283380322",
+		image: "/images/Logo Halal.webp",
+		alt: "Sertifikasi Halal MUI Alpha Propolis",
+	},
+	{
+		label: "CPOTB  :  PW-S.02.01.1.43.431.07.23-0085",
+		image: "/images/Standart CPOTB.webp",
+		alt: "Sertifikasi CPOTB Alpha Propolis",
+	},
+	{
+		label: "ISO 9001:2015",
+		image: "/images/ISOQAR.webp",
+		alt: "Sertifikasi ISO 9001 2015 Alpha Propolis",
+	},
 ];
 ---
 
-<section id="certification" aria-labelledby="certification-title" class="landing-section bg-white px-6 py-16 sm:px-8 lg:px-10">
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+<section
+	id="certification"
+	aria-labelledby="certification-title"
+	class="landing-section bg-white px-6 py-16 sm:px-8 lg:px-10"
+>
+	<div
+		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5"
+	>
 		<div class="flex max-w-5xl flex-col items-center gap-5 text-center">
 			<SectionLabel text="Sertifikasi Resmi" />
 			<h2 id="certification-title" class="text-gray-900">
@@ -24,7 +46,15 @@ const certifications = [
 				certifications.map((item) => (
 					<li>
 						<div class="flex h-48 flex-col items-center justify-start gap-4 text-center">
-							<img src={item.image} alt={item.alt} width="167" height="142" loading="lazy" decoding="async" class="h-36 w-auto object-contain mix-blend-darken" />
+							<img
+								src={item.image}
+								alt={item.alt}
+								width="167"
+								height="142"
+								loading="lazy"
+								decoding="async"
+								class="h-36 w-auto object-contain mix-blend-darken"
+							/>
 							<CertificationChips items={[item.label]} />
 						</div>
 					</li>
