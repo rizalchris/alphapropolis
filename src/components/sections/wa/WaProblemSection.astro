@@ -10,12 +10,39 @@ const symptoms = [
 	"Kelelahan ekstrim, lemas sepanjang hari",
 ];
 
-const warningImages = [
-	"/images/Testimoni WA-01.webp",
-	"/images/Testimoni WA-02 1.webp",
-	"/images/Testimoni WA-03 1.webp",
-	"/images/Testimoni WA-04 1.webp",
-	"/images/Testimoni WA-05.webp",
+const wetWoundImages = [
+	"/images/luka-basah-1.webp",
+	"/images/luka-basah-2.webp",
+	"/images/luka-basah-3.webp",
+	"/images/luka-basah-4.webp",
+	"/images/luka-basah-5.webp",
+];
+
+const complicationCards = [
+	{
+		image: "/images/luka-basah-1.webp",
+		title: "Aliran Darah Tersumbat",
+		descriptionPrefix: "Bisa memicu ",
+		descriptionHighlight: "SERANGAN JANTUNG atau STROKE MENDADAK.",
+	},
+	{
+		image: "/images/luka-basah-2.webp",
+		title: "Kaki Kebas & Luka Tak Terasa",
+		descriptionPrefix: "Infeksi bisa berujung ",
+		descriptionHighlight: "AMPUTASI.",
+	},
+	{
+		image: "/images/luka-basah-3.webp",
+		title: "Pandangan Mulai Kabur",
+		descriptionPrefix: "Bisa berujung pada ",
+		descriptionHighlight: "KEBUTAAN PERMANEN!",
+	},
+	{
+		image: "/images/luka-basah-4.webp",
+		title: "Fungsi Ginjal Menurun",
+		descriptionPrefix: "Berisiko harus ",
+		descriptionHighlight: "CUCI DARAH SEUMUR HIDUP!",
+	},
 ];
 ---
 
@@ -44,7 +71,7 @@ const warningImages = [
 		</h2>
 
 		<p
-			class="max-w-3xl text-lg font-normal leading-8 text-stone-500 sm:text-xl sm:leading-9"
+			class="max-w-3xl text-lg font-normal leading-8 sm:text-xl sm:leading-9"
 		>
 			Sebelum komplikasi diabetes benar-benar terjadi, kenali dulu
 			tanda-tandanya:
@@ -80,22 +107,70 @@ const warningImages = [
 		<div
 			class="w-[calc(100%+3rem)] -mx-6 overflow-hidden rounded-none sm:mx-0 sm:w-full sm:max-w-[1200px] sm:rounded-none"
 		>
-			<picture class="block h-full w-full">
-				<source
-					media="(max-width: 640px)"
-					srcset="/images/Resiko%20Diabetes%20mobile%20wa.webp"
-				/>
+			<picture
+				class="block h-full w-full flex items-center justify-center mb-8"
+			>
 				<img
-					src="/images/resiko-diabetes-wa.webp"
+					src="/images/anatomi-2.webp"
 					alt="Ilustrasi ancaman komplikasi diabetes jika tanda awal terus dibiarkan"
-					width="1200"
-					height="675"
+					width="400"
+					height="400"
 					loading="lazy"
 					decoding="async"
-					class="h-full w-full object-cover"
+					class="h-auto rounded-none object-cover"
 				/>
 			</picture>
 		</div>
+
+		<div
+			class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4"
+		>
+			{
+				complicationCards.map((card) => (
+					<article class="flex h-full flex-col overflow-hidden border border-stone-200 bg-white text-stone-900 shadow-card">
+						<img
+							src={card.image}
+							alt={card.title}
+							width="480"
+							height="320"
+							loading="lazy"
+							decoding="async"
+							class="h-56 w-full object-cover"
+						/>
+						<div class="flex flex-1 flex-col gap-3 p-6 text-left">
+							<h3 class="text-2xl leading-7 text-red-700">
+								{card.title}
+							</h3>
+							<p class="text-lg leading-7 text-stone-900">
+								{card.descriptionPrefix}
+								<strong>{card.descriptionHighlight}</strong>
+							</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="mt-10 w-full">
+			<div
+				class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+			>
+				{
+					wetWoundImages.map((image, index) => (
+						<img
+							src={image}
+							alt={`Luka basah ${index + 1}`}
+							width="480"
+							height="480"
+							loading="lazy"
+							decoding="async"
+							class="h-full w-full object-cover"
+						/>
+					))
+				}
+			</div>
+		</div>
+
 		<a
 			href={whatsappOrderUrl}
 			target="_blank"

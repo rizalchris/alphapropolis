@@ -1,5 +1,40 @@
 ---
 import SectionLabel from "../../shared/SectionLabel.astro";
+
+const wetWoundImages = [
+	"/images/luka-basah-1.webp",
+	"/images/luka-basah-2.webp",
+	"/images/luka-basah-3.webp",
+	"/images/luka-basah-4.webp",
+	"/images/luka-basah-5.webp",
+];
+
+const complicationCards = [
+	{
+		image: "/images/luka-basah-1.webp",
+		title: "Aliran Darah Tersumbat",
+		descriptionPrefix: "Bisa memicu ",
+		descriptionHighlight: "SERANGAN JANTUNG atau STROKE MENDADAK.",
+	},
+	{
+		image: "/images/luka-basah-2.webp",
+		title: "Kaki Kebas & Luka Tak Terasa",
+		descriptionPrefix: "Infeksi bisa berujung ",
+		descriptionHighlight: "AMPUTASI.",
+	},
+	{
+		image: "/images/luka-basah-3.webp",
+		title: "Pandangan Mulai Kabur",
+		descriptionPrefix: "Bisa berujung pada ",
+		descriptionHighlight: "KEBUTAAN PERMANEN!",
+	},
+	{
+		image: "/images/luka-basah-4.webp",
+		title: "Fungsi Ginjal Menurun",
+		descriptionPrefix: "Berisiko harus ",
+		descriptionHighlight: "CUCI DARAH SEUMUR HIDUP!",
+	},
+];
 ---
 
 <section
@@ -8,7 +43,7 @@ import SectionLabel from "../../shared/SectionLabel.astro";
 	class="landing-section bg-slate-900 px-6 pt-16 pb-16 text-white sm:px-8 sm:pb-24 lg:px-10"
 >
 	<div
-		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-16"
+		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-8"
 	>
 		<div class="flex max-w-[933px] flex-col items-center gap-5 text-center">
 			<SectionLabel text="Peringatan Medis" tone="red" />
@@ -18,20 +53,61 @@ import SectionLabel from "../../shared/SectionLabel.astro";
 			</h2>
 		</div>
 
-		<picture class="block w-full">
-			<source
-				media="(max-width: 640px)"
-				srcset="/images/Resiko%20Diabetes%20mobile.webp"
-			/>
+		<picture class="flex w-full justify-center">
 			<img
-				src="/images/Resiko-Diabetes.webp"
+				src="/images/anatomi.webp"
 				alt="Resiko Diabetes"
-				width="1269"
+				width="500"
 				height="494"
 				loading="lazy"
 				decoding="async"
-				class="h-auto w-full rounded-none object-cover"
+				class="h-auto rounded-none object-cover"
 			/>
 		</picture>
+
+		<div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+			{
+				complicationCards.map((card) => (
+					<article class="flex h-full flex-col overflow-hidden border border-white/10 bg-white text-stone-900 shadow-card">
+						<img
+							src={card.image}
+							alt={card.title}
+							width="480"
+							height="320"
+							loading="lazy"
+							decoding="async"
+							class="h-56 w-full object-cover"
+						/>
+						<div class="flex flex-1 flex-col gap-3 p-6">
+							<h3 class="text-2xl leading-7 text-red-700">{card.title}</h3>
+							<p class="text-lg leading-7 text-stone-900">
+								{card.descriptionPrefix}
+								<strong>{card.descriptionHighlight}</strong>
+							</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+
+	<div class="mt-10 w-full">
+		<div
+			class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+		>
+			{
+				wetWoundImages.map((image, index) => (
+					<img
+						src={image}
+						alt={`Luka basah ${index + 1}`}
+						width="480"
+						height="480"
+						loading="lazy"
+						decoding="async"
+						class="h-full w-full object-cover"
+					/>
+				))
+			}
+		</div>
 	</div>
 </section>
