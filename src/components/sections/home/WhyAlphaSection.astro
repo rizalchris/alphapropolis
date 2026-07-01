@@ -1,5 +1,12 @@
 ---
-import { ArrowRight, Check, MessageCircle, X } from "lucide-astro";
+import {
+	ArrowRight,
+	Check,
+	ChevronLeft,
+	ChevronRight,
+	MessageCircle,
+	X,
+} from "lucide-astro";
 import Button from "../../ui/Button.astro";
 import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
@@ -31,6 +38,17 @@ const alphaFeatures = [
 	"Flavonoid Kadar Tinggi",
 	"Phenolic Acid Terstandarisasi",
 ];
+
+const customerGallery = Array.from({ length: 9 }, (_, index) => {
+	const imageNumber = index + 16;
+
+	return {
+		src: `/images/Foto%20Customers-${imageNumber}.webp`,
+		alt: `Foto customer Alpha Propolis ${imageNumber}`,
+	};
+});
+
+const customerGalleryJson = JSON.stringify(customerGallery);
 ---
 
 <section
@@ -44,19 +62,6 @@ const alphaFeatures = [
 		<div
 			class="flex w-full max-w-[1200px] flex-col items-center gap-8 text-center"
 		>
-			<figure
-				class="w-full overflow-hidden rounded-none border border-amber-400/20 bg-white shadow-card-md"
-			>
-				<img
-					src="/images/foto-customers.webp"
-					alt="Customer Alpha Propolis"
-					width="1200"
-					height="420"
-					loading="lazy"
-					decoding="async"
-					class="h-auto w-full object-cover"
-				/>
-			</figure>
 			<div
 				class="flex max-w-[805px] flex-col items-center gap-5 text-center"
 			>
@@ -65,6 +70,75 @@ const alphaFeatures = [
 					Alasan Mengapa Alpha Propolis Lebih Kuat dari Propolis Biasa
 				</h2>
 			</div>
+
+			<section
+				class="w-full max-w-6xl border border-amber-300 bg-[linear-gradient(135deg,#fff7ed_0%,#ffffff_45%,#ffedd5_100%)] p-4 shadow-card-md sm:p-6"
+				aria-label="Galeri foto customer Alpha Propolis"
+			>
+				<div
+					class="flex w-full flex-col gap-4"
+					data-why-alpha-gallery
+					data-gallery-images={customerGalleryJson}
+				>
+					<div class="grid gap-4 lg:grid-cols-3">
+						<div class="aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10]">
+							<img
+								src={customerGallery[0].src}
+								alt={customerGallery[0].alt}
+								width="900"
+								height="720"
+								loading="eager"
+								decoding="async"
+								class="h-full w-full object-contain"
+								data-why-alpha-slide-primary
+							/>
+						</div>
+						<div class="hidden aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10] lg:block">
+							<img
+								src={customerGallery[1].src}
+								alt={customerGallery[1].alt}
+								width="900"
+								height="720"
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-contain"
+								data-why-alpha-slide-secondary
+							/>
+						</div>
+						<div class="hidden aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10] lg:block">
+							<img
+								src={customerGallery[2].src}
+								alt={customerGallery[2].alt}
+								width="900"
+								height="720"
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-contain"
+								data-why-alpha-slide-tertiary
+							/>
+						</div>
+					</div>
+
+					<div class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden">
+						<button
+							type="button"
+							class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+							aria-label="Slide sebelumnya"
+							data-why-alpha-prev
+						>
+							<ChevronLeft class="size-5" aria-hidden="true" />
+						</button>
+						<button
+							type="button"
+							class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+							aria-label="Slide berikutnya"
+							data-why-alpha-next
+						>
+							<ChevronRight class="size-5" aria-hidden="true" />
+						</button>
+					</div>
+				</div>
+			</section>
 		</div>
 
 		<div class="flex w-full max-w-5xl flex-col items-center gap-5">
@@ -318,3 +392,78 @@ const alphaFeatures = [
 		</Button>
 	</div>
 </section>
+
+<script is:inline>
+	(() => {
+		const gallery = document.querySelector("[data-why-alpha-gallery]");
+		if (!(gallery instanceof HTMLElement)) return;
+		const customerGalleryRaw = gallery.dataset.galleryImages;
+		if (!customerGalleryRaw) return;
+		const customerGallery = JSON.parse(customerGalleryRaw);
+
+		const primarySlide = gallery.querySelector(
+			"[data-why-alpha-slide-primary]",
+		);
+		const secondarySlide = gallery.querySelector(
+			"[data-why-alpha-slide-secondary]",
+		);
+		const tertiarySlide = gallery.querySelector(
+			"[data-why-alpha-slide-tertiary]",
+		);
+		const prevButton = gallery.querySelector("[data-why-alpha-prev]");
+		const nextButton = gallery.querySelector("[data-why-alpha-next]");
+
+		if (
+			!(primarySlide instanceof HTMLImageElement) ||
+			!(secondarySlide instanceof HTMLImageElement) ||
+			!(tertiarySlide instanceof HTMLImageElement) ||
+			!(prevButton instanceof HTMLButtonElement) ||
+			!(nextButton instanceof HTMLButtonElement)
+		) return;
+
+		let activeIndex = 0;
+		let intervalId;
+
+		const setActiveSlide = (nextIndex) => {
+			activeIndex = (nextIndex + customerGallery.length) % customerGallery.length;
+			const secondaryIndex = (activeIndex + 1) % customerGallery.length;
+			const tertiaryIndex = (activeIndex + 2) % customerGallery.length;
+
+			primarySlide.src = customerGallery[activeIndex].src;
+			primarySlide.alt = customerGallery[activeIndex].alt;
+			secondarySlide.src = customerGallery[secondaryIndex].src;
+			secondarySlide.alt = customerGallery[secondaryIndex].alt;
+			tertiarySlide.src = customerGallery[tertiaryIndex].src;
+			tertiarySlide.alt = customerGallery[tertiaryIndex].alt;
+		};
+
+		const startAutoSlide = () => {
+			stopAutoSlide();
+			intervalId = window.setInterval(() => {
+				setActiveSlide(activeIndex + 1);
+			}, 2000);
+		};
+
+		const stopAutoSlide = () => {
+			if (intervalId) {
+				window.clearInterval(intervalId);
+			}
+		};
+
+		prevButton.addEventListener("click", () => {
+			setActiveSlide(activeIndex - 1);
+			startAutoSlide();
+		});
+
+		nextButton.addEventListener("click", () => {
+			setActiveSlide(activeIndex + 1);
+			startAutoSlide();
+		});
+
+		gallery.addEventListener("mouseenter", stopAutoSlide);
+		gallery.addEventListener("mouseleave", startAutoSlide);
+
+		setActiveSlide(0);
+		startAutoSlide();
+	})();
+</script>

@@ -45,12 +45,6 @@ const doctorVideos = [
 		label: "Tonton video dr. Endang, M.Si (Herbs)",
 	},
 	{
-		title: "Dr. Mahani, SP., M.Si",
-		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Mahani.mp4",
-		description: "Klik untuk menonton video Dr Mahani",
-		label: "Tonton video Dr. Mahani, SP., M.Si",
-	},
-	{
 		title: "Dr Robert",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Dr-Robert_2.mp4",
 		description: "Klik untuk menonton video Dr Robert 2",
@@ -75,10 +69,9 @@ const doctorVideos = [
 				<h2 id="diabetes-comfort-title" class="font-bold text-gray-900">
 					DIam - Diam diabetes merusak tubuh anda
 				</h2>
-				<p class="text-stone-900">
-					Mulai langkah praktis harian ini demi tubuh yang tetap
-					aktif, bertenaga, dan selalu siap #JagaSenyumKeluarga.
-				</p>
+				<strong class="text-stone-900">
+					Mulai langkah praktis tetap aktif bertenaga, selalu siap
+				</strong>
 			</div>
 			<ul class="grid w-full max-w-5xl gap-2.5 lg:grid-cols-2">
 				{
@@ -104,13 +97,13 @@ const doctorVideos = [
 			<div class="flex flex-col items-center gap-5 text-center">
 				<SectionLabel text="Validasi Ahli Kesehatan" />
 				<h2 id="doctors-title" class="max-w-[651px] text-gray-900">
-					Beralih ke Propolis Terbaik Pilihan Dokter untuk Anda
+					Propolis Rekomendasi Dokter
 				</h2>
 			</div>
 
 			<div class="w-full max-w-6xl">
 				<ul
-					class="flex justify-center gap-4 overflow-x-auto scroll-smooth pb-2"
+					class="flex justify-start gap-4 overflow-x-auto scroll-smooth pb-2 lg:justify-center"
 					data-video-carousel-track
 				>
 					{
@@ -159,7 +152,9 @@ const doctorVideos = [
 						))
 					}
 				</ul>
-				<div class="mt-4 flex w-full items-center justify-end gap-3">
+				<div
+					class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
+				>
 					<button
 						type="button"
 						class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
@@ -179,7 +174,7 @@ const doctorVideos = [
 				</div>
 			</div>
 
-			<ul
+			<!-- <ul
 				class="flex w-full items-stretch snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-3 lg:overflow-visible"
 				data-doctor-cards-track
 			>
@@ -218,11 +213,11 @@ const doctorVideos = [
 						</li>
 					))
 				}
-			</ul>
+			</ul> -->
 			<div
 				class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
 			>
-				<button
+				<!-- <button
 					type="button"
 					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
 					data-doctor-cards-prev
@@ -237,7 +232,7 @@ const doctorVideos = [
 					aria-label="Dokter berikutnya"
 				>
 					<ChevronRight class="size-5" aria-hidden="true" />
-				</button>
+				</button> -->
 			</div>
 
 			<Button

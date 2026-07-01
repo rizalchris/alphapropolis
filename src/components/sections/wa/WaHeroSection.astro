@@ -29,11 +29,9 @@ const highlights = [
 	</ul>
 
 	<div
-		class="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-center gap-10 px-6 py-16 text-center sm:px-8 lg:flex-row lg:py-28 lg:text-left"
+		class="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-center gap-14 px-6 pb-0 pt-16 text-center sm:px-8 sm:pb-0 sm:pt-16 lg:pb-0 lg:pt-28"
 	>
-		<div
-			class="flex w-full max-w-[680px] flex-col items-center justify-start gap-8 lg:items-start"
-		>
+		<div class="flex w-full flex-col items-center justify-start gap-8">
 			<div
 				class="inline-flex min-h-8 items-center justify-center gap-1.5 rounded-none bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30"
 			>
@@ -47,15 +45,13 @@ const highlights = [
 
 			<h1
 				id="wa-hero-title"
-				class="max-w-[602px] text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl lg:leading-[64px]"
+				class="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl lg:leading-[64px]"
 			>
 				Sebelum Komplikasi Diabetes Datang, Lindungi Tubuh Anda
 				Sekarang!
 			</h1>
 
-			<ul
-				class="flex flex-wrap items-center justify-center gap-1.5 lg:justify-start"
-			>
+			<ul class="flex flex-wrap items-center justify-center gap-1.5">
 				{
 					badges.map((badge) => (
 						<li class="inline-flex min-h-7 flex-col items-start justify-start rounded-none bg-amber-100 px-3.5 py-[5px] shadow-[0px_1px_6px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-amber-400">
@@ -67,9 +63,7 @@ const highlights = [
 				}
 			</ul>
 
-			<div
-				class="flex flex-col items-center justify-start gap-2 lg:items-start"
-			>
+			<div class="flex flex-col items-center justify-start gap-2">
 				<a
 					href={whatsappOrderUrl}
 					target="_blank"
@@ -94,19 +88,17 @@ const highlights = [
 			</div>
 		</div>
 
-		<div
-			class="relative aspect-[462/528] w-full max-w-[462px] overflow-hidden rounded-none outline outline-1 outline-offset-[-1px] outline-orange-300"
-		>
+		<figure class="w-full overflow-hidden">
 			<img
 				class="h-full w-full object-cover"
-				src="/images/Alpha-Propolis.webp"
-				alt="Botol Alpha Propolis dalam kemasan resmi"
-				width="672"
-				height="538"
+				src="/images/Foto%20Artis.webp"
+				alt="Foto artis bersama Alpha Propolis"
+				width="480"
+				height="592"
 				loading="eager"
 				decoding="async"
 				fetchpriority="high"
 			/>
-		</div>
+		</figure>
 	</div>
 </section>
