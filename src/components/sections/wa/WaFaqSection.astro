@@ -44,7 +44,7 @@ const faqs = [
 <section id="wa-faq" aria-labelledby="wa-faq-title" class="mx-auto flex w-full flex-col items-center justify-start bg-white px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
 	<div class="flex w-full flex-col items-center justify-start">
 		<div class="flex w-full max-w-[797px] flex-col items-center justify-start gap-5">
-			<div class="inline-flex h-8 items-center justify-start gap-1.5 rounded-full bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30">
+			<div class="inline-flex h-8 items-center justify-start gap-1.5 rounded-none bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30">
 				<Sparkles class="size-2.5 text-amber-400" aria-hidden="true" />
 				<div class="text-center text-xs font-bold uppercase leading-4 tracking-wide text-amber-400">FAQ</div>
 			</div>
@@ -55,7 +55,7 @@ const faqs = [
 
 		<div class="flex w-full max-w-[800px] flex-col items-start justify-start gap-3 pt-12">
 			{faqs.map((faq) => (
-				<details class="group min-h-16 self-stretch overflow-hidden rounded-[20px] bg-stone-100 outline outline-1 outline-offset-[-1px] outline-amber-400/20">
+				<details class="group min-h-16 self-stretch overflow-hidden rounded-none bg-stone-100 outline outline-1 outline-offset-[-1px] outline-amber-400/20">
 					<summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 marker:hidden sm:px-7">
 						<span class="text-left text-[20px] font-semibold leading-6 text-gray-900">{faq.question}</span>
 						<ChevronDown class="size-4 shrink-0 text-amber-400 transition-transform group-open:rotate-180" aria-hidden="true" />

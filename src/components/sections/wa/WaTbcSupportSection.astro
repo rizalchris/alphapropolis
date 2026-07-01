@@ -17,19 +17,19 @@ const points = [
 			Pendamping Alami Terbaik untuk Mempercepat Pemulihan TBC Anda
 		</h2>
 		<div class="relative left-1/2 ml-[45px] w-screen -translate-x-1/2 overflow-x-auto sm:left-auto sm:ml-0 sm:w-full sm:translate-x-0 sm:overflow-visible" role="region" aria-label="Gambar pendamping alami Alpha Propolis, geser horizontal untuk melihat seluruh gambar">
-			<img class="block h-auto min-h-40 w-[1275px] max-w-none rounded-none object-cover sm:w-full sm:rounded-[20px]" src="/images/Pendamping Alami.webp" alt="Pendamping alami Alpha Propolis untuk mendukung stamina dan daya tahan tubuh selama masa pengobatan" width="1275" height="234" loading="lazy" decoding="async" />
+			<img class="block h-auto min-h-40 w-[1275px] max-w-none rounded-none object-cover sm:w-full sm:rounded-none" src="/images/Pendamping Alami.webp" alt="Pendamping alami Alpha Propolis untuk mendukung stamina dan daya tahan tubuh selama masa pengobatan" width="1275" height="234" loading="lazy" decoding="async" />
 		</div>
 		<ol class="flex self-stretch flex-col items-start justify-start gap-7">
 			{points.map((point, index) => (
 				<li class="inline-flex self-stretch items-start justify-start gap-3">
-					<div class="inline-flex size-12 shrink-0 flex-col items-center justify-center gap-5 rounded-[30px] bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400 sm:size-16">
+					<div class="inline-flex size-12 shrink-0 flex-col items-center justify-center gap-5 rounded-none bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400 sm:size-16">
 						<div class="text-center text-xl font-bold leading-8 text-stone-900 sm:text-2xl">{index + 1}</div>
 					</div>
 					<div class="flex-1 text-left text-lg font-normal leading-8 text-stone-900 sm:text-2xl sm:leading-9">{point}</div>
 				</li>
 			))}
 		</ol>
-		<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp untuk konsultasi efek samping pengobatan" class="inline-flex w-full min-h-16 max-w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-green-500 to-green-600 px-5 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 sm:w-auto sm:px-12">
+		<a href={whatsappOrderUrl} target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp untuk konsultasi efek samping pengobatan" class="inline-flex w-full min-h-16 max-w-full items-center justify-center gap-2.5 rounded-none bg-gradient-to-br from-green-500 to-green-600 px-5 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 sm:w-auto sm:px-12">
 			<MessageCircle class="size-4 text-white" aria-hidden="true" />
 			<span class="text-center text-[18px] font-bold leading-7 text-white sm:text-lg">Lawan Efek Samping</span>
 			<ArrowRight class="size-4 text-white" aria-hidden="true" />

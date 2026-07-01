@@ -34,7 +34,7 @@ const benefits = [
 		class="mx-auto flex w-full max-w-[1044px] flex-col items-center justify-start gap-5"
 	>
 		<div
-			class="inline-flex h-8 items-center justify-start gap-1.5 rounded-full bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30"
+			class="inline-flex h-8 items-center justify-start gap-1.5 rounded-none bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30"
 		>
 			<Sparkles class="size-2.5 text-amber-400" aria-hidden="true" />
 			<div
@@ -59,7 +59,7 @@ const benefits = [
 			decoding="async"
 		/>
 		<img
-			class="hidden h-auto w-full rounded-[20px] object-contain lg:block"
+			class="hidden h-auto w-full rounded-none object-contain lg:block"
 			src="/images/alphapropolis-vs-propolis-biasa.webp"
 			alt="Perbandingan Alpha Propolis dan propolis biasa"
 			width="1044"
@@ -72,8 +72,8 @@ const benefits = [
 			{
 				benefits.map((benefit) => (
 					<li class="w-[82vw] max-w-[320px] shrink-0 snap-start sm:w-full sm:max-w-none">
-					<article class="flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-3xl bg-white px-5 py-9 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.07)] outline outline-1 outline-offset-[-1px] outline-amber-100">
-						<div class="relative aspect-[216/162] w-full max-w-52 overflow-hidden rounded-[10px] bg-stone-50">
+					<article class="flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-none bg-white px-5 py-9 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.07)] outline outline-1 outline-offset-[-1px] outline-amber-100">
+						<div class="relative aspect-[216/162] w-full max-w-52 overflow-hidden rounded-none bg-stone-50">
 							<img
 								class="absolute inset-0 h-full w-full object-cover object-center"
 								src={benefit.image}

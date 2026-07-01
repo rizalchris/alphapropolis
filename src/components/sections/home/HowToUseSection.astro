@@ -41,9 +41,9 @@ const steps = [
 			{
 				steps.map((step) => (
 					<li class="w-[82vw] shrink-0 snap-start max-w-[320px] lg:w-auto lg:max-w-none">
-						<div class="flex h-full flex-col items-center gap-5 rounded-3xl border border-stone-200 bg-white px-6 py-9 text-center shadow-card-lg">
+						<div class="flex h-full flex-col items-center gap-5 rounded-none border border-stone-200 bg-white px-6 py-9 text-center shadow-card-lg">
 							<p class="text-2xl font-bold leading-7 text-neutral-800">{step.number}</p>
-							<img src={step.image} alt={step.title} width="213" height="298" loading="lazy" decoding="async" class="h-72 w-52 rounded-[10px] object-cover" />
+							<img src={step.image} alt={step.title} width="213" height="298" loading="lazy" decoding="async" class="h-72 w-52 rounded-none object-cover" />
 							<h3 class="text-2xl font-bold leading-7 text-neutral-800">{step.title}</h3>
 							<p class="text-base leading-6 text-stone-700">{step.body}</p>
 						</div>
@@ -54,7 +54,7 @@ const steps = [
 			<div class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden">
 				<button
 					type="button"
-					class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
 					data-how-to-use-prev
 					aria-label="Langkah sebelumnya"
 				>
@@ -70,7 +70,7 @@ const steps = [
 				</button>
 				<button
 					type="button"
-					class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
 					data-how-to-use-next
 					aria-label="Langkah berikutnya"
 				>

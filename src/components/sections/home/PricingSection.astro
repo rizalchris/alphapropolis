@@ -42,7 +42,7 @@ const packages = [
 			<p class="max-w-[869px] text-stone-900">
 				Amankan pilihan Anda sekarang untuk selalu siap <strong>#JagaSenyumKeluarga</strong> melalui penawaran paket hemat khusus di bawah ini.
 			</p>
-			<p class="inline-flex items-center gap-2.5 rounded-full bg-red-100 px-6 py-4 text-lg font-bold leading-5 text-red-600">
+			<p class="inline-flex items-center gap-2.5 rounded-none bg-red-100 px-6 py-4 text-lg font-bold leading-5 text-red-600">
 				<Clock class="h-5 w-5" aria-hidden="true" />
 				<span>Stok tersisa 23 pcs - Promo berakhir hari ini</span>
 			</p>
@@ -52,13 +52,13 @@ const packages = [
 			{
 				packages.map((pkg) => (
 					<div class:list={[
-						"relative flex flex-col items-start gap-2.5 rounded-3xl p-9 shadow-card-md",
+						"relative flex flex-col items-start gap-2.5 rounded-none p-9 shadow-card-md",
 						pkg.featured
 							? "border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] shadow-product"
 							: "border border-stone-200 bg-white",
 					]}>
 						{pkg.featured && (
-							<p class="absolute right-8 top-0 flex -translate-y-1/2 rotate-[1.48deg] items-center gap-1 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 px-6 py-1.5 text-xs font-extrabold leading-5 text-white shadow-primary">
+							<p class="absolute right-8 top-0 flex -translate-y-1/2 rotate-[1.48deg] items-center gap-1 rounded-none bg-gradient-to-br from-amber-400 to-amber-700 px-6 py-1.5 text-xs font-extrabold leading-5 text-white shadow-primary">
 								<Star class="h-3 w-3 fill-current" aria-hidden="true" />
 								<span>BEST SELLER - PALING HEMAT</span>
 							</p>
@@ -66,7 +66,7 @@ const packages = [
 						<p class:list(["text-xs font-bold uppercase leading-4 tracking-wide", pkg.featured ? "text-amber-400" : "text-stone-400"]}>
 							{pkg.label}
 						</p>
-						<img src={pkg.image} alt={pkg.name} width={pkg.featured ? 405 : 343} height={pkg.featured ? 253 : 227} loading="lazy" decoding="async" class="h-auto w-full rounded-[10px] object-contain" />
+						<img src={pkg.image} alt={pkg.name} width={pkg.featured ? 405 : 343} height={pkg.featured ? 253 : 227} loading="lazy" decoding="async" class="h-auto w-full rounded-none object-contain" />
 						<div class="pt-2.5">
 							<h3 class="text-3xl font-bold leading-7 text-gray-900">{pkg.name}</h3>
 							<p class="mt-2.5 text-base leading-4 text-stone-400 line-through">{pkg.oldPrice}</p>

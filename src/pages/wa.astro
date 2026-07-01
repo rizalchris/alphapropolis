@@ -11,6 +11,7 @@ import WaPricingSection from "../components/sections/wa/WaPricingSection.astro";
 import WaFaqSection from "../components/sections/wa/WaFaqSection.astro";
 import WaFinalCtaSection from "../components/sections/wa/WaFinalCtaSection.astro";
 import WaFooterSection from "../components/sections/wa/WaFooterSection.astro";
+import TestimonialsWhatsapp from "../components/sections/home/TestimonialsWhatsapp.astro";
 import { whatsappOrderUrl } from "../lib/site";
 
 const title = "Alpha Propolis Promo WhatsApp | Suplemen Halal BPOM";
@@ -26,31 +27,38 @@ const productImageUrl = `${siteUrl}/images/Alpha-Propolis.webp`;
 const logoUrl = `${siteUrl}/images/logo.webp`;
 const faqItems = [
 	{
-		question: "Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
+		question:
+			"Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
 		answer: "Gunakan sesuai aturan pakai. Jika Anda memiliki kondisi khusus, sedang hamil, menyusui, alergi produk lebah, atau menjalani pengobatan rutin, konsultasikan dengan dokter terlebih dahulu.",
 	},
 	{
-		question: "Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
+		question:
+			"Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
 		answer: "Panduan pada halaman ini menggunakan 6 tetes dalam 100 ml air hangat. Sesuaikan dengan arahan tenaga kesehatan bila Anda sedang menjalani terapi tertentu.",
 	},
 	{
-		question: "Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
+		question:
+			"Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
 		answer: "Tidak. Alpha Propolis adalah suplemen pendamping dan bukan pengganti obat dokter, insulin, atau terapi medis utama.",
 	},
 	{
-		question: "Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
+		question:
+			"Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
 		answer: "Kandungan propolis diposisikan sebagai pendamping untuk membantu daya tahan tubuh. Pengobatan TBC dengan OAT tetap wajib dilanjutkan sampai selesai sesuai instruksi dokter.",
 	},
 	{
-		question: "Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
+		question:
+			"Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
 		answer: "Berikan jeda konsumsi minimal 1 jam dari obat dokter dan konsultasikan dengan dokter yang menangani Anda, terutama bila terapi tidak boleh putus.",
 	},
 	{
-		question: "Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
+		question:
+			"Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
 		answer: "Antioksidan membantu tubuh menghadapi radikal bebas. Untuk kondisi diabetes, tetap ikuti anjuran dokter dan gunakan suplemen hanya sebagai pendamping rutinitas sehat.",
 	},
 	{
-		question: "Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
+		question:
+			"Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
 		answer: "Pesan melalui kanal resmi Alpha Propolis atau hubungi tim WhatsApp untuk memastikan produk, harga, dan paket yang tersedia.",
 	},
 	{
@@ -78,7 +86,8 @@ const structuredData = {
 			telephone: "+628118131000",
 			address: {
 				"@type": "PostalAddress",
-				streetAddress: "Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading",
+				streetAddress:
+					"Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading",
 				addressLocality: "Jakarta Utara",
 				addressRegion: "DKI Jakarta",
 				addressCountry: "ID",
@@ -191,7 +200,8 @@ const structuredData = {
 			"@type": "HowTo",
 			"@id": `${pageUrl}#how-to-use`,
 			name: "Cara konsumsi Alpha Propolis",
-			description: "Panduan konsumsi Alpha Propolis dengan 100 ml air hangat dan 6 tetes Alpha Propolis.",
+			description:
+				"Panduan konsumsi Alpha Propolis dengan 100 ml air hangat dan 6 tetes Alpha Propolis.",
 			image: `${siteUrl}/images/Aduk%20Rata%20%26%20Siap%20Minum.webp`,
 			totalTime: "PT2M",
 			supply: [
@@ -261,11 +271,12 @@ const structuredData = {
 		<article aria-labelledby="wa-hero-title">
 			<WaHeroSection />
 			<WaProblemSection />
+			<TestimonialsSection />
+			<TestimonialsWhatsapp />
 			<WaWhyAlphaSection />
 			<WaRoutineSection />
 			<WaTbcSupportSection />
 			<WaProofSection />
-			<TestimonialsSection />
 			<WaPricingSection />
 			<WaFaqSection />
 			<WaFinalCtaSection />
@@ -276,9 +287,11 @@ const structuredData = {
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="Chat Alpha Propolis melalui WhatsApp"
-			class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center gap-2.5 rounded-full bg-green-500 px-5 py-3 text-center shadow-[0px_0px_0px_17.589099884033203px_rgba(37,211,102,0.01)] sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5"
+			class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center gap-2.5 rounded-none bg-green-500 px-5 py-3 text-center shadow-[0px_0px_0px_17.589099884033203px_rgba(37,211,102,0.01)] sm:bottom-8 sm:right-8 sm:px-6 sm:py-3.5"
 		>
-			<span class="text-base font-bold leading-6 text-white">Chat via WhatsApp</span>
+			<span class="text-base font-bold leading-6 text-white"
+				>Chat via WhatsApp</span
+			>
 		</a>
 	</main>
 </Layout>

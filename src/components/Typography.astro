@@ -52,7 +52,7 @@ const colors = [
 
 	<div class="grid gap-6 lg:grid-cols-2">
 		<section
-			class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20"
+			class="rounded-none border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20"
 		>
 			<div class="mb-6 flex items-end justify-between gap-4">
 				<div>
@@ -72,19 +72,19 @@ const colors = [
 
 			<div class="mt-6 grid gap-3 text-sm text-slate-400 sm:grid-cols-3">
 				<div
-					class="rounded-2xl border border-white/10 bg-slate-900/60 p-4"
+					class="rounded-none border border-white/10 bg-slate-900/60 p-4"
 				>
 					<p class="font-medium text-slate-200">Primary</p>
 					<p class="mt-1">High-emphasis action with cyan fill.</p>
 				</div>
 				<div
-					class="rounded-2xl border border-white/10 bg-slate-900/60 p-4"
+					class="rounded-none border border-white/10 bg-slate-900/60 p-4"
 				>
 					<p class="font-medium text-slate-200">Secondary</p>
 					<p class="mt-1">Outlined surface for supporting actions.</p>
 				</div>
 				<div
-					class="rounded-2xl border border-white/10 bg-slate-900/60 p-4"
+					class="rounded-none border border-white/10 bg-slate-900/60 p-4"
 				>
 					<p class="font-medium text-slate-200">Ghost</p>
 					<p class="mt-1">Low-noise action for dense interfaces.</p>
@@ -93,7 +93,7 @@ const colors = [
 		</section>
 
 		<section
-			class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20"
+			class="rounded-none border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20"
 		>
 			<div class="mb-6">
 				<p
@@ -107,7 +107,7 @@ const colors = [
 				{
 					colors.map((color) => (
 						<div
-							class={`rounded-2xl border border-white/10 p-4 ${color.swatch} ${color.text}`}
+							class={`rounded-none border border-white/10 p-4 ${color.swatch} ${color.text}`}
 						>
 							<p class="text-sm font-semibold">{color.name}</p>
 							<p class="mt-1 text-xs/5 opacity-80">
@@ -120,7 +120,7 @@ const colors = [
 		</section>
 	</div>
 
-	<section class="rounded-3xl border border-white/10 bg-slate-900/50 p-6">
+	<section class="rounded-none border border-white/10 bg-slate-900/50 p-6">
 		<div class="grid gap-6 lg:grid-cols-2">
 			<div>
 				<p
@@ -150,7 +150,7 @@ const colors = [
 			</div>
 
 			<div class="grid gap-4">
-				<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+				<div class="rounded-none border border-white/10 bg-white/5 p-4">
 					<p class="text-sm font-semibold text-slate-200">
 						List styling
 					</p>
@@ -161,7 +161,7 @@ const colors = [
 					</ul>
 				</div>
 
-				<div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+				<div class="rounded-none border border-white/10 bg-white/5 p-4">
 					<p class="text-sm font-semibold text-slate-200">
 						Block quote
 					</p>

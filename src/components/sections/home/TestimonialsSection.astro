@@ -77,7 +77,7 @@ const testimonialVideos = [
 			{
 				stories.map((story) => (
 					<li class="shrink-0">
-						<div class="flex w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-[10px]">
+						<div class="flex w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-none">
 							<img
 								src={story.src}
 								alt={story.alt}
@@ -110,7 +110,7 @@ const testimonialVideos = [
 					{
 						testimonialVideos.map((video) => (
 							<li class="w-full shrink-0 basis-full snap-start md:basis-[calc((100%-2rem)/3)] lg:basis-[calc((100%-3rem)/4)]">
-								<div class="overflow-hidden rounded-[10px] bg-white shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)]">
+								<div class="overflow-hidden rounded-none bg-white shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)]">
 									<div class="relative bg-stone-950">
 										<video
 											class="aspect-[3/4] w-full object-cover"
@@ -134,7 +134,7 @@ const testimonialVideos = [
 				<div class="mt-4 flex w-full items-center justify-end gap-3">
 					<button
 						type="button"
-						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
 						data-testimonial-video-prev
 						aria-label="Video sebelumnya"
 					>
@@ -142,7 +142,7 @@ const testimonialVideos = [
 					</button>
 					<button
 						type="button"
-						class="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+						class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
 						data-testimonial-video-next
 						aria-label="Video berikutnya"
 					>

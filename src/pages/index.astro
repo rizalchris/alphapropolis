@@ -4,6 +4,7 @@ import Header from "../components/layouts/Header.astro";
 import HeroSection from "../components/sections/home/HeroSection.astro";
 import SymptomsSection from "../components/sections/home/SymptomsSection.astro";
 import MedicalWarningSection from "../components/sections/home/MedicalWarningSection.astro";
+import TestimonialsWhatsapp from "../components/sections/home/TestimonialsWhatsapp.astro";
 import WhyAlphaSection from "../components/sections/home/WhyAlphaSection.astro";
 import DoctorsSection from "../components/sections/home/DoctorsSection.astro";
 import HowToUseSection from "../components/sections/home/HowToUseSection.astro";
@@ -41,7 +42,8 @@ const structuredData = {
 			telephone: "+628118131000",
 			address: {
 				"@type": "PostalAddress",
-				streetAddress: "Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading",
+				streetAddress:
+					"Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading",
 				addressLocality: "Jakarta Utara",
 				addressRegion: "DKI Jakarta",
 				addressCountry: "ID",
@@ -258,9 +260,10 @@ const structuredData = {
 			<HeroSection />
 			<SymptomsSection />
 			<MedicalWarningSection />
+			<TestimonialsSection />
+			<TestimonialsWhatsapp />
 			<WhyAlphaSection />
 			<DoctorsSection />
-			<TestimonialsSection />
 			<HowToUseSection />
 			<RiskJourneySection />
 			<CertificationSection />
