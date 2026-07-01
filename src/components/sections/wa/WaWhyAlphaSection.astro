@@ -60,7 +60,7 @@ const benefits = [
 		/>
 		<img
 			class="hidden h-auto w-full rounded-none object-contain lg:block"
-			src="/images/alphapropolis-vs-propolis-biasa.webp"
+			src="/images/alphapropolis-vs-propolis-biasa-2.webp"
 			alt="Perbandingan Alpha Propolis dan propolis biasa"
 			width="1044"
 			height="677"
@@ -72,34 +72,36 @@ const benefits = [
 			{
 				benefits.map((benefit) => (
 					<li>
-					<article class="flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-none bg-white px-5 py-9 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.07)] outline outline-1 outline-offset-[-1px] outline-amber-100">
-						<div class="relative aspect-[216/162] w-full max-w-52 overflow-hidden rounded-none bg-stone-50">
-							<img
-								class="absolute inset-0 h-full w-full object-cover object-center"
-								src={benefit.image}
-								alt=""
-								width="216"
-								height="162"
-								loading="lazy"
-								decoding="async"
-							/>
-						</div>
-						<div class="self-stretch text-center text-xl font-bold leading-7 text-neutral-800 sm:text-2xl">
-							{benefit.title.map((line, index) => (
-								<>
-									{index > 0 && <br />}
-									{line === "IC50" ? (
-										<>IC<sub>50</sub></>
-									) : (
-										line
-									)}
-								</>
-							))}
-						</div>
-						<div class="self-stretch text-center text-base font-normal leading-6 text-gray-900 sm:text-lg">
-							{benefit.body}
-						</div>
-					</article>
+						<article class="flex h-full w-full flex-col items-center justify-start gap-2.5 rounded-none bg-white px-5 py-9 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.07)] outline outline-1 outline-offset-[-1px] outline-amber-100">
+							<div class="relative aspect-[216/162] w-full max-w-52 overflow-hidden rounded-none bg-stone-50">
+								<img
+									class="absolute inset-0 h-full w-full object-cover object-center"
+									src={benefit.image}
+									alt=""
+									width="216"
+									height="162"
+									loading="lazy"
+									decoding="async"
+								/>
+							</div>
+							<div class="self-stretch text-center text-xl font-bold leading-7 text-neutral-800 sm:text-2xl">
+								{benefit.title.map((line, index) => (
+									<>
+										{index > 0 && <br />}
+										{line === "IC50" ? (
+											<>
+												IC<sub>50</sub>
+											</>
+										) : (
+											line
+										)}
+									</>
+								))}
+							</div>
+							<div class="self-stretch text-center text-base font-normal leading-6 text-gray-900 sm:text-lg">
+								{benefit.body}
+							</div>
+						</article>
 					</li>
 				))
 			}

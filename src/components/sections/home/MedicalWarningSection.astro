@@ -11,28 +11,28 @@ const wetWoundImages = [
 
 const complicationCards = [
 	{
-		image: "/images/luka-basah-1.webp",
-		title: "Aliran Darah Tersumbat",
-		descriptionPrefix: "Bisa memicu ",
-		descriptionHighlight: "SERANGAN JANTUNG atau STROKE MENDADAK.",
+		image: "/images/Jantung-dan-Otak.webp",
+		title: "Jantung dan Otak",
+		descriptionPrefix: "Sumbatan darah bisa berujung  ",
+		descriptionHighlight: "STROKE atau SERANGAN JANTUNG.",
 	},
 	{
-		image: "/images/luka-basah-2.webp",
+		image: "/images/Kaki-Kebas-Luka-Tak-Terasa-2.webp",
 		title: "Kaki Kebas & Luka Tak Terasa",
 		descriptionPrefix: "Infeksi bisa berujung ",
 		descriptionHighlight: "AMPUTASI.",
 	},
 	{
-		image: "/images/luka-basah-3.webp",
-		title: "Pandangan Mulai Kabur",
-		descriptionPrefix: "Bisa berujung pada ",
+		image: "/images/Mata.webp",
+		title: "Mata",
+		descriptionPrefix: "Retina bisa rusak perlahan dan berakhir",
 		descriptionHighlight: "KEBUTAAN PERMANEN!",
 	},
 	{
-		image: "/images/luka-basah-4.webp",
-		title: "Fungsi Ginjal Menurun",
-		descriptionPrefix: "Berisiko harus ",
-		descriptionHighlight: "CUCI DARAH SEUMUR HIDUP!",
+		image: "/images/Ginjal.webp",
+		title: "Ginjal",
+		descriptionPrefix: "Ginjal bisa kehilangan fungsi hingga berisiko",
+		descriptionHighlight: "CUCI DARAH SEUMUR HIDUP.",
 	},
 ];
 ---
@@ -65,7 +65,9 @@ const complicationCards = [
 			/>
 		</picture>
 
-		<div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+		<div
+			class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4"
+		>
 			{
 				complicationCards.map((card) => (
 					<article class="flex h-full flex-col overflow-hidden border border-white/10 bg-white text-stone-900 shadow-card">
@@ -79,7 +81,9 @@ const complicationCards = [
 							class="h-56 w-full object-cover"
 						/>
 						<div class="flex flex-1 flex-col gap-3 p-6">
-							<h3 class="text-2xl leading-7 text-red-700">{card.title}</h3>
+							<h3 class="text-2xl leading-7 text-red-700">
+								{card.title}
+							</h3>
 							<p class="text-lg leading-7 text-stone-900">
 								{card.descriptionPrefix}
 								<strong>{card.descriptionHighlight}</strong>

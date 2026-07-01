@@ -81,7 +81,9 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 					data-gallery-images={customerGalleryJson}
 				>
 					<div class="grid gap-4 lg:grid-cols-3">
-						<div class="aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10]">
+						<div
+							class="aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10]"
+						>
 							<img
 								src={customerGallery[0].src}
 								alt={customerGallery[0].alt}
@@ -93,7 +95,9 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 								data-why-alpha-slide-primary
 							/>
 						</div>
-						<div class="hidden aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10] lg:block">
+						<div
+							class="hidden aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10] lg:block"
+						>
 							<img
 								src={customerGallery[1].src}
 								alt={customerGallery[1].alt}
@@ -105,7 +109,9 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 								data-why-alpha-slide-secondary
 							/>
 						</div>
-						<div class="hidden aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10] lg:block">
+						<div
+							class="hidden aspect-[4/5] w-full overflow-hidden border border-stone-200 bg-stone-100 shadow-[0px_20px_60px_rgba(120,53,15,0.14)] sm:aspect-[16/10] lg:block"
+						>
 							<img
 								src={customerGallery[2].src}
 								alt={customerGallery[2].alt}
@@ -119,7 +125,9 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 						</div>
 					</div>
 
-					<div class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden">
+					<div
+						class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
+					>
 						<button
 							type="button"
 							class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
@@ -166,7 +174,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 								</h3>
 							</div>
 							<div class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp">
-								VS
+								+
 							</div>
 							<div class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md">
 								<div class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50">
@@ -180,7 +188,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 										class="h-full w-full object-contain"
 									/>
 								</div>
-								<h3 class="text-2xl font-bold leading-7 text-neutral-800">
+								<h3 class="text-2xl font-bold leading-7 text-red-700">
 									{item.genericTitle}
 								</h3>
 							</div>
@@ -230,7 +238,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 				<div
 					class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
 				>
-					VS
+					+
 				</div>
 				<div
 					class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
@@ -248,7 +256,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 							class="h-full w-full object-contain"
 						/>
 					</div>
-					<h3 class="text-2xl font-bold leading-7 text-neutral-800">
+					<h3 class="text-2xl font-bold leading-7 text-red-700">
 						IC<sub>50</sub> &gt; 150ppm
 					</h3>
 					<ul
@@ -419,13 +427,15 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 			!(tertiarySlide instanceof HTMLImageElement) ||
 			!(prevButton instanceof HTMLButtonElement) ||
 			!(nextButton instanceof HTMLButtonElement)
-		) return;
+		)
+			return;
 
 		let activeIndex = 0;
 		let intervalId;
 
 		const setActiveSlide = (nextIndex) => {
-			activeIndex = (nextIndex + customerGallery.length) % customerGallery.length;
+			activeIndex =
+				(nextIndex + customerGallery.length) % customerGallery.length;
 			const secondaryIndex = (activeIndex + 1) % customerGallery.length;
 			const tertiaryIndex = (activeIndex + 2) % customerGallery.length;
 
