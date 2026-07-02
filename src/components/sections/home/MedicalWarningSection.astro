@@ -95,7 +95,7 @@ const complicationCards = [
 		</div>
 	</div>
 
-	<div class="mt-10 w-full">
+	<div class="mx-auto mt-10 w-full max-w-[var(--container-xl)]">
 		<div
 			class="overflow-hidden"
 			role="region"
@@ -108,7 +108,7 @@ const complicationCards = [
 			>
 			{
 				wetWoundImages.map((image, index) => (
-					<div class="aspect-square w-full shrink-0 basis-full overflow-hidden sm:basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.75rem)]">
+					<div class="aspect-video w-full shrink-0 basis-full overflow-hidden lg:basis-[calc((100%-3rem)/4)]">
 						<img
 							src={image}
 							alt={`Luka basah ${index + 1}`}
@@ -116,7 +116,7 @@ const complicationCards = [
 							height="480"
 							loading="lazy"
 							decoding="async"
-							class="h-full w-full object-cover"
+							class="block h-full w-full object-cover"
 						/>
 					</div>
 				))
@@ -144,16 +144,18 @@ const complicationCards = [
 			return;
 		}
 
-		const firstSlideClone = slides[0]?.cloneNode(true);
-		if (firstSlideClone instanceof HTMLElement) {
-			firstSlideClone.setAttribute("aria-hidden", "true");
-			track.append(firstSlideClone);
-		}
+		const totalSlides = slides.length;
+		slides.forEach((slide) => {
+			const clone = slide.cloneNode(true);
+			if (clone instanceof HTMLElement) {
+				clone.setAttribute("aria-hidden", "true");
+				track.append(clone);
+			}
+		});
 
 		let activeIndex = 0;
 		let intervalId;
 		let resetTimeoutId;
-		const totalSlides = slides.length;
 
 		const getRenderedSlides = () =>
 			Array.from(track.children).filter(
@@ -191,7 +193,7 @@ const complicationCards = [
 			stopAutoSlide();
 			intervalId = window.setInterval(() => {
 				if (activeIndex === totalSlides - 1) {
-					activeIndex = totalSlides;
+					activeIndex += 1;
 					scrollToSlide(activeIndex);
 					resetToStart();
 					return;
@@ -223,7 +225,7 @@ const complicationCards = [
 			scrollToSlide(activeIndex, "auto");
 		});
 
-		scrollToSlide(0, "auto");
+		scrollToSlide(activeIndex, "auto");
 		startAutoSlide();
 	})();
 </script>

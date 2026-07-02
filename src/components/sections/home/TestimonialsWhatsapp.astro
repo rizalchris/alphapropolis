@@ -66,7 +66,7 @@ const testimonialImages = [
 							height={image.height}
 							loading="lazy"
 							decoding="async"
-							class="h-auto w-full rounded-none object-cover"
+							class="h-auto w-full rounded-none object-contain"
 						/>
 					</li>
 				))
@@ -103,16 +103,28 @@ const testimonialImages = [
 			return;
 		}
 
-		const firstSlideClone = slides[0]?.cloneNode(true);
-		if (firstSlideClone instanceof HTMLElement) {
-			firstSlideClone.setAttribute("aria-hidden", "true");
-			track.append(firstSlideClone);
-		}
+		const totalSlides = slides.length;
+		slides
+			.slice()
+			.reverse()
+			.forEach((slide) => {
+				const clone = slide.cloneNode(true);
+				if (clone instanceof HTMLElement) {
+					clone.setAttribute("aria-hidden", "true");
+					track.prepend(clone);
+				}
+			});
+		slides.forEach((slide) => {
+			const clone = slide.cloneNode(true);
+			if (clone instanceof HTMLElement) {
+				clone.setAttribute("aria-hidden", "true");
+				track.append(clone);
+			}
+		});
 
-		let activeIndex = 0;
+		let activeIndex = totalSlides;
 		let intervalId;
 		let resetTimeoutId;
-		const totalSlides = slides.length;
 
 		const getRenderedSlides = () =>
 			Array.from(track.children).filter(
@@ -126,8 +138,11 @@ const testimonialImages = [
 				return;
 			}
 
+			const centeredLeft =
+				slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+
 			track.scrollTo({
-				left: slide.offsetLeft,
+				left: Math.max(0, centeredLeft),
 				behavior,
 			});
 		};
@@ -141,16 +156,16 @@ const testimonialImages = [
 		const resetToStart = () => {
 			clearResetTimeout();
 			resetTimeoutId = window.setTimeout(() => {
-				activeIndex = 0;
-				scrollToSlide(0, "auto");
+				activeIndex = totalSlides;
+				scrollToSlide(activeIndex, "auto");
 			}, 450);
 		};
 
 		const startAutoSlide = () => {
 			stopAutoSlide();
 			intervalId = window.setInterval(() => {
-				if (activeIndex === totalSlides - 1) {
-					activeIndex = totalSlides;
+				if (activeIndex === totalSlides * 2 - 1) {
+					activeIndex += 1;
 					scrollToSlide(activeIndex);
 					resetToStart();
 					return;
@@ -173,16 +188,16 @@ const testimonialImages = [
 		slider.addEventListener("mouseleave", startAutoSlide);
 
 		window.addEventListener("resize", () => {
-			if (activeIndex >= totalSlides) {
-				activeIndex = 0;
-				scrollToSlide(0, "auto");
+			if (activeIndex < totalSlides || activeIndex >= totalSlides * 2) {
+				activeIndex = totalSlides;
+				scrollToSlide(activeIndex, "auto");
 				return;
 			}
 
 			scrollToSlide(activeIndex, "auto");
 		});
 
-		scrollToSlide(0, "auto");
+		scrollToSlide(activeIndex, "auto");
 		startAutoSlide();
 	})();
 </script>

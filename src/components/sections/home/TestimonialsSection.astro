@@ -171,6 +171,16 @@ const testimonialVideos = [
 			<span>Lihat Bukti Lainnya</span>
 			<ArrowRight class="h-4 w-4" aria-hidden="true" />
 		</Button>
+		<img
+			src="/images/3-red-arrows.webp"
+			alt=""
+			width="320"
+			height="160"
+			loading="lazy"
+			decoding="async"
+			aria-hidden="true"
+			class="mx-auto h-auto w-86"
+		/>
 	</div>
 </section>
 
@@ -201,16 +211,28 @@ const testimonialVideos = [
 		);
 
 		if (slides.length) {
-			const firstSlideClone = slides[0]?.cloneNode(true);
-			if (firstSlideClone instanceof HTMLElement) {
-				firstSlideClone.setAttribute("aria-hidden", "true");
-				storyTrack.append(firstSlideClone);
-			}
+			const totalSlides = slides.length;
+			slides
+				.slice()
+				.reverse()
+				.forEach((slide) => {
+					const clone = slide.cloneNode(true);
+					if (clone instanceof HTMLElement) {
+						clone.setAttribute("aria-hidden", "true");
+						storyTrack.prepend(clone);
+					}
+				});
+			slides.forEach((slide) => {
+				const clone = slide.cloneNode(true);
+				if (clone instanceof HTMLElement) {
+					clone.setAttribute("aria-hidden", "true");
+					storyTrack.append(clone);
+				}
+			});
 
-			let activeIndex = 0;
+			let activeIndex = totalSlides;
 			let intervalId;
 			let resetTimeoutId;
-			const totalSlides = slides.length;
 
 			const getRenderedSlides = () =>
 				Array.from(storyTrack.children).filter(
@@ -243,8 +265,8 @@ const testimonialVideos = [
 			const resetToStart = () => {
 				clearResetTimeout();
 				resetTimeoutId = window.setTimeout(() => {
-					activeIndex = 0;
-					scrollToSlide(0, "auto");
+					activeIndex = totalSlides;
+					scrollToSlide(activeIndex, "auto");
 				}, 450);
 			};
 
@@ -259,8 +281,8 @@ const testimonialVideos = [
 			const startAutoSlide = () => {
 				stopAutoSlide();
 				intervalId = window.setInterval(() => {
-					if (activeIndex === totalSlides - 1) {
-						activeIndex = totalSlides;
+					if (activeIndex === totalSlides * 2 - 1) {
+						activeIndex += 1;
 						scrollToSlide(activeIndex);
 						resetToStart();
 						return;
@@ -275,16 +297,19 @@ const testimonialVideos = [
 			storySlider.addEventListener("mouseleave", startAutoSlide);
 
 			window.addEventListener("resize", () => {
-				if (activeIndex >= totalSlides) {
-					activeIndex = 0;
-					scrollToSlide(0, "auto");
+				if (
+					activeIndex < totalSlides ||
+					activeIndex >= totalSlides * 2
+				) {
+					activeIndex = totalSlides;
+					scrollToSlide(activeIndex, "auto");
 					return;
 				}
 
 				scrollToSlide(activeIndex, "auto");
 			});
 
-			scrollToSlide(0, "auto");
+			scrollToSlide(activeIndex, "auto");
 			startAutoSlide();
 		}
 	}
