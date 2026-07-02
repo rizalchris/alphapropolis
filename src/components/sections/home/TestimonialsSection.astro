@@ -179,10 +179,27 @@ const testimonialVideos = [
 			loading="lazy"
 			decoding="async"
 			aria-hidden="true"
-			class="mx-auto h-auto w-86"
+			class="testimonial-arrows-bounce mx-auto h-auto w-86"
 		/>
 	</div>
 </section>
+
+<style>
+	.testimonial-arrows-bounce {
+		animation: testimonial-arrows-bounce 1.4s ease-in-out infinite;
+	}
+
+	@keyframes testimonial-arrows-bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+
+		50% {
+			transform: translateY(-12px);
+		}
+	}
+</style>
 
 <script>
 	const testimonialsSection = document.getElementById("testimonials");
