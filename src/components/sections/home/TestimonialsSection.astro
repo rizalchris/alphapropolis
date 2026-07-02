@@ -48,11 +48,11 @@ const testimonialVideos = [
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Saharan-Thamrin-Penyanyi.mov",
 	},
 	{
-		title: "Saryo - Real Customer",
+		title: "Saryo - Penderita Diabetes",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/Saryo.mov",
 	},
 	{
-		title: "Real Customer - Bandung",
+		title: "Real Customer - Penderita Diabetes",
 		src: "https://bipolaragency.com/wp-content/uploads/2026/06/real-customer-bandung.mp4",
 	},
 ];
@@ -71,27 +71,35 @@ const testimonialVideos = [
 			<h2 id="testimonials-title" class="text-gray-900">Testimoni</h2>
 		</div>
 
-		<ul
-			class="flex w-full gap-5 overflow-x-auto px-6 py-5 sm:px-8 lg:px-10"
+		<div
+			class="w-full overflow-hidden"
+			role="region"
+			aria-label="Slider testimoni gambar"
+			data-testimonial-story-slider
 		>
-			{
-				stories.map((story) => (
-					<li class="shrink-0">
-						<div class="flex w-[572px] max-w-[82vw] items-center justify-center overflow-hidden rounded-none">
-							<img
-								src={story.src}
-								alt={story.alt}
-								width="572"
-								height="382"
-								loading="lazy"
-								decoding="async"
-								class="h-full w-full object-contain"
-							/>
-						</div>
-					</li>
-				))
-			}
-		</ul>
+			<ul
+				class="flex w-full gap-5 overflow-x-hidden px-6 py-5 scroll-smooth sm:px-8 lg:px-10"
+				data-testimonial-story-track
+			>
+				{
+					stories.map((story) => (
+						<li class="shrink-0 basis-[82vw] sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(33.333%-0.833rem)]">
+							<div class="flex w-full items-center justify-center overflow-hidden rounded-none">
+								<img
+									src={story.src}
+									alt={story.alt}
+									width="572"
+									height="382"
+									loading="lazy"
+									decoding="async"
+									class="h-auto w-full object-contain"
+								/>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 
 		<div
 			class="flex w-full max-w-[1344px] flex-col gap-5 px-6 sm:px-8 lg:px-10"
@@ -168,6 +176,12 @@ const testimonialVideos = [
 
 <script>
 	const testimonialsSection = document.getElementById("testimonials");
+	const storySlider = testimonialsSection?.querySelector(
+		"[data-testimonial-story-slider]",
+	);
+	const storyTrack = testimonialsSection?.querySelector(
+		"[data-testimonial-story-track]",
+	);
 	const track = testimonialsSection?.querySelector(
 		"[data-testimonial-video-track]",
 	);
@@ -177,6 +191,103 @@ const testimonialVideos = [
 	const nextButton = testimonialsSection?.querySelector(
 		"[data-testimonial-video-next]",
 	);
+
+	if (
+		storySlider instanceof HTMLElement &&
+		storyTrack instanceof HTMLElement
+	) {
+		const slides = Array.from(storyTrack.children).filter(
+			(child) => child instanceof HTMLElement,
+		);
+
+		if (slides.length) {
+			const firstSlideClone = slides[0]?.cloneNode(true);
+			if (firstSlideClone instanceof HTMLElement) {
+				firstSlideClone.setAttribute("aria-hidden", "true");
+				storyTrack.append(firstSlideClone);
+			}
+
+			let activeIndex = 0;
+			let intervalId;
+			let resetTimeoutId;
+			const totalSlides = slides.length;
+
+			const getRenderedSlides = () =>
+				Array.from(storyTrack.children).filter(
+					(child) => child instanceof HTMLElement,
+				);
+
+			const scrollToSlide = (nextIndex, behavior = "smooth") => {
+				const renderedSlides = getRenderedSlides();
+				const slide = renderedSlides[nextIndex];
+				if (!(slide instanceof HTMLElement)) {
+					return;
+				}
+
+				const centeredLeft =
+					slide.offsetLeft -
+					(storyTrack.clientWidth - slide.clientWidth) / 2;
+
+				storyTrack.scrollTo({
+					left: Math.max(0, centeredLeft),
+					behavior,
+				});
+			};
+
+			const clearResetTimeout = () => {
+				if (resetTimeoutId) {
+					window.clearTimeout(resetTimeoutId);
+				}
+			};
+
+			const resetToStart = () => {
+				clearResetTimeout();
+				resetTimeoutId = window.setTimeout(() => {
+					activeIndex = 0;
+					scrollToSlide(0, "auto");
+				}, 450);
+			};
+
+			const stopAutoSlide = () => {
+				if (intervalId) {
+					window.clearInterval(intervalId);
+				}
+
+				clearResetTimeout();
+			};
+
+			const startAutoSlide = () => {
+				stopAutoSlide();
+				intervalId = window.setInterval(() => {
+					if (activeIndex === totalSlides - 1) {
+						activeIndex = totalSlides;
+						scrollToSlide(activeIndex);
+						resetToStart();
+						return;
+					}
+
+					activeIndex += 1;
+					scrollToSlide(activeIndex);
+				}, 2000);
+			};
+
+			storySlider.addEventListener("mouseenter", stopAutoSlide);
+			storySlider.addEventListener("mouseleave", startAutoSlide);
+
+			window.addEventListener("resize", () => {
+				if (activeIndex >= totalSlides) {
+					activeIndex = 0;
+					scrollToSlide(0, "auto");
+					return;
+				}
+
+				scrollToSlide(activeIndex, "auto");
+			});
+
+			scrollToSlide(0, "auto");
+			startAutoSlide();
+		}
+	}
 
 	if (
 		track instanceof HTMLElement &&

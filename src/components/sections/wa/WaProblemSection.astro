@@ -88,9 +88,9 @@ const complicationCards = [
 								aria-hidden="true"
 							/>
 						</span>
-						<span class="text-base font-normal leading-6 text-stone-900 sm:text-xl">
+						<strong class="text-base leading-6 text-stone-900 sm:text-xl">
 							{symptom}
-						</span>
+						</strong>
 					</li>
 				))
 			}
@@ -152,21 +152,31 @@ const complicationCards = [
 
 		<div class="mt-10 w-full">
 			<div
-				class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+				class="overflow-hidden"
+				role="region"
+				aria-label="Slider gambar luka basah"
+				data-wet-wound-slider
 			>
-				{
-					wetWoundImages.map((image, index) => (
-						<img
-							src={image}
-							alt={`Luka basah ${index + 1}`}
-							width="480"
-							height="480"
-							loading="lazy"
-							decoding="async"
-							class="h-full w-full object-cover"
-						/>
-					))
-				}
+				<div
+					class="flex gap-4 overflow-x-hidden scroll-smooth"
+					data-wet-wound-track
+				>
+					{
+						wetWoundImages.map((image, index) => (
+							<div class="aspect-square w-full shrink-0 basis-full overflow-hidden sm:basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.75rem)]">
+								<img
+									src={image}
+									alt={`Luka basah ${index + 1}`}
+									width="480"
+									height="480"
+									loading="lazy"
+									decoding="async"
+									class="h-full w-full object-cover"
+								/>
+							</div>
+						))
+					}
+				</div>
 			</div>
 		</div>
 
@@ -186,3 +196,108 @@ const complicationCards = [
 		</a>
 	</div>
 </section>
+
+<script is:inline>
+	(() => {
+		const section = document.getElementById("wa-problem");
+		const slider = section?.querySelector("[data-wet-wound-slider]");
+		const track = section?.querySelector("[data-wet-wound-track]");
+
+		if (
+			!(slider instanceof HTMLElement) ||
+			!(track instanceof HTMLElement)
+		) {
+			return;
+		}
+
+		const slides = Array.from(track.children).filter(
+			(child) => child instanceof HTMLElement,
+		);
+
+		if (!slides.length) {
+			return;
+		}
+
+		const firstSlideClone = slides[0]?.cloneNode(true);
+		if (firstSlideClone instanceof HTMLElement) {
+			firstSlideClone.setAttribute("aria-hidden", "true");
+			track.append(firstSlideClone);
+		}
+
+		let activeIndex = 0;
+		let intervalId;
+		let resetTimeoutId;
+		const totalSlides = slides.length;
+
+		const getRenderedSlides = () =>
+			Array.from(track.children).filter(
+				(child) => child instanceof HTMLElement,
+			);
+
+		const scrollToSlide = (nextIndex, behavior = "smooth") => {
+			const renderedSlides = getRenderedSlides();
+			const slide = renderedSlides[nextIndex];
+			if (!(slide instanceof HTMLElement)) {
+				return;
+			}
+
+			track.scrollTo({
+				left: slide.offsetLeft,
+				behavior,
+			});
+		};
+
+		const clearResetTimeout = () => {
+			if (resetTimeoutId) {
+				window.clearTimeout(resetTimeoutId);
+			}
+		};
+
+		const resetToStart = () => {
+			clearResetTimeout();
+			resetTimeoutId = window.setTimeout(() => {
+				activeIndex = 0;
+				scrollToSlide(0, "auto");
+			}, 450);
+		};
+
+		const startAutoSlide = () => {
+			stopAutoSlide();
+			intervalId = window.setInterval(() => {
+				if (activeIndex === totalSlides - 1) {
+					activeIndex = totalSlides;
+					scrollToSlide(activeIndex);
+					resetToStart();
+					return;
+				}
+
+				activeIndex += 1;
+				scrollToSlide(activeIndex);
+			}, 2000);
+		};
+
+		const stopAutoSlide = () => {
+			if (intervalId) {
+				window.clearInterval(intervalId);
+			}
+
+			clearResetTimeout();
+		};
+
+		slider.addEventListener("mouseenter", stopAutoSlide);
+		slider.addEventListener("mouseleave", startAutoSlide);
+
+		window.addEventListener("resize", () => {
+			if (activeIndex >= totalSlides) {
+				activeIndex = 0;
+				scrollToSlide(0, "auto");
+				return;
+			}
+
+			scrollToSlide(activeIndex, "auto");
+		});
+
+		scrollToSlide(0, "auto");
+		startAutoSlide();
+	})();
+</script>

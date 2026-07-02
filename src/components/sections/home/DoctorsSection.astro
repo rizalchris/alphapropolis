@@ -77,17 +77,21 @@ const doctorVideos = [
 					Mulai langkah praktis tetap aktif bertenaga, selalu siap
 				</strong>
 			</div>
-			<ul class="grid w-full max-w-5xl gap-2.5 lg:grid-cols-2">
+			<ul
+				class="flex w-full max-w-5xl flex-col items-start justify-start gap-2.5"
+			>
 				{
 					benefits.map((benefit) => (
-						<li class="flex items-start gap-3 text-[20px] font-normal leading-[24.75px] text-[#1C1917]">
+						<li class="flex w-full items-center gap-3 self-stretch rounded-none border border-amber-400/20 bg-white/70 px-3.5 py-2.5 text-[18px] font-medium leading-5 text-stone-900 sm:text-sm">
 							<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100">
 								<Check
 									class="h-3 w-3 text-green-500"
 									aria-hidden="true"
 								/>
 							</span>
-							<span>{benefit}</span>
+							<strong class="flex-1 fw-800 text-left text-lg leading-8 text-stone-900 sm:text-2xl sm:leading-9">
+								{benefit}
+							</strong>
 						</li>
 					))
 				}

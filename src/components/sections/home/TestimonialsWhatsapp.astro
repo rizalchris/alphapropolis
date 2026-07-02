@@ -4,6 +4,38 @@ import Button from "../../ui/Button.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
+const testimonialImages = [
+	{
+		src: "/images/Testimoni%20WA-01.webp",
+		alt: "Testimoni pelanggan 1",
+		width: 572,
+		height: 382,
+	},
+	{
+		src: "/images/Testimoni%20WA-02%201.webp",
+		alt: "Testimoni pelanggan 2",
+		width: 572,
+		height: 400,
+	},
+	{
+		src: "/images/Testimoni%20WA-03%201.webp",
+		alt: "Testimoni pelanggan 3",
+		width: 572,
+		height: 382,
+	},
+	{
+		src: "/images/Testimoni%20WA-04%201.webp",
+		alt: "Testimoni pelanggan 4",
+		width: 572,
+		height: 382,
+	},
+	{
+		src: "/images/Testimoni%20WA-05.webp",
+		alt: "Testimoni pelanggan 5",
+		width: 572,
+		height: 382,
+	},
+];
 ---
 
 <section
@@ -14,75 +46,33 @@ const whatsappHref = whatsappOrderUrl;
 	<h2 id="proof-title" class="max-w-[733px] text-center font-bold text-white">
 		Lebih dari 100 Ribu Orang Telah Merasakan Manfaatnya
 	</h2>
-	<ul
-		class="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-5 lg:overflow-visible"
+	<div
+		class="w-full overflow-hidden"
+		role="region"
+		aria-label="Slider testimoni WhatsApp"
+		data-testimonials-wa-slider
 	>
-		<li
-			class="w-[82vw] max-w-[572px] shrink-0 snap-start lg:w-full lg:max-w-none"
+		<ul
+			class="flex w-full gap-4 overflow-x-hidden scroll-smooth"
+			data-testimonials-wa-track
 		>
-			<img
-				src="/images/Testimoni%20WA-01.webp"
-				alt="Testimoni pelanggan 1"
-				width="572"
-				height="382"
-				loading="lazy"
-				decoding="async"
-				class="h-full w-full rounded-none object-cover"
-			/>
-		</li>
-		<li
-			class="w-[82vw] max-w-[572px] shrink-0 snap-start lg:w-full lg:max-w-none"
-		>
-			<img
-				src="/images/Testimoni%20WA-02%201.webp"
-				alt="Testimoni pelanggan 2"
-				width="572"
-				height="400"
-				loading="lazy"
-				decoding="async"
-				class="h-full w-full rounded-none object-cover"
-			/>
-		</li>
-		<li
-			class="w-[82vw] max-w-[572px] shrink-0 snap-start lg:w-full lg:max-w-none"
-		>
-			<img
-				src="/images/Testimoni%20WA-03%201.webp"
-				alt="Testimoni pelanggan 3"
-				width="572"
-				height="382"
-				loading="lazy"
-				decoding="async"
-				class="h-full w-full rounded-none object-cover"
-			/>
-		</li>
-		<li
-			class="w-[82vw] max-w-[572px] shrink-0 snap-start lg:w-full lg:max-w-none"
-		>
-			<img
-				src="/images/Testimoni%20WA-04%201.webp"
-				alt="Testimoni pelanggan 4"
-				width="572"
-				height="382"
-				loading="lazy"
-				decoding="async"
-				class="h-full w-full rounded-none object-cover"
-			/>
-		</li>
-		<li
-			class="w-[82vw] max-w-[572px] shrink-0 snap-start lg:w-full lg:max-w-none"
-		>
-			<img
-				src="/images/Testimoni%20WA-05.webp"
-				alt="Testimoni pelanggan 5"
-				width="572"
-				height="382"
-				loading="lazy"
-				decoding="async"
-				class="h-full w-full rounded-none object-cover"
-			/>
-		</li>
-	</ul>
+			{
+				testimonialImages.map((image) => (
+					<li class="w-full shrink-0 basis-[82vw] max-w-[572px] overflow-hidden sm:basis-[calc(50%-0.5rem)] sm:max-w-none lg:basis-[calc(33.333%-0.75rem)]">
+						<img
+							src={image.src}
+							alt={image.alt}
+							width={image.width}
+							height={image.height}
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full rounded-none object-cover"
+						/>
+					</li>
+				))
+			}
+		</ul>
+	</div>
 	<Button
 		href={whatsappHref}
 		size="lg"
@@ -94,3 +84,105 @@ const whatsappHref = whatsappOrderUrl;
 		<ArrowRight class="h-4 w-4" aria-hidden="true" />
 	</Button>
 </section>
+
+<script is:inline>
+	(() => {
+		const section = document.getElementById("testimonials-wa");
+		const slider = section?.querySelector("[data-testimonials-wa-slider]");
+		const track = section?.querySelector("[data-testimonials-wa-track]");
+
+		if (!(slider instanceof HTMLElement) || !(track instanceof HTMLElement)) {
+			return;
+		}
+
+		const slides = Array.from(track.children).filter(
+			(child) => child instanceof HTMLElement,
+		);
+
+		if (!slides.length) {
+			return;
+		}
+
+		const firstSlideClone = slides[0]?.cloneNode(true);
+		if (firstSlideClone instanceof HTMLElement) {
+			firstSlideClone.setAttribute("aria-hidden", "true");
+			track.append(firstSlideClone);
+		}
+
+		let activeIndex = 0;
+		let intervalId;
+		let resetTimeoutId;
+		const totalSlides = slides.length;
+
+		const getRenderedSlides = () =>
+			Array.from(track.children).filter(
+				(child) => child instanceof HTMLElement,
+			);
+
+		const scrollToSlide = (nextIndex, behavior = "smooth") => {
+			const renderedSlides = getRenderedSlides();
+			const slide = renderedSlides[nextIndex];
+			if (!(slide instanceof HTMLElement)) {
+				return;
+			}
+
+			track.scrollTo({
+				left: slide.offsetLeft,
+				behavior,
+			});
+		};
+
+		const clearResetTimeout = () => {
+			if (resetTimeoutId) {
+				window.clearTimeout(resetTimeoutId);
+			}
+		};
+
+		const resetToStart = () => {
+			clearResetTimeout();
+			resetTimeoutId = window.setTimeout(() => {
+				activeIndex = 0;
+				scrollToSlide(0, "auto");
+			}, 450);
+		};
+
+		const startAutoSlide = () => {
+			stopAutoSlide();
+			intervalId = window.setInterval(() => {
+				if (activeIndex === totalSlides - 1) {
+					activeIndex = totalSlides;
+					scrollToSlide(activeIndex);
+					resetToStart();
+					return;
+				}
+
+				activeIndex += 1;
+				scrollToSlide(activeIndex);
+			}, 2000);
+		};
+
+		const stopAutoSlide = () => {
+			if (intervalId) {
+				window.clearInterval(intervalId);
+			}
+
+			clearResetTimeout();
+		};
+
+		slider.addEventListener("mouseenter", stopAutoSlide);
+		slider.addEventListener("mouseleave", startAutoSlide);
+
+		window.addEventListener("resize", () => {
+			if (activeIndex >= totalSlides) {
+				activeIndex = 0;
+				scrollToSlide(0, "auto");
+				return;
+			}
+
+			scrollToSlide(activeIndex, "auto");
+		});
+
+		scrollToSlide(0, "auto");
+		startAutoSlide();
+	})();
+</script>
