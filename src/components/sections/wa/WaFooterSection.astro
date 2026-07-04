@@ -1,62 +1,147 @@
 ---
-import { Facebook, Instagram, Mail, MapPin, Phone, Smartphone, Youtube } from "lucide-astro";
+import {
+	Facebook,
+	Instagram,
+	Mail,
+	MapPin,
+	Phone,
+	Smartphone,
+	Youtube,
+} from "lucide-astro";
 
 const badges = ["BPOM TR-213656281", "HALAL MUI", "CPOTB", "ISO 9001:2015"];
 const contacts = [
 	{ Icon: Smartphone, label: "0811-8130-1000", href: "tel:+628118131000" },
 	{ Icon: Phone, label: "021-4586 7977", href: "tel:+622145867977" },
-	{ Icon: Mail, label: "info@alphapropolis.id", href: "mailto:info@alphapropolis.id" },
-	{ Icon: MapPin, label: "PT. Unimax Power Jl. Gading Bukit Indah, Blok L 17, Kelapa Gading, Jakarta Utara" },
-	{ Icon: MapPin, label: "Outlet Resmi: Herbal King Store, Mall Artha Gading Lt.1, Blok A6 No.1, Jakarta Utara" },
+	{
+		Icon: Mail,
+		label: "info@alphapropolis.id",
+		href: "mailto:info@alphapropolis.id",
+	},
 ];
 const socials = [
-	{ Icon: Instagram, label: "@alphapropolis_", href: "https://www.instagram.com/alphapropolis_/" },
-	{ Icon: Youtube, label: "@alphapropolis", href: "https://www.youtube.com/@alphapropolis" },
-	{ Icon: Facebook, label: "Alpha Propolis", href: "https://www.facebook.com/alphapropolis" },
+	{
+		Icon: Instagram,
+		label: "@alphapropolis_",
+		href: "https://www.instagram.com/alphapropolis_/",
+	},
+	{
+		Icon: Youtube,
+		label: "@alphapropolis",
+		href: "https://www.youtube.com/@alphapropolis",
+	},
+	{
+		Icon: Facebook,
+		label: "Alpha Propolis",
+		href: "https://www.facebook.com/alphapropolis",
+	},
 ];
 ---
 
-<footer id="wa-footer" class="mx-auto grid w-full gap-10 bg-slate-900 px-6 py-16 sm:px-8 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-24 lg:py-24">
-	<section class="flex w-full flex-col items-start justify-start gap-5" aria-labelledby="wa-footer-brand">
-		<img class="h-16 w-28 object-contain" src="/images/logo-gold.webp" alt="Alpha Propolis" width="117" height="72" loading="lazy" decoding="async" />
+<footer
+	id="wa-footer"
+	class="mx-auto grid w-full gap-10 bg-slate-900 px-6 py-16 sm:px-8 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-24 lg:py-24"
+>
+	<section
+		class="flex w-full flex-col items-start justify-start gap-5"
+		aria-labelledby="wa-footer-brand"
+	>
+		<img
+			class="h-16 w-28 object-contain"
+			src="/images/logo-gold.webp"
+			alt="Alpha Propolis"
+			width="117"
+			height="72"
+			loading="lazy"
+			decoding="async"
+		/>
 		<h2 id="wa-footer-brand" class="sr-only">Alpha Propolis</h2>
 		<p class="self-stretch text-base font-medium leading-5 text-slate-100">
-			Alpha Propolis berkomitmen penuh untuk menghadirkan kebaikan alami murni demi menjaga stabilitas gula darah dan kekuatan paru-paru keluarga Indonesia. Mari bersama #JagaSenyumKeluarga tercinta setiap hari.
+			Alpha Propolis berkomitmen penuh untuk menghadirkan kebaikan alami
+			murni demi menjaga stabilitas gula darah dan kekuatan paru-paru
+			keluarga Indonesia. Mari bersama #JagaSenyumKeluarga tercinta setiap
+			hari.
 		</p>
-		<ul class="inline-flex content-center items-center justify-start gap-1.5 self-stretch flex-wrap">
-			{badges.map((badge) => (
-				<li class="inline-flex h-7 flex-col items-start justify-start rounded-none bg-amber-100 px-3.5 py-[5px] shadow-[0px_1px_6px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-amber-400">
-					<div class="text-xs font-bold leading-4 text-stone-900">✓ {badge}</div>
-				</li>
-			))}
+		<ul
+			class="inline-flex content-center items-center justify-start gap-1.5 self-stretch flex-wrap"
+		>
+			{
+				badges.map((badge) => (
+					<li class="inline-flex h-7 flex-col items-start justify-start rounded-none bg-amber-100 px-3.5 py-[5px] shadow-[0px_1px_6px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-amber-400">
+						<div class="text-xs font-bold leading-4 text-stone-900">
+							✓ {badge}
+						</div>
+					</li>
+				))
+			}
 		</ul>
 	</section>
 
-	<address class="flex min-w-0 flex-col items-start justify-start gap-2.5 not-italic" aria-labelledby="wa-footer-contact">
-		<h2 id="wa-footer-contact" class="self-stretch text-xs font-bold uppercase leading-4 tracking-wide text-white">Kontak</h2>
+	<address
+		class="flex min-w-0 flex-col items-start justify-start gap-2.5 not-italic"
+		aria-labelledby="wa-footer-contact"
+	>
+		<h2
+			id="wa-footer-contact"
+			class="self-stretch text-xs font-bold uppercase leading-4 tracking-wide text-white"
+		>
+			Kontak
+		</h2>
 		<ul class="flex w-full flex-col gap-2.5">
-			{contacts.map(({ Icon, label, href }) => (
-				<li class="inline-flex w-full items-start justify-start gap-2.5">
-					<Icon class="mt-1 size-3.5 shrink-0 text-amber-400" aria-hidden="true" />
-					{href ? (
-						<a href={href} class="flex-1 text-xs font-normal leading-5 text-neutral-200 hover:text-white">{label}</a>
-					) : (
-						<span class="flex-1 text-xs font-normal leading-5 text-neutral-200">{label}</span>
-					)}
-				</li>
-			))}
+			{
+				contacts.map(({ Icon, label, href }) => (
+					<li class="inline-flex w-full items-start justify-start gap-2.5">
+						<Icon
+							class="mt-1 size-3.5 shrink-0 text-amber-400"
+							aria-hidden="true"
+						/>
+						{href ? (
+							<a
+								href={href}
+								class="flex-1 text-xs font-normal leading-5 text-neutral-200 hover:text-white"
+							>
+								{label}
+							</a>
+						) : (
+							<span class="flex-1 text-xs font-normal leading-5 text-neutral-200">
+								{label}
+							</span>
+						)}
+					</li>
+				))
+			}
 		</ul>
 	</address>
 
-	<section class="flex min-w-0 flex-col items-start justify-start gap-2.5" aria-labelledby="wa-footer-social">
-		<h2 id="wa-footer-social" class="self-stretch text-xs font-bold uppercase leading-4 tracking-wide text-white">Dapatkan Info Kesehatan Gratis</h2>
+	<section
+		class="flex min-w-0 flex-col items-start justify-start gap-2.5"
+		aria-labelledby="wa-footer-social"
+	>
+		<h2
+			id="wa-footer-social"
+			class="self-stretch text-xs font-bold uppercase leading-4 tracking-wide text-white"
+		>
+			Dapatkan Info Kesehatan Gratis
+		</h2>
 		<ul class="flex w-full flex-col gap-2.5">
-			{socials.map(({ Icon, label, href }) => (
-				<li class="inline-flex w-full items-center justify-start gap-2.5">
-					<Icon class="size-3.5 text-amber-400" aria-hidden="true" />
-					<a href={href} target="_blank" rel="noopener noreferrer" class="text-xs font-normal leading-5 text-neutral-200 hover:text-white">{label}</a>
-				</li>
-			))}
+			{
+				socials.map(({ Icon, label, href }) => (
+					<li class="inline-flex w-full items-center justify-start gap-2.5">
+						<Icon
+							class="size-3.5 text-amber-400"
+							aria-hidden="true"
+						/>
+						<a
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-xs font-normal leading-5 text-neutral-200 hover:text-white"
+						>
+							{label}
+						</a>
+					</li>
+				))
+			}
 		</ul>
 		<p class="self-stretch text-xs font-bold text-slate-100">
 			Info update promo, tips diabetes, dan konten kesehatan harian.
