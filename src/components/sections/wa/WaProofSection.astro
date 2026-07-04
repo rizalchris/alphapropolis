@@ -1,7 +1,6 @@
 ---
 import {
 	ArrowRight,
-	Check,
 	ChevronLeft,
 	ChevronRight,
 	MessageCircle,
@@ -11,31 +10,6 @@ import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
-
-const benefits = [
-	"Menjaga gula darah tetap terkontrol",
-	"Melawan radikal bebas",
-	"Meningkatkan kekebalan tubuh",
-	"Merawat sensitivitas insulin",
-	"Membantu menjaga energi harian",
-	"Mendukung proses percepatan pemulihan luka",
-	"Membantu mengatasi infeksi saluran pernapasan",
-];
-
-const doctors = [
-	{
-		name: "dr. Robert",
-		title: "Konsultan Medis",
-		image: "/images/dr.%20Andi%20Kurniawan,%20Sp.PD.webp",
-		quote: "Propolis membantu kontrol gula darah pada pasien Diabetes, karena propolis meningkatkan sensitivitas insulin sehingga lebih peka menarik darah dalam sel.",
-	},
-	{
-		name: "dr. Endang, M.Si (Herbs)",
-		title: "Konsultan Medis",
-		image: "/images/Dr.%20Endang,%20M.Si.webp",
-		quote: "Propolis adalah kombinasi getah pohon dan lilin lebah yang kaya polifenol serta flavonoid. Manfaat alaminya bekerja sebagai antivirus, antibakteri, anti radang, sekaligus melindungi dan memperbaiki sistem saraf.",
-	},
-];
 
 const doctorVideos = [
 	{
@@ -65,33 +39,15 @@ const doctorVideos = [
 			class="hidden w-full flex-col items-center gap-12 rounded-none border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12 lg:flex"
 			aria-labelledby="diabetes-comfort-title"
 		>
-			<div class="flex max-w-4xl flex-col items-center gap-5 text-center">
-				<h2 id="diabetes-comfort-title" class="font-bold text-gray-900">
-					Diam - Diam diabetes merusak tubuh anda
-				</h2>
-				<strong class="text-stone-900">
-					Mulai langkah praktis tetap aktif bertenaga, selalu siap
-				</strong>
-			</div>
-			<ul
-				class="flex w-full max-w-5xl flex-col items-start justify-start gap-2.5"
-			>
-				{
-					benefits.map((benefit) => (
-						<li class="flex items-center gap-3 rounded-none border border-amber-400/20 bg-white/70 px-3.5 py-2.5 text-[18px] font-bold leading-5 text-stone-900 sm:text-sm">
-							<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100">
-								<Check
-									class="h-3 w-3 text-green-500"
-									aria-hidden="true"
-								/>
-							</span>
-							<strong class="flex-1 fw-800 text-left text-lg leading-8 text-stone-900 sm:text-2xl sm:leading-9">
-								{benefit}
-							</strong>
-						</li>
-					))
-				}
-			</ul>
+			<img
+				src="/images/Jaga-Diabetes.webp"
+				alt="Jaga diabetes dengan Alpha Propolis"
+				width="1440"
+				height="1200"
+				loading="lazy"
+				decoding="async"
+				class="block h-auto w-full"
+			/>
 		</div>
 
 		<img

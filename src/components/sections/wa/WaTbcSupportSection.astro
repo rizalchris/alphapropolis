@@ -1,14 +1,6 @@
 ---
 import { ArrowRight, MessageCircle } from "lucide-astro";
 import { whatsappOrderUrl } from "../../../lib/site";
-
-const points = [
-	"Penderita TBC diharuskan untuk meminum obat OAT selama berbulan-bulan tanpa putus.",
-	"Rasa mual yang mengganggu, lemas, hingga nafsu makan yang hilang adalah bentuk efek Samping OAT yang nyata dirasakan penderita.",
-	"Disiplin minum obat saja kadang tidak cukup membuat tenang. Ada rasa takut menularkan ke orang terdekat, takut dijauhi, takut prosesnya tidak berjalan seperti seharusnya.",
-	"Di tengah semua kekhawatiran yang ada, bagaimana mendukung tubuh dari dalam agar lebih siap menjalani masa pengobatan sampai tuntas.",
-	"Dengan kadar fenol 60% lebih pekat, Alpha Propolis hadir sebagai pendamping alami untuk membantu menjaga stamina tetap fit dan mendukung daya tahan tubuh selama masa pengobatan.",
-];
 ---
 
 <section
@@ -31,43 +23,15 @@ const points = [
 	<div
 		class="hidden w-full max-w-[920px] flex-col items-center justify-start gap-12 md:flex"
 	>
-		<h2
-			id="wa-tbc-title"
-			class="self-stretch text-center font-bold leading-tight text-gray-900 lg:leading-[57.60px]"
-		>
-			Pendamping Alami Terbaik untuk Mempercepat Pemulihan TBC Anda
-		</h2>
-		<div
-			class="relative left-1/2 ml-[45px] w-screen -translate-x-1/2 overflow-x-auto sm:left-auto sm:ml-0 sm:w-full sm:translate-x-0 sm:overflow-visible"
-			role="region"
-			aria-label="Gambar pendamping alami Alpha Propolis, geser horizontal untuk melihat seluruh gambar"
-		>
-			<img
-				class="block h-auto min-h-40 w-[1275px] max-w-none rounded-none object-cover sm:w-full sm:rounded-none"
-				src="/images/Pendamping Alami.webp"
-				alt="Pendamping alami Alpha Propolis untuk mendukung stamina dan daya tahan tubuh selama masa pengobatan"
-				width="1275"
-				height="234"
-				loading="lazy"
-				decoding="async"
-			/>
-		</div>
-		<ol class="flex self-stretch flex-col items-start justify-start gap-7">
-			{
-				points.map((point, index) => (
-					<li class="inline-flex self-stretch items-start justify-start gap-3">
-						<div class="inline-flex size-12 shrink-0 flex-col items-center justify-center gap-5 rounded-none bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400 sm:size-16">
-							<div class="text-center text-xl font-bold leading-8 text-stone-900 sm:text-2xl">
-								{index + 1}
-							</div>
-						</div>
-						<strong class="flex-1 text-left text-lg fw-800 leading-8 text-stone-900 sm:text-2xl sm:leading-9">
-							{point}
-						</strong>
-					</li>
-				))
-			}
-		</ol>
+		<img
+			src="/images/Pemulihan-TBC.webp"
+			alt="Pendamping alami terbaik untuk mempercepat pemulihan TBC"
+			width="1440"
+			height="1200"
+			loading="lazy"
+			decoding="async"
+			class="block h-auto w-full"
+		/>
 		<a
 			href={whatsappOrderUrl}
 			target="_blank"

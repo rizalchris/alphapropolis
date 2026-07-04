@@ -9,14 +9,6 @@ const symptoms = [
 	"Cepat lelah",
 	"Berat badan turun tanpa sebab",
 ];
-
-const wetWoundImages = [
-	"/images/luka-basah-1.webp",
-	"/images/luka-basah-2.webp",
-	"/images/luka-basah-3.webp",
-	"/images/luka-basah-4.webp",
-	"/images/luka-basah-5.webp",
-];
 ---
 
 <section
@@ -111,36 +103,6 @@ const wetWoundImages = [
 			decoding="async"
 			class="block w-full lg:hidden"
 		/>
-
-		<div class="mt-10 hidden w-full lg:block">
-			<div
-				class="overflow-hidden"
-				role="region"
-				aria-label="Slider gambar luka basah"
-				data-wet-wound-slider
-			>
-				<div
-					class="flex gap-4 overflow-x-hidden scroll-smooth"
-					data-wet-wound-track
-				>
-					{
-						wetWoundImages.map((image, index) => (
-							<div class="aspect-video w-full shrink-0 basis-full overflow-hidden lg:basis-[calc((100%-3rem)/4)]">
-								<img
-									src={image}
-									alt={`Luka basah ${index + 1}`}
-									width="480"
-									height="480"
-									loading="lazy"
-									decoding="async"
-									class="block h-full w-full object-cover"
-								/>
-							</div>
-						))
-					}
-				</div>
-			</div>
-		</div>
 
 		<a
 			href={whatsappOrderUrl}
