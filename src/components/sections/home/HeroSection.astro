@@ -18,27 +18,46 @@ const whatsappHref = whatsappOrderUrl;
 	>
 		<div class="flex flex-col items-center gap-14">
 			<div class="flex flex-col items-start gap-8">
-				<SectionLabel text="Formula Premium Lebah Trigona" />
+				<div class="w-full md:hidden">
+					<img
+						src="/images/banner-home-mobile.webp"
+						alt="Banner Alpha Propolis"
+						width="720"
+						height="420"
+						loading="eager"
+						decoding="async"
+						fetchpriority="high"
+						class="h-auto w-full"
+					/>
+				</div>
+
+				<div class="hidden md:block">
+					<SectionLabel text="Formula Premium Lebah Trigona" />
+				</div>
 
 				<div class="space-y-5">
-					<h1 id="hero-title">
+					<h1 id="hero-title" class="sr-only md:not-sr-only md:block">
 						Jaga Kualitas Hidup<br class="hidden sm:block" /> Mulai dari
 						Propolis Terbaik
 					</h1>
 					<p>
-						<strong
+						<strong class="hidden md:inline"
 							>Dengan kadar fenol 1.600 mg/L yang lebih kuat dari
 							standar nasional (SNI).</strong
 						>{" "}
-						Formulanya bekerja menstabilkan fungsi pankreas dan mengunci
-						gula darah di angka normal. Saatnya bebaskan diri dari risiko
-						komplikasi dan kembali <strong
-							>#JagaSenyumKeluarga.</strong
-						>
+						<span class="hidden md:inline">
+							Formulanya bekerja menstabilkan fungsi pankreas dan mengunci
+							gula darah di angka normal. Saatnya bebaskan diri dari risiko
+							komplikasi dan kembali <strong
+								>#JagaSenyumKeluarga.</strong
+							>
+						</span>
 					</p>
 				</div>
 
-				<CertificationChips />
+				<div class="hidden md:block">
+					<CertificationChips />
+				</div>
 
 				<div class="flex w-full max-w-md flex-col items-start gap-4">
 					<Button
@@ -59,7 +78,7 @@ const whatsappHref = whatsappOrderUrl;
 				</div>
 			</div>
 
-			<figure class="overflow-hidden">
+			<figure class="hidden overflow-hidden md:block">
 				<img
 					src="/images/Foto%20Artis.webp"
 					alt="Foto artis bersama Alpha Propolis"

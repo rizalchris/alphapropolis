@@ -41,8 +41,18 @@ const faqs = [
 ];
 ---
 
-<section id="wa-faq" aria-labelledby="wa-faq-title" class="mx-auto flex w-full flex-col items-center justify-start bg-white px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-	<div class="flex w-full flex-col items-center justify-start">
+<section id="wa-faq" aria-labelledby="wa-faq-title" class="mx-auto w-full bg-white px-0 py-16 sm:px-8 lg:px-10 lg:py-24">
+	<img
+		src="/images/faq-mobile.webp"
+		alt="FAQ Alpha Propolis"
+		width="430"
+		height="932"
+		loading="lazy"
+		decoding="async"
+		class="block w-full lg:hidden"
+	/>
+
+	<div class="hidden w-full flex-col items-center justify-start lg:flex">
 		<div class="flex w-full max-w-[797px] flex-col items-center justify-start gap-5">
 			<div class="inline-flex h-8 items-center justify-start gap-1.5 rounded-none bg-orange-50 px-4 py-1.5 outline outline-1 outline-offset-[-1px] outline-amber-400/30">
 				<Sparkles class="size-2.5 text-amber-400" aria-hidden="true" />

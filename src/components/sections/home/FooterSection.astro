@@ -3,7 +3,6 @@ import {
 	Facebook,
 	Instagram,
 	Mail,
-	MapPin,
 	Phone,
 	Smartphone,
 	Youtube,
@@ -39,73 +38,115 @@ const socials = [
 ];
 ---
 
-<footer
-	id="site-footer"
-	aria-labelledby="footer-brand"
-	class="landing-section bg-slate-900 px-6 py-16 text-slate-100 sm:px-8 lg:px-10"
->
-	<div
-		class="mx-auto grid w-full max-w-[var(--container-xl)] gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]"
-	>
-		<section
-			aria-labelledby="footer-brand"
-			class="flex flex-col items-start gap-5"
-		>
-			<a href="/" aria-label="Alpha Propolis home" class="inline-flex">
-				<img
-					src="/images/logo-gold.webp"
-					alt="Alpha Propolis"
-					width="160"
-					height="98"
-					loading="lazy"
-					decoding="async"
-					class="h-16 w-auto object-contain"
-				/>
-			</a>
-			<h2 id="footer-brand" class="sr-only">Alpha Propolis</h2>
-			<p
-				class="max-w-[503px] text-base font-medium leading-5 text-slate-100"
-			>
-				Alpha Propolis berkomitmen penuh untuk menghadirkan kebaikan
-				alami murni demi menjaga stabilitas gula darah dan kekuatan
-				paru-paru keluarga Indonesia. Mari bersama #JagaSenyumKeluarga
-				tercinta setiap hari.
-			</p>
-			<CertificationChips />
-		</section>
+<footer id="site-footer" aria-labelledby="footer-brand" class="w-full">
+	<img
+		src="/images/footer-mobile.webp"
+		alt="Footer Alpha Propolis"
+		width="430"
+		height="467"
+		loading="lazy"
+		decoding="async"
+		class="block w-full lg:hidden"
+	/>
 
-		<section
-			aria-labelledby="footer-contact-title"
-			class="flex flex-col items-start gap-2.5"
+	<div
+		class="landing-section hidden bg-slate-900 px-6 py-16 text-slate-100 sm:px-8 lg:block lg:px-10"
+	>
+		<div
+			class="mx-auto grid w-full max-w-[var(--container-xl)] gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]"
 		>
-			<h2
-				id="footer-contact-title"
-				class="text-xs font-bold uppercase leading-4 tracking-wide text-white"
+			<section
+				aria-labelledby="footer-brand"
+				class="flex flex-col items-start gap-5"
 			>
-				Kontak
-			</h2>
-			<address class="not-italic">
+				<a href="/" aria-label="Alpha Propolis home" class="inline-flex">
+					<img
+						src="/images/logo-gold.webp"
+						alt="Alpha Propolis"
+						width="160"
+						height="98"
+						loading="lazy"
+						decoding="async"
+						class="h-16 w-auto object-contain"
+					/>
+				</a>
+				<h2 id="footer-brand" class="sr-only">Alpha Propolis</h2>
+				<p
+					class="max-w-[503px] text-base font-medium leading-5 text-slate-100"
+				>
+					Alpha Propolis berkomitmen penuh untuk menghadirkan kebaikan
+					alami murni demi menjaga stabilitas gula darah dan kekuatan
+					paru-paru keluarga Indonesia. Mari bersama #JagaSenyumKeluarga
+					tercinta setiap hari.
+				</p>
+				<CertificationChips />
+			</section>
+
+			<section
+				aria-labelledby="footer-contact-title"
+				class="flex flex-col items-start gap-2.5"
+			>
+				<h2
+					id="footer-contact-title"
+					class="text-xs font-bold uppercase leading-4 tracking-wide text-white"
+				>
+					Kontak
+				</h2>
+				<address class="not-italic">
+					<ul class="flex flex-col gap-2.5">
+						{
+							contacts.map(({ Icon, label, href }) => (
+								<li class="flex max-w-80 items-start gap-2.5 text-xs leading-5 text-neutral-200">
+									<Icon
+										class="mt-1 h-3.5 w-3.5 shrink-0 text-amber-400"
+										aria-hidden="true"
+									/>
+									<a
+										href={href}
+										class="hover:text-white"
+										target={
+											href.startsWith("http")
+												? "_blank"
+												: undefined
+										}
+										rel={
+											href.startsWith("http")
+												? "noopener noreferrer"
+												: undefined
+										}
+									>
+										{label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</address>
+			</section>
+
+			<section
+				aria-labelledby="footer-social-title"
+				class="flex flex-col items-start gap-2.5"
+			>
+				<h2
+					id="footer-social-title"
+					class="text-xs font-bold uppercase leading-4 tracking-wide text-white"
+				>
+					Dapatkan Info Kesehatan Gratis
+				</h2>
 				<ul class="flex flex-col gap-2.5">
 					{
-						contacts.map(({ Icon, label, href }) => (
-							<li class="flex max-w-80 items-start gap-2.5 text-xs leading-5 text-neutral-200">
+						socials.map(({ Icon, label, href }) => (
+							<li class="flex items-center gap-2.5 text-xs leading-5 text-neutral-200">
 								<Icon
-									class="mt-1 h-3.5 w-3.5 shrink-0 text-amber-400"
+									class="h-3.5 w-3.5 text-amber-400"
 									aria-hidden="true"
 								/>
 								<a
 									href={href}
 									class="hover:text-white"
-									target={
-										href.startsWith("http")
-											? "_blank"
-											: undefined
-									}
-									rel={
-										href.startsWith("http")
-											? "noopener noreferrer"
-											: undefined
-									}
+									target="_blank"
+									rel="noopener noreferrer"
 								>
 									{label}
 								</a>
@@ -113,42 +154,10 @@ const socials = [
 						))
 					}
 				</ul>
-			</address>
-		</section>
-
-		<section
-			aria-labelledby="footer-social-title"
-			class="flex flex-col items-start gap-2.5"
-		>
-			<h2
-				id="footer-social-title"
-				class="text-xs font-bold uppercase leading-4 tracking-wide text-white"
-			>
-				Dapatkan Info Kesehatan Gratis
-			</h2>
-			<ul class="flex flex-col gap-2.5">
-				{
-					socials.map(({ Icon, label, href }) => (
-						<li class="flex items-center gap-2.5 text-xs leading-5 text-neutral-200">
-							<Icon
-								class="h-3.5 w-3.5 text-amber-400"
-								aria-hidden="true"
-							/>
-							<a
-								href={href}
-								class="hover:text-white"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								{label}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-			<p class="max-w-80 text-xs font-bold text-slate-100">
-				Info update promo, tips diabetes, dan konten kesehatan harian.
-			</p>
-		</section>
+				<p class="max-w-80 text-xs font-bold text-slate-100">
+					Info update promo, tips diabetes, dan konten kesehatan harian.
+				</p>
+			</section>
+		</div>
 	</div>
 </footer>

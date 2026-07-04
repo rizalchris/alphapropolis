@@ -120,7 +120,7 @@ const complicationCards = [
 		</div>
 
 		<div
-			class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4"
+			class="hidden w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid xl:grid-cols-4"
 		>
 			{
 				complicationCards.map((card) => (
@@ -148,7 +148,17 @@ const complicationCards = [
 			}
 		</div>
 
-		<div class="mt-10 w-full">
+		<img
+			src="/images/akibat-diabetes.webp"
+			alt="Akibat diabetes"
+			width="430"
+			height="932"
+			loading="lazy"
+			decoding="async"
+			class="block w-full lg:hidden"
+		/>
+
+		<div class="mt-10 hidden w-full lg:block">
 			<div
 				class="overflow-hidden"
 				role="region"
