@@ -1,14 +1,152 @@
 ---
+import {
+	Facebook,
+	Instagram,
+	Mail,
+	Phone,
+	Smartphone,
+	Youtube,
+} from "lucide-astro";
+
+const contacts = [
+	{ Icon: Smartphone, label: "0811-813-1000", href: "tel:+628118131000" },
+	{ Icon: Phone, label: "021-4586 7977", href: "tel:+622145867977" },
+	{
+		Icon: Mail,
+		label: "info@alphapropolis.id",
+		href: "mailto:info@alphapropolis.id",
+	},
+];
+
+const socials = [
+	{
+		Icon: Instagram,
+		label: "@official_alphapropolis",
+		href: "https://www.instagram.com/alphapropolis_/",
+	},
+	{
+		Icon: Youtube,
+		label: "@alphapropolis",
+		href: "https://www.youtube.com/@alphapropolis",
+	},
+	{
+		Icon: Facebook,
+		label: "Alpha Propolis",
+		href: "https://www.facebook.com/alphapropolis",
+	},
+];
 ---
 
 <footer id="site-footer" aria-labelledby="footer-brand" class="w-full">
 	<img
-		src="/images/footer.webp"
+		src="/images/footer-mobile.webp"
 		alt="Footer Alpha Propolis"
-		width="1440"
-		height="1200"
+		width="430"
+		height="467"
 		loading="lazy"
 		decoding="async"
-		class="block w-full"
+		class="block w-full lg:hidden"
 	/>
+
+	<div
+		class="landing-section hidden bg-slate-900 px-6 py-16 text-slate-100 sm:px-8 lg:block lg:px-10"
+	>
+		<div
+			class="mx-auto grid w-full max-w-[var(--container-xl)] gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]"
+		>
+			<section
+				aria-labelledby="footer-brand"
+				class="flex flex-col items-start gap-5"
+			>
+				<h2 id="footer-brand" class="sr-only">Alpha Propolis</h2>
+				<img
+					src="/images/footer.webp"
+					alt="Footer Alpha Propolis"
+					width="1440"
+					height="1200"
+					loading="lazy"
+					decoding="async"
+					class="h-auto w-full"
+				/>
+			</section>
+
+			<section
+				aria-labelledby="footer-contact-title"
+				class="flex flex-col items-start gap-2.5"
+			>
+				<h2
+					id="footer-contact-title"
+					class="text-xs font-bold uppercase leading-4 tracking-wide text-white"
+				>
+					Kontak
+				</h2>
+				<address class="not-italic">
+					<ul class="flex flex-col gap-2.5">
+						{
+							contacts.map(({ Icon, label, href }) => (
+								<li class="flex max-w-80 items-start gap-2.5 text-xs leading-5 text-neutral-200">
+									<Icon
+										class="mt-1 h-3.5 w-3.5 shrink-0 text-amber-400"
+										aria-hidden="true"
+									/>
+									<a
+										href={href}
+										class="hover:text-white"
+										target={
+											href.startsWith("http")
+												? "_blank"
+												: undefined
+										}
+										rel={
+											href.startsWith("http")
+												? "noopener noreferrer"
+												: undefined
+										}
+									>
+										{label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</address>
+			</section>
+
+			<section
+				aria-labelledby="footer-social-title"
+				class="flex flex-col items-start gap-2.5"
+			>
+				<h2
+					id="footer-social-title"
+					class="text-xs font-bold uppercase leading-4 tracking-wide text-white"
+				>
+					Dapatkan Info Kesehatan Gratis
+				</h2>
+				<ul class="flex flex-col gap-2.5">
+					{
+						socials.map(({ Icon, label, href }) => (
+							<li class="flex items-center gap-2.5 text-xs leading-5 text-neutral-200">
+								<Icon
+									class="h-3.5 w-3.5 text-amber-400"
+									aria-hidden="true"
+								/>
+								<a
+									href={href}
+									class="hover:text-white"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+				<p class="max-w-80 text-xs font-bold text-slate-100">
+					Info update promo, tips diabetes, dan konten kesehatan
+					harian.
+				</p>
+			</section>
+		</div>
+	</div>
 </footer>
