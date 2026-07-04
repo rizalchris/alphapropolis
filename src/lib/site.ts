@@ -1,2 +1,2 @@
 export const whatsappOrderUrl =
-	"https://api.whatsapp.com/send?phone=628118131000&text=Hallo%20Mbak%20Alpha%2C%E2%98%BA%EF%B8%8F%0ASaya%20mau%20order%20Alpha%20Propolisnya%20dong%2C%0ANama%3A%0AAlamat%20Lengkap%3A%0AJumlah%20Botol%3A";
+	"https://alphapropolis.gass.my.id/cta?p=01139F92CD8E6AA37994A49D71738DB6&divisi=lead&msg=Promo+ID+%5B_gid_%5D+%25break%25%25break%25Hallo+Mbak+Alpha%2C+Saya+mau+tanaya-tanya+untuk+produk+Alpha+Propolisnya+dong!+%25break%25%25break%25*Mohon+tidak+menghapus+Promo+ID";

@@ -1,47 +1,9 @@
 ---
 import {
-	ArrowRight,
-	Check,
 	ChevronLeft,
 	ChevronRight,
-	MessageCircle,
 } from "lucide-astro";
-import Button from "../../ui/Button.astro";
 import SectionLabel from "../../shared/SectionLabel.astro";
-import { whatsappOrderUrl } from "../../../lib/site";
-
-const whatsappHref = whatsappOrderUrl;
-
-const benefits = [
-	"Menjaga gula darah tetap terkontrol",
-	"Melawan radikal bebas",
-	"Meningkatkan kekebalan tubuh",
-	"Merawat sensitivitas insulin",
-	"Membantu menjaga energi harian",
-	"Mendukung proses percepatan pemulihan luka",
-	"Membantu mengatasi infeksi saluran pernapasan",
-];
-
-const doctors = [
-	{
-		name: "dr. Robert",
-		title: "Konsultan Medis",
-		image: "/images/dr.%20Andi%20Kurniawan,%20Sp.PD.webp",
-		quote: "Propolis membantu kontrol gula darah pada pasien Diabetes, karena propolis meningkatkan sensitivitas insulin sehingga lebih peka menarik darah dalam sel.",
-	},
-	{
-		name: "dr. Endang, M.Si (Herbs)",
-		title: "Konsultan Medis",
-		image: "/images/Dr.%20Endang,%20M.Si.webp",
-		quote: "Propolis adalah kombinasi getah pohon dan lilin lebah yang kaya polifenol serta flavonoid. Manfaat alaminya bekerja sebagai antivirus, antibakteri, anti radang, sekaligus melindungi dan memperbaiki sistem saraf.",
-	},
-	{
-		name: "Dr. Mahani, SP., M.Si",
-		title: "Pakar Propolis & Madu SNI",
-		image: "/images/Dr.%20Mahani,%20M.Si.webp",
-		quote: "Dengan minum Propolis, konsentrasi gula pada darah akan berkurang, sehingga kesempatan gula dijadikan media tumbuh bagi jamur tidak terjadi, sehingga luka akan bisa sembuh.",
-	},
-];
 
 const doctorVideos = [
 	{
@@ -65,201 +27,110 @@ const doctorVideos = [
 	<div
 		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-10"
 	>
-		<div class="w-full md:hidden">
-			<img
-				src="/images/Tips-Jaga-Diabetes-mobile.webp"
-				alt="Tips jaga diabetes"
-				width="720"
-				height="960"
-				loading="lazy"
-				decoding="async"
-				class="h-auto w-full"
-			/>
-		</div>
+		<img
+			src="/images/diam-diam.webp"
+			alt="Diam-diam diabetes merusak tubuh"
+			width="1440"
+			height="1200"
+			loading="lazy"
+			decoding="async"
+			class="hidden h-auto w-full md:block"
+		/>
 
-		<div
-			class="hidden w-full flex-col items-center gap-12 rounded-none border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12 md:flex"
-			aria-labelledby="diabetes-comfort-title"
-		>
-			<div class="flex max-w-4xl flex-col items-center gap-5 text-center">
-				<h2 id="diabetes-comfort-title" class="font-bold text-gray-900">
-					Diam - Diam diabetes merusak tubuh anda
-				</h2>
-				<strong class="text-stone-900">
-					Mulai langkah praktis tetap aktif bertenaga, selalu siap
-				</strong>
+		<div class="flex w-full flex-col items-center gap-10 md:hidden">
+			<div class="w-full md:hidden">
+				<img
+					src="/images/Tips-Jaga-Diabetes-mobile.webp"
+					alt="Tips jaga diabetes"
+					width="720"
+					height="960"
+					loading="lazy"
+					decoding="async"
+					class="h-auto w-full"
+				/>
 			</div>
-			<ul
-				class="flex w-full max-w-5xl flex-col items-start justify-start gap-2.5"
-			>
-				{
-					benefits.map((benefit) => (
-						<li class="flex w-full items-center gap-3 self-stretch rounded-none border border-amber-400/20 bg-white/70 px-3.5 py-2.5 text-[18px] font-bold leading-5 text-stone-900 sm:text-sm">
-							<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100">
-								<Check
-									class="h-3 w-3 text-green-500"
-									aria-hidden="true"
-								/>
-							</span>
-							<strong class="flex-1 fw-800 text-left text-lg leading-8 text-stone-900 sm:text-2xl sm:leading-9">
-								{benefit}
-							</strong>
-						</li>
-					))
-				}
-			</ul>
-		</div>
 
-		<div
-			class="flex w-full flex-col items-center gap-10"
-			aria-labelledby="doctors-title"
-		>
-			<div class="flex flex-col items-center gap-5 text-center">
-				<SectionLabel text="Validasi Ahli Kesehatan" />
-				<h2 id="doctors-title" class="max-w-[651px] text-gray-900">
-					Propolis Rekomendasi Dokter
-				</h2>
-			</div>
-			<div class="w-full max-w-6xl">
-				<ul
-					class="flex justify-start gap-4 overflow-x-auto scroll-smooth pb-2 lg:justify-center"
-					data-video-carousel-track
-				>
-					{
-						doctorVideos.map((video) => (
-							<li class="w-full shrink-0 basis-full md:basis-[calc((100%-2rem)/3)] lg:basis-[calc((100%-3rem)/4)]">
-								<button
-									type="button"
-									class="group flex w-full flex-col gap-3 rounded-none border border-stone-200 bg-white p-3 text-left shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-1 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
-									data-video-trigger
-									data-video-src={video.src}
-									data-video-title={video.title}
-									aria-label={video.label}
-								>
-									<div class="relative overflow-hidden rounded-none bg-stone-950">
-										<video
-											class="aspect-[3/4] w-full object-cover opacity-85 transition duration-300 group-hover:scale-[1.02]"
-											src={video.src}
-											muted
-											playsinline
-											loop
-											preload="metadata"
-											aria-hidden="true"
-										/>
-										<div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
-										<div class="absolute inset-0 flex items-center justify-center">
-											<span class="flex size-14 items-center justify-center rounded-none bg-white/90 text-stone-950 shadow-lg transition-transform duration-200 group-hover:scale-105">
-												<svg
-													viewBox="0 0 24 24"
-													fill="currentColor"
-													aria-hidden="true"
-													class="ml-0.5 size-6"
-												>
-													<path d="M8 5v14l11-7z" />
-												</svg>
-											</span>
-										</div>
-									</div>
-									<div class="px-1 pb-1">
-										<div class="text-lg font-bold leading-6 text-gray-900">
-											{video.title}
-										</div>
-									</div>
-								</button>
-							</li>
-						))
-					}
-				</ul>
-				<div
-					class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
-				>
-					<button
-						type="button"
-						class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-						data-video-carousel-prev
-						aria-label="Video sebelumnya"
-					>
-						<ChevronLeft class="size-5" aria-hidden="true" />
-					</button>
-					<button
-						type="button"
-						class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-						data-video-carousel-next
-						aria-label="Video berikutnya"
-					>
-						<ChevronRight class="size-5" aria-hidden="true" />
-					</button>
-				</div>
-			</div>
-			<!-- <ul
-				class="flex w-full items-stretch snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-3 lg:overflow-visible"
-				data-doctor-cards-track
-			>
-				{
-					doctors.map((doctor) => (
-						<li class="h-full w-[82vw] max-w-[320px] shrink-0 self-stretch snap-start lg:w-auto lg:max-w-none">
-							<div class="flex h-full w-full flex-col gap-5 rounded-none bg-white p-5 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] outline outline-1 outline-offset-[-1px] outline-stone-200">
-								<div class="flex items-center gap-4">
-									<div class="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-none bg-stone-100 p-1 outline outline-[3px] outline-offset-[-3px] outline-orange-50">
-										<img
-											src={doctor.image}
-											alt={doctor.name}
-											width="79"
-											height="158"
-											loading="lazy"
-											decoding="async"
-											class="h-full w-full object-contain"
-										/>
-									</div>
-									<div class="w-full">
-										<div class="text-2xl font-bold leading-8 text-gray-900">
-											{doctor.name}
-										</div>
-										<div class="text-[20px] font-normal leading-[120%] text-stone-900">
-											{doctor.title}
-										</div>
-									</div>
-								</div>
-								<div class="flex flex-1 flex-col justify-start rounded-none border-l-4 border-amber-400 bg-orange-50 px-6 py-5">
-									<div class="text-base font-normal leading-6 text-stone-900">
-										{doctor.quote}
-									</div>
-								</div>
-							</div>
-						</li>
-					))
-				}
-			</ul> -->
 			<div
-				class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
+				class="flex w-full flex-col items-center gap-10"
+				aria-labelledby="doctors-title"
 			>
-				<!-- <button
-					type="button"
-					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-					data-doctor-cards-prev
-					aria-label="Dokter sebelumnya"
-				>
-					<ChevronLeft class="size-5" aria-hidden="true" />
-				</button>
-				<button
-					type="button"
-					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-					data-doctor-cards-next
-					aria-label="Dokter berikutnya"
-				>
-					<ChevronRight class="size-5" aria-hidden="true" />
-				</button>
-			</div>
-			<Button
-				href={whatsappHref}
-				size="lg"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<MessageCircle class="h-4 w-4" aria-hidden="true" />
-				<span>Pilih Rekomendasi Dokter</span>
-				<ArrowRight class="h-4 w-4" aria-hidden="true" />
-			</Button> -->
+				<div class="flex flex-col items-center gap-5 text-center">
+					<SectionLabel text="Validasi Ahli Kesehatan" />
+					<h2 id="doctors-title" class="max-w-[651px] text-gray-900">
+						Propolis Rekomendasi Dokter
+					</h2>
+				</div>
+				<div class="w-full max-w-6xl">
+					<ul
+						class="flex justify-start gap-4 overflow-x-auto scroll-smooth pb-2 lg:justify-center"
+						data-video-carousel-track
+					>
+						{
+							doctorVideos.map((video) => (
+								<li class="w-full shrink-0 basis-full md:basis-[calc((100%-2rem)/3)] lg:basis-[calc((100%-3rem)/4)]">
+									<button
+										type="button"
+										class="group flex w-full flex-col gap-3 rounded-none border border-stone-200 bg-white p-3 text-left shadow-[0px_8px_32px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-1 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
+										data-video-trigger
+										data-video-src={video.src}
+										data-video-title={video.title}
+										aria-label={video.label}
+									>
+										<div class="relative overflow-hidden rounded-none bg-stone-950">
+											<video
+												class="aspect-[3/4] w-full object-cover opacity-85 transition duration-300 group-hover:scale-[1.02]"
+												src={video.src}
+												muted
+												playsinline
+												loop
+												preload="metadata"
+												aria-hidden="true"
+											/>
+											<div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+											<div class="absolute inset-0 flex items-center justify-center">
+												<span class="flex size-14 items-center justify-center rounded-none bg-white/90 text-stone-950 shadow-lg transition-transform duration-200 group-hover:scale-105">
+													<svg
+														viewBox="0 0 24 24"
+														fill="currentColor"
+														aria-hidden="true"
+														class="ml-0.5 size-6"
+													>
+														<path d="M8 5v14l11-7z" />
+													</svg>
+												</span>
+											</div>
+										</div>
+										<div class="px-1 pb-1">
+											<div class="text-lg font-bold leading-6 text-gray-900">
+												{video.title}
+											</div>
+										</div>
+									</button>
+								</li>
+							))
+						}
+					</ul>
+					<div
+						class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden"
+					>
+						<button
+							type="button"
+							class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+							data-video-carousel-prev
+							aria-label="Video sebelumnya"
+						>
+							<ChevronLeft class="size-5" aria-hidden="true" />
+						</button>
+						<button
+							type="button"
+							class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:border-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+							data-video-carousel-next
+							aria-label="Video berikutnya"
+						>
+							<ChevronRight class="size-5" aria-hidden="true" />
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 		<dialog
