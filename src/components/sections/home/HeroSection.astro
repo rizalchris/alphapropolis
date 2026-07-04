@@ -1,7 +1,5 @@
 ---
 import { ArrowRight, MessageCircle } from "lucide-astro";
-import SectionLabel from "../../shared/SectionLabel.astro";
-import CertificationChips from "../../shared/CertificationChips.astro";
 import Button from "../../ui/Button.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
@@ -31,12 +29,8 @@ const whatsappHref = whatsappOrderUrl;
 					/>
 				</div>
 
-				<div class="hidden md:block">
-					<SectionLabel text="Formula Premium Lebah Trigona" />
-				</div>
-
 				<img
-					src="/images/banner-home.webp"
+					src="/images/hero-home.webp"
 					alt="Banner home Alpha Propolis"
 					width="720"
 					height="420"
@@ -45,10 +39,6 @@ const whatsappHref = whatsappOrderUrl;
 					fetchpriority="high"
 					class="hidden h-auto w-full md:block"
 				/>
-
-				<div class="hidden md:block">
-					<CertificationChips />
-				</div>
 
 				<div class="flex w-full max-w-md flex-col items-start gap-4">
 					<Button
@@ -62,10 +52,6 @@ const whatsappHref = whatsappOrderUrl;
 						<span>Cegah Komplikasi Sekarang</span>
 						<ArrowRight class="h-4 w-4" aria-hidden="true" />
 					</Button>
-					<strong class="text-base fw-800 leading-5 text-zinc-800">
-						Respons &lt; 5 menit · Konsultasi gratis · Pengiriman
-						hari ini
-					</strong>
 				</div>
 			</div>
 

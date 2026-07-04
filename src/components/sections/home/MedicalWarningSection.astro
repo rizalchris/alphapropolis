@@ -39,7 +39,7 @@ const wetWoundImages = [
 		</picture>
 
 		<img
-			src="/images/resiko.webp"
+			src="/images/Foto-Akibat.webp"
 			alt="Risiko komplikasi diabetes"
 			width="1440"
 			height="900"
@@ -58,36 +58,6 @@ const wetWoundImages = [
 			class="block w-full lg:hidden"
 		/>
 	</div>
-
-	<div class="mx-auto mt-10 hidden w-full max-w-[var(--container-xl)] lg:block">
-		<div
-			class="overflow-hidden"
-			role="region"
-			aria-label="Slider gambar luka basah"
-			data-wet-wound-slider
-		>
-			<div
-				class="flex gap-4 overflow-x-hidden scroll-smooth"
-				data-wet-wound-track
-			>
-			{
-				wetWoundImages.map((image, index) => (
-					<div class="aspect-video w-full shrink-0 basis-full overflow-hidden lg:basis-[calc((100%-3rem)/4)]">
-						<img
-							src={image}
-							alt={`Luka basah ${index + 1}`}
-							width="480"
-							height="480"
-							loading="lazy"
-							decoding="async"
-							class="block h-full w-full object-cover"
-						/>
-					</div>
-				))
-			}
-			</div>
-		</div>
-	</div>
 </section>
 
 <script is:inline>
@@ -96,7 +66,10 @@ const wetWoundImages = [
 		const slider = section?.querySelector("[data-wet-wound-slider]");
 		const track = section?.querySelector("[data-wet-wound-track]");
 
-		if (!(slider instanceof HTMLElement) || !(track instanceof HTMLElement)) {
+		if (
+			!(slider instanceof HTMLElement) ||
+			!(track instanceof HTMLElement)
+		) {
 			return;
 		}
 

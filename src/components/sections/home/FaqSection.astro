@@ -1,45 +1,4 @@
 ---
-import { ChevronDown } from "lucide-astro";
-import SectionLabel from "../../shared/SectionLabel.astro";
-
-const faqs = [
-	{
-		question: "Apakah Alpha Propolis aman dikonsumsi setiap hari dalam jangka panjang?",
-		answer: "Gunakan sesuai aturan pakai. Jika Anda memiliki kondisi khusus, sedang hamil, menyusui, alergi produk lebah, atau menjalani pengobatan rutin, konsultasikan dengan dokter terlebih dahulu.",
-	},
-	{
-		question: "Berapa tetes dosis yang dianjurkan untuk membantu pemulihan tubuh?",
-		answer: "Panduan pada halaman ini menggunakan 6 tetes dalam 100 ml air hangat, diminum 3 kali sehari. Sesuaikan dengan arahan tenaga kesehatan bila Anda sedang menjalani terapi tertentu.",
-	},
-	{
-		question: "Apakah produk ini bisa menggantikan fungsi obat diabetes utama atau suntik insulin?",
-		answer: "Tidak. Alpha Propolis adalah suplemen pendamping dan bukan pengganti obat dokter, insulin, atau terapi medis utama.",
-	},
-	{
-		question: "Bagaimana cara Alpha Propolis membantu proses pemulihan penderita TBC atau gangguan paru-paru?",
-		answer: "Kandungan propolis diposisikan sebagai pendamping untuk membantu daya tahan tubuh. Pengobatan TBC dengan OAT tetap wajib dilanjutkan sampai selesai sesuai instruksi dokter.",
-	},
-	{
-		question: "Saya sedang minum obat paru-paru/TBC atau obat diabetes dari dokter yang tidak boleh putus, apakah aman mendampinginya dengan Alpha Propolis?",
-		answer: "Berikan jeda konsumsi minimal 1 jam dari obat dokter dan konsultasikan dengan dokter yang menangani Anda, terutama bila terapi tidak boleh putus.",
-	},
-	{
-		question: "Mengapa penderita diabetes sangat dianjurkan menjaga asupan antioksidan harian?",
-		answer: "Gula darah tinggi berkaitan dengan stres oksidatif. Asupan antioksidan membantu mendukung perlindungan sel sebagai bagian dari pola hidup sehat.",
-	},
-	{
-		question: "Bagaimana cara memastikan Alpha Propolis yang saya beli adalah 100% asli?",
-		answer: "Pastikan membeli melalui kanal resmi, periksa kemasan, segel, kode edar, dan informasi produsen pada label produk.",
-	},
-	{
-		question: "Apakah Alpha Propolis sudah bersertifikasi Halal?",
-		answer: "Ya, materi halaman ini mencantumkan sertifikasi HALAL MUI ID00410000283380322.",
-	},
-	{
-		question: "Apakah bisa melakukan pembayaran di tempat (COD)?",
-		answer: "Hubungi tim WhatsApp untuk memastikan ketersediaan COD berdasarkan wilayah pengiriman Anda.",
-	},
-];
 ---
 
 <section id="faq" aria-labelledby="faq-title" class="landing-section bg-white px-6 py-16 sm:px-8 lg:px-10">
@@ -55,26 +14,13 @@ const faqs = [
 		/>
 	</div>
 
-	<div class="mx-auto hidden w-full max-w-[800px] flex-col items-center md:flex">
-		<div class="flex flex-col items-center gap-5 text-center">
-			<SectionLabel text="FAQ" />
-			<h2 id="faq-title" class="text-gray-900">
-				Temukan Jawaban Lengkap untuk Kesehatan Anda di Sini
-			</h2>
-		</div>
-
-		<div class="flex w-full flex-col gap-3 pt-12">
-			{
-				faqs.map((item) => (
-					<details class="group rounded-none border border-amber-400/20 bg-stone-100">
-						<summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-7 py-5 text-left text-[20px] font-semibold leading-6 text-gray-900">
-							<span>{item.question}</span>
-							<ChevronDown class="h-4 w-4 shrink-0 text-amber-400 transition-transform group-open:rotate-180" aria-hidden="true" />
-						</summary>
-						<p class="px-7 pb-5 pr-12 text-base leading-7 text-stone-700">{item.answer}</p>
-					</details>
-				))
-			}
-		</div>
-	</div>
+	<img
+		src="/images/faq-desktop.webp"
+		alt="FAQ Alpha Propolis"
+		width="1440"
+		height="1200"
+		loading="lazy"
+		decoding="async"
+		class="mx-auto hidden h-auto w-full max-w-[var(--container-xl)] md:block"
+	/>
 </section>
