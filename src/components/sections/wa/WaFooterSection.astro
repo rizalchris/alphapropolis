@@ -46,6 +46,81 @@ const socials = [
 		decoding="async"
 	/>
 
+	<div class="bg-slate-900 px-6 py-10 text-slate-100 sm:px-8 lg:hidden">
+		<div class="mx-auto flex w-full flex-col gap-8">
+			<address
+				class="flex min-w-0 flex-col items-start justify-start gap-2.5 not-italic"
+				aria-labelledby="wa-footer-contact-mobile"
+			>
+				<h2
+					id="wa-footer-contact-mobile"
+					class="self-stretch text-xs font-bold uppercase leading-4 tracking-wide text-white"
+				>
+					Kontak
+				</h2>
+				<ul class="flex w-full flex-col gap-2.5">
+					{
+						contacts.map(({ Icon, label, href }) => (
+							<li class="inline-flex w-full items-start justify-start gap-2.5">
+								<Icon
+									class="mt-1 size-3.5 shrink-0 text-amber-400"
+									aria-hidden="true"
+								/>
+								{href ? (
+									<a
+										href={href}
+										class="flex-1 text-xs font-normal leading-5 text-neutral-200 hover:text-white"
+									>
+										{label}
+									</a>
+								) : (
+									<span class="flex-1 text-xs font-normal leading-5 text-neutral-200">
+										{label}
+									</span>
+								)}
+							</li>
+						))
+					}
+				</ul>
+			</address>
+
+			<section
+				class="flex min-w-0 flex-col items-start justify-start gap-2.5"
+				aria-labelledby="wa-footer-social-mobile"
+			>
+				<h2
+					id="wa-footer-social-mobile"
+					class="self-stretch text-xs font-bold uppercase leading-4 tracking-wide text-white"
+				>
+					Dapatkan Info Kesehatan Gratis
+				</h2>
+				<ul class="flex w-full flex-col gap-2.5">
+					{
+						socials.map(({ Icon, label, href }) => (
+							<li class="inline-flex w-full items-center justify-start gap-2.5">
+								<Icon
+									class="size-3.5 text-amber-400"
+									aria-hidden="true"
+								/>
+								<a
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-xs font-normal leading-5 text-neutral-200 hover:text-white"
+								>
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+				<p class="self-stretch text-xs font-bold text-slate-100">
+					Info update promo, tips diabetes, dan konten kesehatan harian.
+				</p>
+			</section>
+		</div>
+	</div>
+
 	<div
 		class="mx-auto hidden w-full gap-10 bg-slate-900 px-6 py-16 sm:px-8 lg:grid lg:grid-cols-[1.4fr_1fr_1fr] lg:px-24 lg:py-24"
 	>
@@ -61,7 +136,7 @@ const socials = [
 				height="1200"
 				loading="lazy"
 				decoding="async"
-				class="h-auto w-full"
+				class="h-auto w-full scale-125 origin-left"
 			/>
 		</section>
 
