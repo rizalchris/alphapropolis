@@ -80,13 +80,27 @@ const fontHref =
 				/>
 			)
 		}
-		<script
-			type="text/javascript"
-			src="https://alphapropolis.gass.my.id/jsv3/sfqr6byaau1783147949721.js?platform=facebook"
-		></script>
-		<script is:inline>
-			gass.run(
-				{
+			<script
+				type="text/javascript"
+				src="https://alphapropolis.gass.my.id/jsv3/sfqr6byaau1783147949721.js?platform=facebook"
+			></script>
+			<script is:inline>
+				(function (c, l, a, r, i, t, y) {
+					c[a] =
+						c[a] ||
+						function () {
+							(c[a].q = c[a].q || []).push(arguments);
+						};
+					t = l.createElement(r);
+					t.async = 1;
+					t.src = "https://www.clarity.ms/tag/" + i;
+					y = l.getElementsByTagName(r)[0];
+					y.parentNode.insertBefore(t, y);
+				})(window, document, "clarity", "script", "xcrzlywpgf");
+			</script>
+			<script is:inline>
+				gass.run(
+					{
 					subdomain: "alphapropolis.gass.my.id",
 					pkey: "01139F92CD8E6AA37994A49D71738DB6",
 					interval: 2,
