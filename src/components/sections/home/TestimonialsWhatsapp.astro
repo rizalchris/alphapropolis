@@ -1,6 +1,4 @@
 ---
-import { MessageCircle, ArrowRight } from "lucide-astro";
-import Button from "../../ui/Button.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
@@ -43,9 +41,18 @@ const testimonialImages = [
 	aria-labelledby="proof-title"
 	class="flex w-full flex-col items-center gap-8 bg-slate-900 px-6 py-16 text-white sm:px-8 sm:pt-24 lg:px-10"
 >
-	<h2 id="proof-title" class="max-w-[733px] text-center font-bold text-white">
+	<h2 id="proof-title" class="sr-only">
 		Lebih dari 100 Ribu Orang Telah Merasakan Manfaatnya
 	</h2>
+	<img
+		src="/images/Lebih-dari-100-Ribu-Orang.webp"
+		alt="Lebih dari 100 Ribu Orang Telah Merasakan Manfaatnya"
+		width="733"
+		height="180"
+		loading="lazy"
+		decoding="async"
+		class="h-auto w-full max-w-[733px]"
+	/>
 	<div
 		class="w-full overflow-hidden"
 		role="region"
@@ -73,16 +80,17 @@ const testimonialImages = [
 			}
 		</ul>
 	</div>
-	<Button
-		href={whatsappHref}
-		size="lg"
-		target="_blank"
-		rel="noopener noreferrer"
-	>
-		<MessageCircle class="h-4 w-4" aria-hidden="true" />
-		<span>Buktikan Sendiri</span>
-		<ArrowRight class="h-4 w-4" aria-hidden="true" />
-	</Button>
+	<a href={whatsappHref} class="block" target="_blank" rel="noopener noreferrer">
+		<img
+			src="/images/btn-buktikan-sendiri.webp"
+			alt="Buktikan Sendiri"
+			width="720"
+			height="160"
+			loading="lazy"
+			decoding="async"
+			class="h-auto w-full max-w-[90%]"
+		/>
+	</a>
 </section>
 
 <script is:inline>

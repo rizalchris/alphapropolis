@@ -1,26 +1,11 @@
 ---
 import {
-	ArrowRight,
-	Check,
 	ChevronLeft,
 	ChevronRight,
-	MessageCircle,
-	X,
 } from "lucide-astro";
-import Button from "../../ui/Button.astro";
-import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
-
-const alphaFeatures = [
-	"1600 mg/L Phenol",
-	"67% Lebah Trigona (Stingless)",
-	"33% Apis Mellifera",
-	"IC<sub>50</sub> Rendah - Antioksidan Tinggi",
-	"Flavonoid Kadar Tinggi",
-	"Phenolic Acid Terstandarisasi",
-];
 
 const customerGallery = Array.from({ length: 9 }, (_, index) => {
 	const imageNumber = index + 16;
@@ -48,10 +33,18 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 			<div
 				class="flex max-w-[805px] flex-col items-center gap-5 text-center"
 			>
-				<SectionLabel text="Mengapa Alpha Propolis?" />
-				<h2 id="why-alpha-title" class="text-gray-900">
+				<h2 id="why-alpha-title" class="sr-only">
 					Alasan Mengapa Alpha Propolis Lebih Kuat dari Propolis Biasa
 				</h2>
+				<img
+					src="/images/Mengapa-Alpha-Propolis.webp"
+					alt="Mengapa Alpha Propolis?"
+					width="805"
+					height="180"
+					loading="lazy"
+					decoding="async"
+					class="h-auto w-full"
+				/>
 			</div>
 
 			<section
@@ -132,341 +125,27 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 			</section>
 		</div>
 
-		<div class="flex w-full max-w-5xl flex-col items-center gap-5">
-			<section
-				class="contents"
-				aria-label="Alpha Propolis 1.600 mg/L dibanding Propolis Biasa SNI 1000 mg/L"
-			>
-				<div
-					class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
-				>
-					<div
-						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
-					>
-						<div
-							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
-						>
-							<img
-								src="/images/USP_Alpha_Propolis.webp"
-								alt="Alpha Propolis 1.600 mg/L"
-								width="278"
-								height="165"
-								loading="lazy"
-								decoding="async"
-								class="h-full w-full object-contain"
-							/>
-						</div>
-						<h3 class="text-2xl font-bold leading-7 text-red-700">
-							Alpha Propolis 1.600 mg/L
-						</h3>
-					</div>
-					<div
-						class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
-					>
-						VS
-					</div>
-					<div
-						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
-					>
-						<div
-							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
-						>
-							<img
-								src="/images/USP_Alpha%20Propolis_Biasa.webp"
-								alt="Propolis Biasa SNI 1000 mg/L"
-								width="278"
-								height="165"
-								loading="lazy"
-								decoding="async"
-								class="h-full w-full object-contain"
-							/>
-						</div>
-						<h3 class="text-2xl font-bold leading-7 text-red-700">
-							Propolis Biasa SNI 1000 mg/L
-						</h3>
-					</div>
-				</div>
-				<p
-					class="flex w-full flex-col items-center gap-4 rounded-none border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-center text-[18px] font-bold leading-7 text-stone-900 shadow-product lg:flex-row lg:items-center lg:gap-5 lg:text-left"
-				>
-					<span
-						class="flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100"
-					>
-						<Check
-							class="h-3 w-3 text-green-500"
-							aria-hidden="true"
-						/>
-					</span>
-					<span
-						>Kadar Fenol 60% lebih pekat untuk tubuh yang jauh lebih
-						kuat.</span
-					>
-				</p>
-			</section>
+		<img
+			src="/images/alphapropolis-vs-propolis-biasa%20copy.webp"
+			alt="Perbandingan Alpha Propolis dan propolis biasa"
+			width="840"
+			height="960"
+			loading="lazy"
+			decoding="async"
+			class="h-auto w-full max-w-[840px]"
+		/>
 
-			<section
-				class="contents"
-				aria-label="Lebah Trigona 67% dibanding Lebah Apis Mellifera 33%"
-			>
-				<div
-					class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
-				>
-					<div
-						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
-					>
-						<div
-							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
-						>
-							<img
-								src="/images/Lebah%20Trigona.webp"
-								alt="Lebah Trigona 67%"
-								width="278"
-								height="165"
-								loading="lazy"
-								decoding="async"
-								class="h-full w-full object-contain"
-							/>
-						</div>
-						<h3 class="text-2xl font-bold leading-7 text-red-700">
-							Lebah Trigona 67%
-						</h3>
-					</div>
-					<div
-						class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
-					>
-						+
-					</div>
-					<div
-						class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
-					>
-						<div
-							class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
-						>
-							<img
-								src="/images/Lebah%20Apis%20Mellifera.webp"
-								alt="Lebah Apis Mellifera 33%"
-								width="278"
-								height="165"
-								loading="lazy"
-								decoding="async"
-								class="h-full w-full object-contain"
-							/>
-						</div>
-						<h3 class="text-2xl font-bold leading-7 text-red-700">
-							Lebah Apis Mellifera 33%
-						</h3>
-					</div>
-				</div>
-				<p
-					class="flex w-full flex-col items-center gap-4 rounded-none border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] px-6 py-5 text-center text-[18px] font-bold leading-7 text-stone-900 shadow-product lg:flex-row lg:items-center lg:gap-5 lg:text-left"
-				>
-					<span
-						class="flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100"
-					>
-						<Check
-							class="h-3 w-3 text-green-500"
-							aria-hidden="true"
-						/>
-					</span>
-					<span
-						>Perlindungan ganda untuk menjaga imun dan mempercepat
-						pemulihan Anda.</span
-					>
-				</p>
-			</section>
-
-			<div
-				class="grid w-full items-stretch gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
-			>
-				<div
-					class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
-				>
-					<div
-						class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
-					>
-						<img
-							src="/images/IC50_1-50ppm.webp"
-							alt="IC50 Alpha Propolis 1 sampai 50 ppm"
-							width="203"
-							height="155"
-							loading="lazy"
-							decoding="async"
-							class="h-full w-full object-contain"
-						/>
-					</div>
-					<h3 class="text-2xl font-bold leading-7 text-red-700">
-						IC<sub>50</sub> 1-50ppm
-					</h3>
-					<ul
-						class="w-full divide-y divide-neutral-200 text-[18px] font-bold leading-6 text-stone-900 sm:text-xl"
-					>
-						<li class="py-2.5">Larut Sempurna &amp; Instan</li>
-						<li class="py-2.5">Langsung Diserap Tubuh</li>
-					</ul>
-				</div>
-				<div
-					class="place-self-center flex h-16 w-16 items-center justify-center rounded-none bg-gradient-to-br from-green-500 to-green-600 text-3xl font-bold leading-9 text-white shadow-whatsapp"
-				>
-					VS
-				</div>
-				<div
-					class="flex h-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white px-10 py-5 text-center shadow-card-md"
-				>
-					<div
-						class="flex w-full aspect-[278/165] items-center justify-center overflow-hidden rounded-none bg-stone-50"
-					>
-						<img
-							src="/images/IC50_150ppm.webp"
-							alt="IC50 propolis biasa lebih dari 150 ppm"
-							width="278"
-							height="155"
-							loading="lazy"
-							decoding="async"
-							class="h-full w-full object-contain"
-						/>
-					</div>
-					<h3 class="text-2xl font-bold leading-7 text-red-700">
-						IC<sub>50</sub> &gt; 150ppm
-					</h3>
-					<ul
-						class="w-full divide-y divide-neutral-200 text-[18px] font-bold leading-6 text-stone-900 sm:text-xl"
-					>
-						<li class="py-2.5">Perlindungan kurang optimal</li>
-						<li class="py-2.5">
-							Kurang Efektif Meredam Radikal Bebas
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div
-				class="flex w-full flex-col items-center gap-5 rounded-none border border-amber-100 bg-white p-5 shadow-card-md sm:flex-row"
-			>
-				<img
-					src="/images/Flavonoid%20dan%20Asam%20Fenolat.webp"
-					alt="Flavonoid dan Asam Fenolat Alpha Propolis"
-					width="203"
-					height="144"
-					loading="lazy"
-					decoding="async"
-					class="block w-full rounded-none object-contain sm:w-52"
-				/>
-				<div>
-					<h3
-						class="text-2xl text-center font-bold leading-7 text-red-700"
-					>
-						Flavonoid dan Asam Fenolat
-					</h3>
-					<p
-						class="mt-5 text-center text-[18px] font-bold leading-6 text-stone-900 sm:text-xl"
-					>
-						Merawat sensitivitas insulin tubuh, memastikan energi
-						Anda tetap terjaga sepanjang hari.
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="grid w-full max-w-[840px] gap-12 lg:grid-cols-2">
-			<div
-				class="rounded-none border-2 border-amber-400 bg-[linear-gradient(70deg,#fff7ed,#ffedd5)] p-9 shadow-product"
-			>
-				<div class="flex flex-col items-center gap-2.5 text-center">
-					<img
-						src="/images/logo.webp"
-						alt="Alpha Propolis"
-						width="117"
-						height="72"
-						class="h-16 w-28 object-contain"
-					/>
-					<h3 class="text-lg font-bold leading-4 text-gray-900">
-						Alpha Propolis
-					</h3>
-					<p class="text-xs font-bold leading-3 text-amber-400">
-						Formula Premium
-					</p>
-				</div>
-				<ul class="mt-7 flex flex-col gap-2.5">
-					{
-						alphaFeatures.map((feature) => (
-							<li class="flex items-center gap-3 rounded-none border border-amber-400/20 bg-white/70 px-3.5 py-2.5 text-[18px] font-bold leading-5 text-stone-900 sm:text-sm">
-								<span class="flex h-6 w-6 items-center justify-center rounded-none bg-green-100">
-									<Check
-										class="h-3 w-3 text-green-500"
-										aria-hidden="true"
-									/>
-								</span>
-								<span>
-									{feature ===
-									"IC<sub>50</sub> Rendah - Antioksidan Tinggi" ? (
-										<>
-											IC<sub>50</sub> Rendah - Antioksidan
-											Tinggi
-										</>
-									) : (
-										feature
-									)}
-								</span>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-
-			<div class="rounded-none border border-stone-200 bg-stone-50 p-9">
-				<div class="flex flex-col items-center gap-5 text-center">
-					<div
-						class="flex h-16 w-16 items-center justify-center rounded-none bg-gray-200 text-xs font-bold leading-4 text-stone-400"
-					>
-						GEN
-					</div>
-					<div>
-						<h3 class="text-lg font-bold leading-4 text-stone-400">
-							Propolis Biasa
-						</h3>
-						<p class="mt-2.5 text-xs leading-3 text-gray-400">
-							Produk Generik
-						</p>
-					</div>
-				</div>
-				<ul class="mt-7 flex flex-col gap-2.5">
-					{
-						alphaFeatures.map((feature) => (
-							<li class="flex items-center gap-3 rounded-none border border-stone-200 bg-white px-3.5 py-2.5 text-[18px] leading-5 text-gray-400 sm:text-sm">
-								<span class="flex h-6 w-6 items-center justify-center rounded-none bg-red-100">
-									<X
-										class="h-3 w-3 text-red-600"
-										aria-hidden="true"
-									/>
-								</span>
-								<span>
-									{feature ===
-									"IC<sub>50</sub> Rendah - Antioksidan Tinggi" ? (
-										<>
-											IC<sub>50</sub> Rendah - Antioksidan
-											Tinggi
-										</>
-									) : (
-										feature
-									)}
-								</span>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</div>
-
-		<Button
-			href={whatsappHref}
-			size="lg"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<MessageCircle class="h-4 w-4" aria-hidden="true" />
-			<span>Proteksi Maksimal Ginjal</span>
-			<ArrowRight class="h-4 w-4" aria-hidden="true" />
-		</Button>
+		<a href={whatsappHref} class="block" target="_blank" rel="noopener noreferrer">
+			<img
+				src="/images/btn-Proteksi-Maksimal-Ginjal.webp"
+				alt="Proteksi Maksimal Ginjal"
+				width="720"
+				height="160"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full max-w-[90%]"
+			/>
+		</a>
 	</div>
 </section>
 

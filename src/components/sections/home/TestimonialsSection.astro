@@ -1,12 +1,8 @@
 ---
 import {
-	ArrowRight,
 	ChevronLeft,
 	ChevronRight,
-	MessageCircle,
 } from "lucide-astro";
-import Button from "../../ui/Button.astro";
-import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
@@ -67,8 +63,16 @@ const testimonialVideos = [
 		<div
 			class="flex max-w-[1344px] flex-col items-center gap-5 px-6 text-center sm:px-8 lg:px-10"
 		>
-			<SectionLabel text="Bukti Nyata" />
-			<h2 id="testimonials-title" class="text-gray-900">Testimoni</h2>
+			<h2 id="testimonials-title" class="sr-only">Testimoni</h2>
+			<img
+				src="/images/bukti-nyata.webp"
+				alt="Bukti Nyata"
+				width="1344"
+				height="220"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full max-w-[1344px]"
+			/>
 		</div>
 
 		<div
@@ -105,10 +109,15 @@ const testimonialVideos = [
 			class="flex w-full max-w-[1344px] flex-col gap-5 px-6 sm:px-8 lg:px-10"
 		>
 			<div class="flex flex-col items-center gap-5 text-center">
-				<SectionLabel text="Video Testimoni" />
-				<h3 class="text-gray-900">
-					Dengar langsung dari pengguna kami
-				</h3>
+				<img
+					src="/images/video-testimoni.webp"
+					alt="Video Testimoni"
+					width="1344"
+					height="220"
+					loading="lazy"
+					decoding="async"
+					class="h-auto w-full max-w-[1344px]"
+				/>
 			</div>
 			<div class="w-full">
 				<ul
@@ -160,17 +169,17 @@ const testimonialVideos = [
 			</div>
 		</div>
 
-		<Button
-			href={whatsappHref}
-			size="lg"
-			class="max-w-[90%]"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<MessageCircle class="h-4 w-4" aria-hidden="true" />
-			<span>Lihat Bukti Lainnya</span>
-			<ArrowRight class="h-4 w-4" aria-hidden="true" />
-		</Button>
+		<a href={whatsappHref} class="block max-w-[90%]" target="_blank" rel="noopener noreferrer">
+			<img
+				src="/images/btn-lihat-bukti-lainnya.webp"
+				alt="Lihat Bukti Lainnya"
+				width="720"
+				height="160"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full"
+			/>
+		</a>
 		<img
 			src="/images/3-red-arrows.webp"
 			alt=""

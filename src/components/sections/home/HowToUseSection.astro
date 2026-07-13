@@ -1,134 +1,17 @@
 ---
-import SectionLabel from "../../shared/SectionLabel.astro";
-
-const steps = [
-	{
-		number: "01",
-		title: "100ml Air Hangat",
-		body: "Tuangkan air putih hangat ke dalam gelas.",
-		image: "/images/cara konsumsi 1.webp",
-	},
-	{
-		number: "02",
-		title: "6 Tetes Alpha Propolis",
-		body: "Teteskan langsung ke dalam gelas.",
-		image: "/images/cara konsumsi 2.webp",
-	},
-	{
-		number: "03",
-		title: "Aduk Rata & Siap Minum",
-		body: "Aduk perlahan sampai tercampur rata.",
-		image: "/images/cara konsumsi 3.webp",
-	},
-	{
-		number: "04",
-		title: "Minum 3 Kali Sehari",
-		body: "Jika sedang mengonsumsi obat dokter, beri jeda 1 jam sebelum atau sesudah obat harian Anda.",
-		image: "/images/cara konsumsi 4.webp",
-	},
-];
 ---
 
 <section id="how-to-use" aria-labelledby="how-to-use-title" class="landing-section bg-stone-50 px-6 py-16 sm:px-8 lg:px-10">
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
-		<div class="flex flex-col items-center gap-5 text-center">
-			<SectionLabel text="Cara Konsumsi" />
-			<h2 id="how-to-use-title" class="text-gray-900">Cara Paling Praktis Melindungi Tubuh Anda Setiap Hari</h2>
-		</div>
-
-		<div class="w-full pt-8">
-			<ol class="flex w-full snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:overflow-visible" data-how-to-use-track>
-			{
-				steps.map((step) => (
-					<li class="w-[82vw] shrink-0 snap-start max-w-[320px] lg:w-auto lg:max-w-none">
-						<div class="flex h-full flex-col items-center gap-5 rounded-none border border-stone-200 bg-white px-6 py-9 text-center shadow-card-lg">
-							<p class="text-2xl font-bold leading-7 text-neutral-800">{step.number}</p>
-							<img src={step.image} alt={step.title} width="213" height="298" loading="lazy" decoding="async" class="h-72 w-52 rounded-none object-cover" />
-							<h3 class="text-2xl font-bold leading-7 text-neutral-800">{step.title}</h3>
-							<p class="text-base leading-6 text-stone-700">{step.body}</p>
-						</div>
-					</li>
-					))
-				}
-			</ol>
-			<div class="mt-4 flex w-full items-center justify-end gap-3 lg:hidden">
-				<button
-					type="button"
-					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-					data-how-to-use-prev
-					aria-label="Langkah sebelumnya"
-				>
-					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="size-5">
-						<path
-							d="M15 18l-6-6 6-6"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						/>
-					</svg>
-				</button>
-				<button
-					type="button"
-					class="flex size-11 items-center justify-center rounded-none border border-stone-200 bg-white text-stone-900 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
-					data-how-to-use-next
-					aria-label="Langkah berikutnya"
-				>
-					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="size-5">
-						<path
-							d="M9 18l6-6-6-6"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						/>
-					</svg>
-				</button>
-			</div>
-		</div>
-
-		<p class="max-w-[899px] pt-5 text-center text-2xl leading-8 text-gray-900">
-			<strong>Catatan:</strong> Jika sedang mengkonsumsi obat dokter, cukup berikan jeda selama 1 jam sebelum atau sesudah obat harian Anda.
-		</p>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center">
+		<h2 id="how-to-use-title" class="sr-only">Cara Konsumsi</h2>
+		<img
+			src="/images/cara-konsumsi.webp"
+			alt="Cara Konsumsi"
+			width="1200"
+			height="1200"
+			loading="lazy"
+			decoding="async"
+			class="h-auto w-full max-w-[1200px]"
+		/>
 	</div>
 </section>
-
-<script is:inline>
-	(() => {
-		const section = document.getElementById("how-to-use");
-		const track = section?.querySelector("[data-how-to-use-track]");
-		const prevButton = section?.querySelector("[data-how-to-use-prev]");
-		const nextButton = section?.querySelector("[data-how-to-use-next]");
-
-		if (
-			track instanceof HTMLElement &&
-			prevButton instanceof HTMLButtonElement &&
-			nextButton instanceof HTMLButtonElement
-		) {
-			const updateButtons = () => {
-				const maxScrollLeft = track.scrollWidth - track.clientWidth;
-				prevButton.disabled = track.scrollLeft <= 4;
-				nextButton.disabled = track.scrollLeft >= maxScrollLeft - 4;
-			};
-
-			const scrollAmount = () => {
-				const firstItem = track.querySelector("li");
-				return firstItem instanceof HTMLElement
-					? firstItem.getBoundingClientRect().width + 20
-					: 320;
-			};
-
-			prevButton.addEventListener("click", () => {
-				track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
-			});
-
-			nextButton.addEventListener("click", () => {
-				track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-			});
-
-			track.addEventListener("scroll", updateButtons, { passive: true });
-			window.addEventListener("resize", updateButtons);
-			updateButtons();
-		}
-	})();
-</script>

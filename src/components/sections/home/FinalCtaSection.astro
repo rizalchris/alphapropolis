@@ -1,29 +1,37 @@
 ---
-import { ArrowRight, MessageCircle, ShieldCheck, Truck } from "lucide-astro";
-import Button from "../../ui/Button.astro";
-import CertificationChips from "../../shared/CertificationChips.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
 ---
 
 <section id="final-cta" aria-labelledby="final-cta-title" class="landing-section bg-white px-6 py-16 sm:px-8 sm:py-24 lg:px-10">
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-8 rounded-none border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-4 py-8 sm:gap-12 sm:px-12 sm:py-11">
-		<h2 id="final-cta-title" class="max-w-[658px] text-center text-gray-900">
-			Sudah terbukti aman dan dipercaya ribuan orang
-		</h2>
-		<CertificationChips class="justify-center" />
-		<div class="flex flex-col items-center gap-2.5">
-			<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer">
-				<MessageCircle class="h-4 w-4" aria-hidden="true" />
-				<span>Sekarang Giliran Anda!</span>
-				<ArrowRight class="h-4 w-4" aria-hidden="true" />
-			</Button>
-			<p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs leading-5 text-gray-700">
-				<span class="inline-flex items-center gap-1"><ShieldCheck class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" /> Garansi 30 Hari</span>
-				<span class="inline-flex items-center gap-1"><Truck class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" /> Gratis Ongkir</span>
-				<span>Respons &lt; 5 menit</span>
-			</p>
-		</div>
+	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center">
+		<h2 id="final-cta-title" class="sr-only">Sudah terbukti aman dan dipercaya ribuan orang</h2>
+		<img
+			src="/images/sudah-terbukti.webp"
+			alt="Sudah terbukti aman dan dipercaya ribuan orang"
+			width="1200"
+			height="1200"
+			loading="lazy"
+			decoding="async"
+			class="h-auto w-full max-w-[1200px]"
+		/>
+		<a
+			href={whatsappHref}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Sekarang Giliran Anda"
+			class="mt-6 block w-full max-w-[380px]"
+		>
+			<img
+				src="/images/btn-sekarang-giliran-anda.webp"
+				alt="Sekarang Giliran Anda"
+				width="720"
+				height="160"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full"
+			/>
+		</a>
 	</div>
 </section>
