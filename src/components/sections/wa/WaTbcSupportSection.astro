@@ -1,5 +1,4 @@
 ---
-import { ArrowRight, MessageCircle } from "lucide-astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 ---
 
@@ -37,14 +36,17 @@ import { whatsappOrderUrl } from "../../../lib/site";
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="Chat WhatsApp untuk konsultasi efek samping pengobatan"
-			class="inline-flex w-full min-h-16 max-w-full items-center justify-center gap-2.5 rounded-none bg-gradient-to-br from-green-500 to-green-600 px-5 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 sm:w-auto sm:px-12"
+			class="block w-full max-w-[380px]"
 		>
-			<MessageCircle class="size-4 text-white" aria-hidden="true" />
-			<span
-				class="text-center text-[18px] font-bold leading-7 text-white sm:text-lg"
-				>Lawan Efek Samping</span
-			>
-			<ArrowRight class="size-4 text-white" aria-hidden="true" />
+			<img
+				src="/images/btn-lawan-efek-samping.webp"
+				alt="Lawan Efek Samping"
+				width="720"
+				height="160"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full"
+			/>
 		</a>
 	</div>
 </section>

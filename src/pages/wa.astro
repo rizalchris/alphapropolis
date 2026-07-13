@@ -7,7 +7,7 @@ import WaRoutineSection from "../components/sections/wa/WaRoutineSection.astro";
 import WaTbcSupportSection from "../components/sections/wa/WaTbcSupportSection.astro";
 import WaProofSection from "../components/sections/wa/WaProofSection.astro";
 import TestimonialsSection from "../components/sections/home/TestimonialsSection.astro";
-import WaPricingSection from "../components/sections/wa/WaPricingSection.astro";
+import PricingSection from "../components/sections/home/PricingSection.astro";
 import DirectBenefitsSection from "../components/sections/home/DirectBenefitsSection.astro";
 import WaFaqSection from "../components/sections/wa/WaFaqSection.astro";
 import WaFinalCtaSection from "../components/sections/wa/WaFinalCtaSection.astro";
@@ -179,7 +179,7 @@ const structuredData = {
 					priceCurrency: "IDR",
 					availability: "https://schema.org/InStock",
 					itemCondition: "https://schema.org/NewCondition",
-					url: `${pageUrl}#wa-pricing`,
+					url: `${pageUrl}#pricing`,
 					seller: {
 						"@id": `${siteUrl}/#organization`,
 					},
@@ -191,7 +191,7 @@ const structuredData = {
 					priceCurrency: "IDR",
 					availability: "https://schema.org/InStock",
 					itemCondition: "https://schema.org/NewCondition",
-					url: `${pageUrl}#wa-pricing`,
+					url: `${pageUrl}#pricing`,
 					seller: {
 						"@id": `${siteUrl}/#organization`,
 					},
@@ -280,7 +280,7 @@ const structuredData = {
 			<WaRoutineSection />
 			<WaTbcSupportSection />
 			<WaProofSection />
-			<WaPricingSection />
+			<PricingSection />
 			<DirectBenefitsSection />
 			<WaFaqSection />
 			<WaFinalCtaSection />

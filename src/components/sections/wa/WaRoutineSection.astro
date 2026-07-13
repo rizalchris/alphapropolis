@@ -1,95 +1,47 @@
 ---
-import { ArrowRight, MessageCircle } from "lucide-astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
-const steps = [
-	{
-		title: "100ml Air Hangat",
-		body: "Tuangkan air putih hangat ke dalam gelas.",
-		image: "/images/100ml Air Hangat.webp",
-	},
-	{
-		title: "6 Tetes Alpha Propolis",
-		body: "Teteskan langsung ke dalam gelas",
-		image: "/images/6 Tetes Alpha Propolis.webp",
-	},
-	{
-		title: "Aduk Rata & Siap Minum",
-		body: "Aduk perlahan dan air akan berubah warna menjadi kuning keemasan.",
-		image: "/images/Aduk Rata & Siap Minum.webp",
-	},
-];
+const whatsappHref = whatsappOrderUrl;
 ---
 
-<section
-	id="wa-routine"
-	aria-labelledby="wa-routine-title"
-	class="mx-auto flex w-full flex-col items-center justify-start gap-14 overflow-hidden bg-stone-100 px-6 py-16 sm:px-8 lg:px-10 lg:py-32"
->
-	<div class="flex w-full flex-col items-center justify-start">
-		<h2
-			id="wa-routine-title"
-			class="max-w-[790px] text-center font-bold leading-tight text-gray-900 lg:leading-[57.60px]"
+<section id="wa-routine" aria-label="Cara Paling Praktis Melindungi Tubuh Anda" class="mx-auto w-full overflow-hidden bg-stone-100 px-6 py-16 sm:px-8 lg:px-10 lg:py-32">
+	<div class="mx-auto w-full max-w-[var(--container-xl)]">
+		<img
+			src="/images/Cara-Paling-Praktis-Melindungi-Tubuh-Anda-mobile.webp"
+			alt="Cara Paling Praktis Melindungi Tubuh Anda"
+			width="720"
+			height="960"
+			loading="lazy"
+			decoding="async"
+			class="h-auto w-full md:hidden"
+		/>
+
+		<img
+			src="/images/Cara-Paling-Praktis-Melindungi-Tubuh-Anda.webp"
+			alt="Cara Paling Praktis Melindungi Tubuh Anda"
+			width="1440"
+			height="1200"
+			loading="lazy"
+			decoding="async"
+			class="hidden h-auto w-full md:block"
+		/>
+
+		<a
+			href={whatsappHref}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Mulai Ikhtiar"
+			class="mx-auto mt-6 block w-full max-w-[380px]"
 		>
-			Cara Paling Praktis Melindungi Tubuh Anda Setiap Hari
-		</h2>
+			<img
+				src="/images/btn-mulai-ikhtiar.webp"
+				alt="Mulai Ikhtiar"
+				width="720"
+				height="160"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full"
+			/>
+		</a>
 	</div>
-
-	<ol
-		class="grid w-full max-w-[1020px] items-start justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12"
-	>
-		{
-			steps.map((step, index) => (
-				<li class="flex w-full flex-col items-center justify-start gap-2.5">
-					<img
-						class="aspect-square w-full max-w-72 rounded-none object-cover"
-						src={step.image}
-						alt={step.title}
-						width="296"
-						height="290"
-						loading="lazy"
-						decoding="async"
-					/>
-					<div
-						class="flex size-16 flex-col items-center justify-center gap-5 rounded-none bg-gradient-to-br from-amber-200 to-amber-400 shadow-[0px_8px_40px_0px_rgba(231,181,57,0.22)] outline outline-2 outline-offset-[-2px] outline-amber-400"
-						aria-hidden="true"
-					>
-						<div class="text-center text-2xl font-bold leading-8 text-stone-900">
-							{index + 1}
-						</div>
-					</div>
-					<div class="flex self-stretch flex-col items-center justify-start gap-2.5">
-						<h3 class="text-center text-[24px] sm:text-[28px] font-bold text-black">
-							{step.title}
-						</h3>
-						<p class="self-stretch text-center text-lg font-normal leading-7 text-stone-900 sm:text-2xl">
-							{step.body}
-						</p>
-					</div>
-				</li>
-			))
-		}
-	</ol>
-
-	<p
-		class="max-w-[899px] text-center text-xl font-bold leading-8 text-gray-900 sm:text-2xl"
-	>
-		Catatan: Jika sedang mengkonsumsi obat dokter, cukup berikan jeda selama
-		1 jam sebelum atau sesudah obat harian Anda.
-	</p>
-
-	<a
-		href={whatsappOrderUrl}
-		target="_blank"
-		rel="noopener noreferrer"
-		aria-label="Mulai ikhtiar 6 tetes Alpha Propolis sehari melalui WhatsApp"
-		class="inline-flex w-full min-h-16 max-w-full items-center justify-center gap-2.5 rounded-none bg-gradient-to-br from-green-500 to-green-600 px-5 py-5 shadow-[0px_6px_20px_0px_rgba(34,197,94,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-105 sm:w-auto sm:px-12"
-	>
-		<MessageCircle class="size-4 text-white" aria-hidden="true" />
-		<span
-			class="text-center text-[18px] font-bold leading-7 text-white sm:text-xl"
-			>Mulai Ikhtiar 6 Tetes Sehari</span
-		>
-		<ArrowRight class="size-4 text-white" aria-hidden="true" />
-	</a>
 </section>

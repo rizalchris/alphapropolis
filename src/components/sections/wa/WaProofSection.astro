@@ -1,11 +1,8 @@
 ---
 import {
-	ArrowRight,
 	ChevronLeft,
 	ChevronRight,
-	MessageCircle,
 } from "lucide-astro";
-import Button from "../../ui/Button.astro";
 import SectionLabel from "../../shared/SectionLabel.astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
@@ -205,17 +202,23 @@ const doctorVideos = [
 				</button> -->
 			</div>
 
-			<Button
+			<a
 				href={whatsappHref}
-				size="lg"
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Pilih rekomendasi dokter melalui WhatsApp"
+				class="block w-full max-w-[380px]"
 			>
-				<MessageCircle class="h-4 w-4" aria-hidden="true" />
-				<span>Pilih Rekomendasi Dokter</span>
-				<ArrowRight class="h-4 w-4" aria-hidden="true" />
-			</Button>
+				<img
+					src="/images/btn-pilih-rekomendasi-dokter.webp"
+					alt="Pilih Rekomendasi Dokter"
+					width="720"
+					height="160"
+					loading="lazy"
+					decoding="async"
+					class="h-auto w-full"
+				/>
+			</a>
 		</div>
 	</div>
 
