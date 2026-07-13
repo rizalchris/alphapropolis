@@ -9,6 +9,8 @@ const {
 	imageWidth = 480,
 	imageHeight = 592,
 	preloadImage = image,
+	preloadMobileImage,
+	preloadDesktopImage,
 	preloadImageType = "image/webp",
 	keywords,
 	structuredData,
@@ -38,13 +40,40 @@ const fontHref =
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="preload"
-			as="image"
-			href={preloadImage}
-			type={preloadImageType}
-			fetchpriority="high"
-		/>
+		{
+			preloadMobileImage || preloadDesktopImage ? (
+				<>
+					{preloadMobileImage && (
+						<link
+							rel="preload"
+							as="image"
+							href={preloadMobileImage}
+							type={preloadImageType}
+							media="(max-width: 767px)"
+							fetchpriority="high"
+						/>
+					)}
+					{preloadDesktopImage && (
+						<link
+							rel="preload"
+							as="image"
+							href={preloadDesktopImage}
+							type={preloadImageType}
+							media="(min-width: 768px)"
+							fetchpriority="high"
+						/>
+					)}
+				</>
+			) : (
+				<link
+					rel="preload"
+					as="image"
+					href={preloadImage}
+					type={preloadImageType}
+					fetchpriority="high"
+				/>
+			)
+		}
 		<link
 			href={fontHref}
 			rel="stylesheet"

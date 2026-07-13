@@ -84,25 +84,18 @@ const symptoms = [
 			</picture>
 		</div>
 
-		<img
-			src="/images/Foto-Akibat.webp"
-			alt="Risiko komplikasi diabetes"
-			width="1440"
-			height="900"
-			loading="lazy"
-			decoding="async"
-			class="hidden w-full lg:block"
-		/>
-
-		<img
-			src="/images/akibat-diabetes.webp"
-			alt="Akibat diabetes"
-			width="430"
-			height="932"
-			loading="lazy"
-			decoding="async"
-			class="block w-full lg:hidden"
-		/>
+		<picture class="block w-full">
+			<source media="(min-width: 1024px)" srcset="/images/Foto-Akibat.webp" />
+			<img
+				src="/images/akibat-diabetes.webp"
+				alt="Akibat diabetes"
+				width="430"
+				height="932"
+				loading="lazy"
+				decoding="async"
+				class="aspect-[215/466] h-auto w-full object-contain lg:aspect-[8/5]"
+			/>
+		</picture>
 
 		<a
 			href={whatsappOrderUrl}
@@ -120,110 +113,3 @@ const symptoms = [
 		</a>
 	</div>
 </section>
-
-<script is:inline>
-	(() => {
-		const section = document.getElementById("wa-problem");
-		const slider = section?.querySelector("[data-wet-wound-slider]");
-		const track = section?.querySelector("[data-wet-wound-track]");
-
-		if (
-			!(slider instanceof HTMLElement) ||
-			!(track instanceof HTMLElement)
-		) {
-			return;
-		}
-
-		const slides = Array.from(track.children).filter(
-			(child) => child instanceof HTMLElement,
-		);
-
-		if (!slides.length) {
-			return;
-		}
-
-		const totalSlides = slides.length;
-		slides.forEach((slide) => {
-			const clone = slide.cloneNode(true);
-			if (clone instanceof HTMLElement) {
-				clone.setAttribute("aria-hidden", "true");
-				track.append(clone);
-			}
-		});
-
-		let activeIndex = 0;
-		let intervalId;
-		let resetTimeoutId;
-
-		const getRenderedSlides = () =>
-			Array.from(track.children).filter(
-				(child) => child instanceof HTMLElement,
-			);
-
-		const scrollToSlide = (nextIndex, behavior = "smooth") => {
-			const renderedSlides = getRenderedSlides();
-			const slide = renderedSlides[nextIndex];
-			if (!(slide instanceof HTMLElement)) {
-				return;
-			}
-
-			track.scrollTo({
-				left: slide.offsetLeft,
-				behavior,
-			});
-		};
-
-		const clearResetTimeout = () => {
-			if (resetTimeoutId) {
-				window.clearTimeout(resetTimeoutId);
-			}
-		};
-
-		const resetToStart = () => {
-			clearResetTimeout();
-			resetTimeoutId = window.setTimeout(() => {
-				activeIndex = 0;
-				scrollToSlide(0, "auto");
-			}, 450);
-		};
-
-		const startAutoSlide = () => {
-			stopAutoSlide();
-			intervalId = window.setInterval(() => {
-				if (activeIndex === totalSlides - 1) {
-					activeIndex += 1;
-					scrollToSlide(activeIndex);
-					resetToStart();
-					return;
-				}
-
-				activeIndex += 1;
-				scrollToSlide(activeIndex);
-			}, 2000);
-		};
-
-		const stopAutoSlide = () => {
-			if (intervalId) {
-				window.clearInterval(intervalId);
-			}
-
-			clearResetTimeout();
-		};
-
-		slider.addEventListener("mouseenter", stopAutoSlide);
-		slider.addEventListener("mouseleave", startAutoSlide);
-
-		window.addEventListener("resize", () => {
-			if (activeIndex >= totalSlides) {
-				activeIndex = 0;
-				scrollToSlide(0, "auto");
-				return;
-			}
-
-			scrollToSlide(activeIndex, "auto");
-		});
-
-		scrollToSlide(activeIndex, "auto");
-		startAutoSlide();
-	})();
-</script>

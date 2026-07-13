@@ -8,14 +8,17 @@
 >
 	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center">
 		<h2 id="direct-benefits-title" class="sr-only">Belanja Langsung</h2>
-		<img
-			src="/images/belanja-langsung.webp"
-			alt="Belanja Langsung"
-			width="1200"
-			height="1200"
-			loading="lazy"
-			decoding="async"
-			class="h-auto w-full max-w-[1200px]"
-		/>
+		<picture class="block w-full max-w-[1200px]">
+			<source media="(min-width: 768px)" srcset="/images/belanja-langsung.webp" />
+			<img
+				src="/images/mobile-keuntungan-belanja-disini.webp"
+				alt="Belanja Langsung"
+				width="380"
+				height="593"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full"
+			/>
+		</picture>
 	</div>
 </section>

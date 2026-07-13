@@ -4,25 +4,21 @@ import { whatsappOrderUrl } from "../../../lib/site";
 
 <section id="wa-final-cta" aria-label="Jangan Tunggu Sampai Terlambat" class="mx-auto w-full px-6 py-16 sm:px-8 lg:px-10">
 	<div class="mx-auto w-full max-w-[1200px]">
-		<img
-			src="/images/jangan-tunggu-sampai-terlambat-mobile.webp"
-			alt="Jangan Tunggu Sampai Terlambat"
-			width="720"
-			height="960"
-			loading="lazy"
-			decoding="async"
-			class="block h-auto w-full md:hidden"
-		/>
-
-		<img
-			src="/images/jangan-tunggu-sampai-terlambat.webp"
-			alt="Jangan Tunggu Sampai Terlambat"
-			width="1440"
-			height="1200"
-			loading="lazy"
-			decoding="async"
-			class="hidden h-auto w-full md:block"
-		/>
+		<picture class="block w-full">
+			<source
+				media="(min-width: 768px)"
+				srcset="/images/jangan-tunggu-sampai-terlambat.webp"
+			/>
+			<img
+				src="/images/jangan-tunggu-sampai-terlambat-mobile.webp"
+				alt="Jangan Tunggu Sampai Terlambat"
+				width="720"
+				height="960"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full object-contain md:aspect-[6/5]"
+			/>
+		</picture>
 
 		<a
 			href={whatsappOrderUrl}

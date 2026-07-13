@@ -1,8 +1,9 @@
 ---
 ---
 
-<section id="faq" aria-labelledby="faq-title" class="landing-section bg-white px-6 py-16 sm:px-8 lg:px-10">
-	<div class="mx-auto w-full max-w-[800px] md:hidden">
+<section id="faq" aria-label="FAQ Alpha Propolis" class="landing-section bg-white px-6 py-16 sm:px-8 lg:px-10">
+	<picture class="mx-auto block w-full max-w-[var(--container-xl)]">
+		<source media="(min-width: 768px)" srcset="/images/faq-desktop.webp" />
 		<img
 			src="/images/faq-mobile.webp"
 			alt="FAQ Alpha Propolis"
@@ -10,17 +11,7 @@
 			height="960"
 			loading="lazy"
 			decoding="async"
-			class="h-auto w-full"
+			class="h-auto w-full object-contain md:aspect-[6/5]"
 		/>
-	</div>
-
-	<img
-		src="/images/faq-desktop.webp"
-		alt="FAQ Alpha Propolis"
-		width="1440"
-		height="1200"
-		loading="lazy"
-		decoding="async"
-		class="mx-auto hidden h-auto w-full max-w-[var(--container-xl)] md:block"
-	/>
+	</picture>
 </section>

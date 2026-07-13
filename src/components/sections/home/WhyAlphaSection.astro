@@ -125,15 +125,21 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 			</section>
 		</div>
 
-		<img
-			src="/images/alphapropolis-vs-propolis-biasa%20copy.webp"
-			alt="Perbandingan Alpha Propolis dan propolis biasa"
-			width="840"
-			height="960"
-			loading="lazy"
-			decoding="async"
-			class="h-auto w-full max-w-[840px]"
-		/>
+		<picture class="block w-full max-w-[840px]">
+			<source
+				media="(min-width: 768px)"
+				srcset="/images/alphapropolis-vs-propolis-biasa%20copy.webp"
+			/>
+			<img
+				src="/images/mobile-alphapropolis-vs-propolis.webp"
+				alt="Perbandingan Alpha Propolis dan propolis biasa"
+				width="720"
+				height="960"
+				loading="lazy"
+				decoding="async"
+				class="h-auto w-full object-contain md:aspect-[7/8]"
+			/>
+		</picture>
 
 		<a href={whatsappHref} class="block" target="_blank" rel="noopener noreferrer">
 			<img

@@ -19,7 +19,11 @@ import SectionLabel from "../../shared/SectionLabel.astro";
 			</h2>
 		</div>
 
-		<div class="w-full md:hidden">
+		<picture class="block w-full">
+			<source
+				media="(min-width: 768px)"
+				srcset="/images/Horizontal-Waspada-Diabetes.webp"
+			/>
 			<img
 				src="/images/Vertical-Waspada-Diabetes.webp"
 				alt="Waspada diabetes"
@@ -27,18 +31,8 @@ import SectionLabel from "../../shared/SectionLabel.astro";
 				height="960"
 				loading="lazy"
 				decoding="async"
-				class="h-auto w-full"
+				class="h-auto w-full object-contain md:aspect-[8/5]"
 			/>
-		</div>
-
-		<img
-			src="/images/Horizontal-Waspada-Diabetes.webp"
-			alt="Kenali sinyal tubuh Anda"
-			width="1440"
-			height="900"
-			loading="lazy"
-			decoding="async"
-			class="hidden h-auto w-full md:block"
-		/>
+		</picture>
 	</div>
 </section>

@@ -5,7 +5,7 @@ const ctaHref =
 
 <section
 	id="hero"
-	aria-labelledby="hero-title"
+	aria-label="Alpha Propolis"
 	class="landing-section relative overflow-hidden bg-[linear-gradient(60deg,#f5f5f4_0%,#ffedd5_50%,#f5f5f4_100%)]"
 >
 	<div
@@ -13,7 +13,11 @@ const ctaHref =
 	>
 		<div class="flex flex-col items-center gap-14">
 			<div class="flex flex-col items-start gap-8">
-				<div class="w-full md:hidden">
+				<picture class="block w-full">
+					<source
+						media="(min-width: 768px)"
+						srcset="/images/Horizontal-Jaga-Kualitas.webp"
+					/>
 					<img
 						src="/images/Vertical-Jaga-Kualitas.webp"
 						alt="Banner Alpha Propolis"
@@ -24,18 +28,7 @@ const ctaHref =
 						fetchpriority="high"
 						class="h-auto w-full"
 					/>
-				</div>
-
-				<img
-					src="/images/Horizontal-Jaga-Kualitas.webp"
-					alt="Banner home Alpha Propolis"
-					width="720"
-					height="420"
-					loading="eager"
-					decoding="async"
-					fetchpriority="high"
-					class="hidden h-auto w-full md:block"
-				/>
+				</picture>
 
 				<div class="flex w-full max-w-md flex-col items-start gap-4">
 					<a href={ctaHref} class="block w-full">
@@ -60,7 +53,6 @@ const ctaHref =
 					height="592"
 					loading="eager"
 					decoding="async"
-					fetchpriority="high"
 					class="h-full w-full object-cover"
 				/>
 			</figure>
