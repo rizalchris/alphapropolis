@@ -100,7 +100,6 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: var(--line-height-body);
-		background: var(--color-page);
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -176,7 +175,7 @@
 
 .landing-page {
 	min-height: 100vh;
-	background: var(--color-page);
+	background: transparent;
 	color: var(--color-heading);
 }
 

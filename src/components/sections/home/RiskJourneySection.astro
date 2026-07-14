@@ -13,18 +13,28 @@ const reasons = [
 ];
 ---
 
-<section id="tbc-support" aria-labelledby="tbc-support-title" class="landing-section bg-white px-6 py-16 sm:px-8 lg:px-10">
-	<div class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5">
+<section
+	id="tbc-support"
+	aria-labelledby="tbc-support-title"
+	class="landing-section px-6 py-16 sm:px-8 lg:px-10 bg-[#fcefe1]"
+>
+	<div
+		class="mx-auto flex w-full max-w-[var(--container-xl)] flex-col items-center gap-5"
+	>
 		<div class="flex max-w-5xl flex-col items-center gap-5 text-center">
 			<SectionLabel text="Pendamping Pengobatan TBC" />
 		</div>
 
-		<div class="flex max-w-5xl flex-col items-center gap-5 text-center md:hidden">
+		<div
+			class="flex max-w-5xl flex-col items-center gap-5 text-center md:hidden"
+		>
 			<h2 id="tbc-support-title" class="text-gray-900">
 				Pendamping Alami untuk Membantu Pemulihan TBC Anda
 			</h2>
 			<p class="max-w-[843px] text-stone-900">
-				Obat TBC (OAT) wajib dikonsumsi sampai selesai, meski efek sampingnya bisa memicu mual, lemas, nafsu makan turun, dan tubuh terasa lebih rentan.
+				Obat TBC (OAT) wajib dikonsumsi sampai selesai, meski efek
+				sampingnya bisa memicu mual, lemas, nafsu makan turun, dan tubuh
+				terasa lebih rentan.
 			</p>
 		</div>
 
@@ -38,8 +48,14 @@ const reasons = [
 			class="hidden h-auto w-full md:block"
 		/>
 
-		<section class="flex w-full max-w-5xl flex-col items-center gap-7 rounded-none border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12 md:hidden" aria-labelledby="tbc-reason-title">
-			<h3 id="tbc-reason-title" class="max-w-[816px] text-center text-3xl font-bold leading-8 text-gray-900">
+		<section
+			class="flex w-full max-w-5xl flex-col items-center gap-7 rounded-none border border-amber-400/30 bg-gradient-to-br from-orange-50 to-stone-50 px-6 py-11 sm:px-12 md:hidden"
+			aria-labelledby="tbc-reason-title"
+		>
+			<h3
+				id="tbc-reason-title"
+				class="max-w-[816px] text-center text-3xl font-bold leading-8 text-gray-900"
+			>
 				Ini alasan Alpha Propolis hadir sebagai pendamping.<br />
 				Kadar fenol yang tinggi teruji membantu:
 			</h3>
@@ -48,7 +64,10 @@ const reasons = [
 					reasons.map((reason) => (
 						<li class="flex items-start gap-3 text-xl leading-6 text-stone-900">
 							<span class="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-none bg-green-100">
-								<Check class="h-3 w-3 text-green-500" aria-hidden="true" />
+								<Check
+									class="h-3 w-3 text-green-500"
+									aria-hidden="true"
+								/>
 							</span>
 							<span>{reason}</span>
 						</li>
@@ -57,7 +76,13 @@ const reasons = [
 			</ul>
 		</section>
 
-		<Button href={whatsappHref} size="lg" target="_blank" rel="noopener noreferrer" class="md:hidden">
+		<Button
+			href={whatsappHref}
+			size="lg"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="md:hidden"
+		>
 			<MessageCircle class="h-4 w-4" aria-hidden="true" />
 			<span>Mulai Pendampingan TBC</span>
 			<ArrowRight class="h-4 w-4" aria-hidden="true" />
