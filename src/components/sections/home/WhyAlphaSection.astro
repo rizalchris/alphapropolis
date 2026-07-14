@@ -1,8 +1,5 @@
 ---
-import {
-	ChevronLeft,
-	ChevronRight,
-} from "lucide-astro";
+import { ChevronLeft, ChevronRight } from "lucide-astro";
 import { whatsappOrderUrl } from "../../../lib/site";
 
 const whatsappHref = whatsappOrderUrl;
@@ -125,7 +122,7 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 			</section>
 		</div>
 
-		<picture class="block w-full max-w-[840px]">
+		<picture class="block w-full">
 			<source
 				media="(min-width: 768px)"
 				srcset="/images/alphapropolis-vs-propolis-biasa%20copy.webp"
@@ -137,11 +134,16 @@ const customerGalleryJson = JSON.stringify(customerGallery);
 				height="960"
 				loading="lazy"
 				decoding="async"
-				class="h-auto w-full object-contain md:aspect-[7/8]"
+				class="h-auto w-full object-contain"
 			/>
 		</picture>
 
-		<a href={whatsappHref} class="block" target="_blank" rel="noopener noreferrer">
+		<a
+			href={whatsappHref}
+			class="block"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<img
 				src="/images/btn-Proteksi-Maksimal-Ginjal.webp"
 				alt="Proteksi Maksimal Ginjal"
